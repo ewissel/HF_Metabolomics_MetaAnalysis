@@ -1,0 +1,88 @@
+2024-07-04 11:35:24 INFO::Writing function arguments to log file
+2024-07-04 11:35:24 DEBUG::Function arguments
+2024-07-04 11:35:24 DEBUG::Output folder: Maaslin2_d13_lm_clr_notransf_out
+2024-07-04 11:35:24 DEBUG::Min Abundance: 0.000000
+2024-07-04 11:35:24 DEBUG::Min Prevalence: 0.001000
+2024-07-04 11:35:24 DEBUG::Normalization: CLR
+2024-07-04 11:35:24 DEBUG::Transform: NONE
+2024-07-04 11:35:24 DEBUG::Analysis method: LM
+2024-07-04 11:35:24 DEBUG::Max significance: 0.250000
+2024-07-04 11:35:24 DEBUG::Random effects: studyID
+2024-07-04 11:35:24 DEBUG::Fixed effects: heart_cond
+2024-07-04 11:35:24 DEBUG::Correction method: BH
+2024-07-04 11:35:24 DEBUG::Standardize: TRUE
+2024-07-04 11:35:24 DEBUG::Cores: 1
+2024-07-04 11:35:24 INFO::Verifying options selected are valid
+2024-07-04 11:35:24 INFO::Determining format of input files
+2024-07-04 11:35:24 INFO::Input format is data samples as rows and metadata samples as rows
+2024-07-04 11:35:24 DEBUG::A total of 139 samples were found in both the data and metadata
+2024-07-04 11:35:24 DEBUG::Reordering data/metadata to use same sample ordering
+2024-07-04 11:35:24 INFO::Formula for random effects: expr ~ (1 | studyID)
+2024-07-04 11:35:24 INFO::Formula for fixed effects: expr ~  heart_cond
+2024-07-04 11:35:24 INFO::Filter data based on min abundance and min prevalence
+2024-07-04 11:35:24 INFO::Total samples in data: 139
+2024-07-04 11:35:24 INFO::Min samples required with min abundance for a feature not to be filtered: 0.139000
+2024-07-04 11:35:24 INFO::Total filtered features: 0
+2024-07-04 11:35:24 INFO::Filtered feature names from abundance and prevalence filtering:
+2024-07-04 11:35:24 INFO::Total filtered features with variance filtering: 1
+2024-07-04 11:35:24 INFO::Filtered feature names from variance filtering: sample
+2024-07-04 11:35:24 INFO::Running selected normalization method: CLR
+2024-07-04 11:35:24 INFO::Applying z-score to standardize continuous metadata
+2024-07-04 11:35:24 INFO::Running selected transform method: NONE
+2024-07-04 11:35:24 INFO::Running selected analysis method: LM
+2024-07-04 11:35:24 INFO::Fitting model to feature number 1, Citrulline
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 1 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 2, Serotonin
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 2 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 3, Xanthine
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 3 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 4, Uracil
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 4 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 5, X5.hydroxyindoleacetic.acid
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 5 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 6, Phenylpyruvate
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 6 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 7, Niacinamide
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 7 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 8, Hypoxanthine
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 8 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 9, Taurine
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 9 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 10, Pyruvate
+2024-07-04 11:35:24 WARNING::Fitting problem for feature 10 returning NA
+2024-07-04 11:35:24 INFO::Fitting model to feature number 11, Glycine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 11 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 12, Inosine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 12 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 13, Lactate
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 13 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 14, Glucose.6.phosphate
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 14 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 15, Thymidine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 15 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 16, Serine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 16 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 17, Xanthosine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 17 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 18, Ornithine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 18 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 19, Uridine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 19 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 20, Adenosine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 20 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 21, Purine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 21 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 22, Leucine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 22 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 23, Spermine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 23 returning NA
+2024-07-04 11:35:25 INFO::Fitting model to feature number 24, Cytidine
+2024-07-04 11:35:25 WARNING::Fitting problem for feature 24 returning NA
+2024-07-04 11:35:25 INFO::Counting total values for each feature
+2024-07-04 11:35:25 INFO::Writing residuals to file Maaslin2_d13_lm_clr_notransf_out/residuals.rds
+2024-07-04 11:35:25 INFO::Writing fitted values to file Maaslin2_d13_lm_clr_notransf_out/fitted.rds
+2024-07-04 11:35:25 INFO::Writing extracted random effects to file Maaslin2_d13_lm_clr_notransf_out/ranef.rds
+2024-07-04 11:35:25 INFO::Writing all results to file (ordered by increasing q-values): Maaslin2_d13_lm_clr_notransf_out/all_results.tsv
+2024-07-04 11:35:25 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): Maaslin2_d13_lm_clr_notransf_out/significant_results.tsv
+2024-07-04 11:35:25 INFO::Writing heatmap of significant results to file: Maaslin2_d13_lm_clr_notransf_out/heatmap.pdf
+2024-07-04 11:35:25 INFO::Writing association plots (one for each significant association) to output folder: Maaslin2_d13_lm_clr_notransf_out

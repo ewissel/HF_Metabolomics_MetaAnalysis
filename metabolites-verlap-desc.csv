@@ -1,0 +1,32 @@
+Metabolite,Study ID,fxnl_category,Function (from wiki)
+5-hydroxyindoleacetic acid,D1 / D3,5ht,the main metabolite of serotonin
+Serotonin,D1 / D3,5ht,"monoamine neurotransmitter, controls vasoconstriction"
+Serine,D1 / D3,amino acid,"used in the biosynthesis of proteins, nonessential"
+Glucose-6-phosphate,D1 / D3 ,energy,the majority of glucose entering a cell will become phosphorylated in this way
+Lactate,D2 / D3,energy,Lactic acid is produced in human tissues when the demand for oxygen is limited by the supply. This occurs during tissue ischemia when the flow of blood is limited. It may also occur more generally when demand is high such as with intense exercise. 
+Pyruvate,D2 / D3,energy,"Pyruvic acid supplies energy to cells through the citric acid cycle (also known as the Krebs cycle) when oxygen is present (aerobic respiration), and alternatively ferments to produce lactate when oxygen is lacking"
+Phenylpyruvate,D1 / D3,keto,"a keto acid,  are endogenous sources for carbon monoxide (as a gasotransmitter)"
+Adenosine,D1 / D3,nucleo,"denosine is one of the four nucleoside building blocks of RNA , Adenosine is used as an intravenous medication for some cardiac arrhythmias. "
+Cytidine,D1 / D3,nucleo,a nucleoside molecule that is formed when cytosine is attached to a ribose ring (also known as a ribofuranose) via a β-N1-glycosidic bond. Cytidine is a component of RNA. often coming from diet too in foods high in RNA (organs / brewers yeast / beer)
+Inosine,D1 / D3 ,nucleo,"Inosine is commonly found in tRNAs and is essential for proper translation of the genetic code in wobble base pairs. Knowledge of inosine metabolism has led to advances in immunotherapy in recent decades. Inosine monophosphate is oxidised by the enzyme inosine monophosphate dehydrogenase, yielding xanthosine monophosphate, a key precursor in purine metabolism. Mycophenolate mofetil is an anti-metabolite, anti-proliferative drug that acts as an inhibitor of inosine monophosphate dehydrogenase. "
+Thymidine,D1 / D3,nucleo,"a pyrimidine deoxynucleoside. Deoxythymidine is the DNA nucleoside T, which pairs with deoxyadenosine (A) in double-stranded DNA"
+Uracil,D1 / D3,nucleo,one of  four nucleobases in the nucleic acid RNA. 
+Uridine,D1 / D3 ,nucleo, glycosylated pyrimidine analog containing uracil attached to a ribose ring via a β-N₁-glycosidic bond. The analog is one of the five standard nucleosides which make up nucleic acids
+Xanthosine,D1 / D3 ,nucleo,"Xanthosine is a nucleoside derived from xanthine and ribose. It is the biosynthetic precursor to 7-methylxanthosine by the action of 7-methylxanthosine synthase. 7-Methylxanthosine in turn is the precursor to theobromine (active alkaloid in chocolate), which in turn is the precursor to caffeine, the alkaloid in coffee and tea.["
+Xanthine,D1 / D3,nucleo,"Xanthine is a product on the pathway of purine degradation.[2]
+
+    It is created from guanine by guanine deaminase.
+    It is created from hypoxanthine by xanthine oxidoreductase.
+    It is also created from xanthosine by purine nucleoside phosphorylase.
+
+Xanthine is subsequently converted to uric acid by the action of the xanthine oxidase enzyme.[2] "
+Hypoxanthine,D1 / D3,purine," a naturally occurring purine derivative. It is occasionally found as a constituent of nucleic acids, where it is present in the anticodon of tRNA in the form of its nucleoside inosine"
+Citrulline,D1 / D3,urea,"an α-amino acid, key intermediate of urea cycle"
+Ornithine,D1 / D3,urea,"Ornithine is a non-proteinogenic α-amino acid that plays a role in the urea cycle. Ornithine is abnormally accumulated in the body in ornithine transcarbamylase deficiency.
+Ornithine transcarbamylase catalyzes the reaction between carbamoyl phosphate and ornithine to form citrulline and phosphate (Pi). Another amino group is added from aspartate"
+Spermine,D1 / D3,urea,"polyamine, . The precursor for synthesis of spermine is the amino acid ornithine. It is an essential growth factor in some bacteria as well. It is found as a polycation at physiological pH. Spermine is associated with nucleic acids and is thought to stabilize helical structure, particularly in viruses"
+Glycine,D1 / D3,vitamin / diet,the simplest stable amino acid
+Niacinamide,D1 / D3,vitamin / diet,a form of vitamin B3 found in food and used as a dietary supplement and medication
+Leucine,D1 / D3,vitamin / diet,an essential amino acid that is used in the biosynthesis of proteins
+Purine,D1 / D3,vitamin / diet," heterocyclic aromatic organic compound that consists of two rings (pyrimidine and imidazole) fused together., from meat in the diet"
+Taurine,D1 / D3,amino acid,"It is a major constituent of bile and can be found in the large intestine, and accounts for up to 0.1% of total human body weight. , cytesine is precursor in humans, digested in liver; sulfonic acid"

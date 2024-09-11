@@ -1,0 +1,33 @@
+2024-07-04 13:53:34 INFO::Writing function arguments to log file
+2024-07-04 13:53:34 DEBUG::Function arguments
+2024-07-04 13:53:34 DEBUG::Output folder: Maaslin2_d13_lm_nonorm_notransf_out
+2024-07-04 13:53:34 DEBUG::Min Abundance: 0.000000
+2024-07-04 13:53:34 DEBUG::Min Prevalence: 0.001000
+2024-07-04 13:53:34 DEBUG::Normalization: NONE
+2024-07-04 13:53:34 DEBUG::Transform: NONE
+2024-07-04 13:53:34 DEBUG::Analysis method: LM
+2024-07-04 13:53:34 DEBUG::Max significance: 0.250000
+2024-07-04 13:53:34 DEBUG::Random effects: studyID
+2024-07-04 13:53:34 DEBUG::Fixed effects: heart_cond
+2024-07-04 13:53:34 DEBUG::Correction method: BH
+2024-07-04 13:53:34 DEBUG::Standardize: TRUE
+2024-07-04 13:53:34 DEBUG::Cores: 1
+2024-07-04 13:53:34 INFO::Verifying options selected are valid
+2024-07-04 13:53:34 INFO::Determining format of input files
+2024-07-04 13:53:34 INFO::Input format is data samples as rows and metadata samples as rows
+2024-07-04 13:53:34 DEBUG::A total of 139 samples were found in both the data and metadata
+2024-07-04 13:53:34 DEBUG::Reordering data/metadata to use same sample ordering
+2024-07-04 13:53:34 INFO::Formula for random effects: expr ~ (1 | studyID)
+2024-07-04 13:53:34 INFO::Formula for fixed effects: expr ~  heart_cond
+2024-07-04 13:53:34 INFO::Filter data based on min abundance and min prevalence
+2024-07-04 13:53:34 INFO::Total samples in data: 139
+2024-07-04 13:53:34 INFO::Min samples required with min abundance for a feature not to be filtered: 0.139000
+2024-07-04 13:53:34 INFO::Total filtered features: 0
+2024-07-04 13:53:34 INFO::Filtered feature names from abundance and prevalence filtering:
+2024-07-04 13:53:34 INFO::Total filtered features with variance filtering: 1
+2024-07-04 13:53:34 INFO::Filtered feature names from variance filtering: sample
+2024-07-04 13:53:34 INFO::Running selected normalization method: NONE
+2024-07-04 13:53:34 INFO::Applying z-score to standardize continuous metadata
+2024-07-04 13:53:34 INFO::Running selected transform method: NONE
+2024-07-04 13:53:34 INFO::Running selected analysis method: LM
+2024-07-04 13:53:34 INFO::Fitting model to feature number 1, Citrulline

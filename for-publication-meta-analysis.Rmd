@@ -1,0 +1,1075 @@
+---
+title: "meta-analysis-w-data"
+author: "Emily Wissel"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor)
+library(vegan)
+library(psych) 
+library(glue)
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+r_pal <- c("#0073C2FF", "#56B4E9", "lightgoldenrod2", "lightgoldenrod4","lightgoldenrod", "lightgoldenrod3", "plum3", "plum4", "hotpink2", "hotpink4")
+library(devtools) 
+library(rstatix)
+library(cowplot)
+library(patchwork)
+library(forcats)
+library(dplyr)
+library(ggpubr)
+library(lubridate)
+library(ggvenn)
+library(rlist)
+library(ggsankey)
+library(santaR)
+library(pls)
+library(ropls)
+#devtools::install_github("arleyc/PCAtest")
+library(PCAtest)
+library(conflicted)
+library(broom)
+library(ggrepel)
+library(ggthemes)
+library(kableExtra)
+#BiocManager::install("FELLA")
+library(FELLA)
+library(KEGGREST)
+library(igraph)
+library(clusterProfiler)
+
+
+conflict_prefer("select", winner = "dplyr", quiet = FALSE)
+conflict_prefer("filter", winner = "dplyr", quiet = FALSE)
+
+set.seed(20150615) ## if you know why i set the seed to this date, you get a special prize
+```
+
+## Meta-Analysis of Untargetted Metabolomics from Heart Failure Patients 
+
+#### Background
+
+Heart Failure (HF) is a leading cause of death, impacting approximately 64 million people globally. While overall incidence of HF is relatively stable across countries, the overall number of HF patients is increasing due to aging populations. Many articles have been published on the role of the microbiome in recovery after HF, however, this research from humans has not been systematically combined for analysis. The aim of this meta-analysis is to bridge this gap by analyzing previously published research on human heart failure patients with untargeted metabolomics to understand whether microbially-mediated metabolites are important for heart failure development or recovery.
+
+#### Meta-Analysis Methods and this Repo
+
+This RMarkdown script serves as an analysis of the metabolomics data downloaded from previously published studies. The data to be included in this analysis had to meet the following criteria:
+
+1. Be a study of adult humans with heart failure 
+    + studies of children or of patients at risk for heart failure were disqualified
+    
+2. Conduct untargetted metabolomics 
+    + any sample type (plasma, serum, stool, etc.) is included
+    + any metabolomics method is included so long as it is untargeted 
+    + any targeted metabolomics method is excluded (e.g. stable-isotope labelled metabolites)
+    
+3. Have publicly available data 
+    + the data must be published to a public repository, like MetaboLights. 
+    + specifically, we selected studies that had processed data published as that data (theoretically) has been compared to internal standards for peak-normalization / identification.
+    + Data had to have a metadata file that labelled which samples correspond to heart failure versus control samples. Metadata files inconsistently included other information, like age or sex of patients, so that information is not included in this analysis.
+    
+#### Screening process 
+
+Let's review how many papers qualified out of our total number of papers screened for this meta-analysis and systematic review. This part of the code is included so that others can see how we screened and IDed papers from our search terms. However, any conflicts between reviewer screening results were fixed in an external document, not this code, so that is difficult to represent here. 
+
+```{r screening data,  echo = FALSE, messages = FALSE, warning = FALSE, eval = FALSE}
+pubmed <- read.csv("../lit review/pub_med_citations.csv", skip = 1)
+ ## Title,  PMID
+dat_secondary1 <- read.csv("../lit review/completed_screening_cleaned.csv")
+
+colnames(dat_secondary1) <- c("timestamp", "reviewer","citation", "PMID", "heart_failure_yn",
+                   "human_yn", "HF_definition", "country", "metabolomics_yn",
+                   "metabolomics_type", "sample_type",
+                   "microbiome_yn", "microbiome_info",
+                   "data_availability", "data_avail_statement", "bias_rep", 
+                   "bias_controlgrp", "bias_exposure", "bias_timing", "bias_confounding", 
+                   "bias_outcome", "reviewer_comments", "PT_n")
+#colnames(dat_secondary)
+
+### check if my label and second label match
+dat_secondary <- dat_secondary1 %>%
+  mutate(heart_failure_yn = ifelse(grepl("(?i)yes", heart_failure_yn), "HF",
+                                      ifelse(grepl("(?i)review paper of heart failure", heart_failure_yn), "review of HF",
+                                        ifelse(grepl("(?i)study * about heart failure", heart_failure_yn), "other type of HF study",
+                                          ifelse(grepl("(?i)not about heart failure", heart_failure_yn),  "not about HF",
+                                            ifelse(grepl("(?i)no", heart_failure_yn),  "not about HF", "not about HF")))))) %>%
+  mutate(human_yn = ifelse(grepl("(?i)yes", human_yn)& heart_failure_yn == "HF", "Human Adults",
+                              ifelse(grepl("(?i)no", human_yn), NA,
+                                     NA))) %>%
+  mutate(metabolomics_yn = ifelse(grepl("(?i)yes|unsure", metabolomics_yn) & human_yn == "Human Adults", "Untargeted Metabolomics",
+                                    ifelse(grepl("(?i)no", metabolomics_yn), NA,
+                                           ifelse(grepl("(?i)table|targeted metabolomics|targetted", metabolomics_yn), "Targeted Metabolomics", NA)))) %>%
+  mutate(data_availability = ifelse(data_availability=="Yes"& metabolomics_yn == "Untargeted Metabolomics" &
+                                      human_yn == "Human Adults" &
+                                      heart_failure_yn == "HF", "Yes", NA) ) %>%
+  ## clean up for sankey
+  #mutate(human_yn = ifelse(heart_failure_yn=="HF", human_yn, NA),
+  #      metabolomics_yn = ifelse(heart_failure_yn == "HF" & human_yn == "Human Adults", 
+  #                               metabolomics_yn, NA),
+  #      data_availability = ifelse(metabolomics_yn == "Metabolomics", data_availability, NA)) %>%
+  mutate(qualify = ifelse( heart_failure_yn== "HF" &
+                             human_yn == "Human Adults" &
+                              metabolomics_yn == "Metabolomics", "qualifies", "disqualified")
+  )
+
+## now check my pmid if qual = qual
+## for this code chunk, everything that popped up here was manually checked by review team for discrepancies 
+#dat_secondary %>%
+#  group_by(PMID) %>%
+#  select(reviewer, PMID, qualify) %>%
+#    mutate(same = +(n_distinct(qualify) == 1)) %>% 
+#  ungroup() %>%
+#  filter(same==0&reviewer != "EW")
+
+## get preliminary look at those that do match w available data
+inspect_list <- dat_secondary %>%
+  group_by(PMID) %>%
+  select(reviewer, PMID, qualify) %>%
+    mutate(same = +(n_distinct(qualify) == 1)) %>% 
+  ungroup() %>%
+  filter(same==0&reviewer != "EW"&qualify=="qualifies")
+
+dat_secondary$check <- dat_secondary$PMID %in% inspect_list$PMID
+#dat_secondary %>% filter(check == "TRUE" &  data_availability=="Yes")
+
+## check if citation and PMID match up with the ref list
+#pubmed #PMID, Citation
+# 
+## ok so it looks like 25 pApers have the wrong pmid ID
+
+## qc check
+#dat_secondary %>% 
+#  inner_join(pubmed, by = join_by("citation" == "Citation")) %>%
+#  select(citation, timestamp, PMID.y, PMID.x) %>%
+#  filter_("PMID.x != PMID.y") 
+  #mutate(PMID_match = ifelse(PMID.x==PMID.y, "match", "PMID does not match citation"))
+## ok upon closer inspection theres only two places where this is actually an issue@ that's good news  
+## issue solved after dicussion w reviewers
+dat_secondary  <- data.frame(dat_secondary)
+dat2_secondary <- dat_secondary %>% filter(grepl("HF", heart_failure_yn))
+dat3_secondary <- dat2_secondary %>% filter(grepl("Human Adults", human_yn))
+dat4_secondary <- dat3_secondary %>% filter(grepl("Untargeted Metabolomics", metabolomics_yn))
+
+mini <-dat_secondary %>%
+  filter(metabolomics_yn == "Untargeted Metabolomics")
+
+intermid <- dat_secondary %>% filter(reviewer != "EW" & reviewer_comments != "")
+#table(intermid$reviewer_comments)
+#dat4_secondary %>% filter(reviewer != "EW" & data_availability == "Yes")
+
+## write in a check to see if same reviewer did the same PMID more than once
+# %>% select(reviewer, PMID) %>% 
+#  add_count(reviewer, PMID) %>%
+#  filter(n>1) %>%
+#  distinct()
+## many instances, places[duplicated] command in next chunk to take only the first instance 
+```
+
+
+We also want to understand the contribution of each lab member to this massive effort. Let's look at how many papers each lab member reviewed. 
+
+```{r look at reviewers, echo = FALSE, messages = FALSE, warning = FALSE, eval = FALSE}
+places1 <- dat_secondary %>%
+  filter(reviewer != "EW" & reviewer != "Ew" & reviewer != "ew" & reviewer != "EW " & reviewer != " EW" & reviewer != "English") %>%
+  ## fix the name inputs
+  mutate(reviewer = fct_collapse(reviewer, Jack = "Jack", 
+                                 Leise = "Leise", 
+                                 YiChan = c("YiChan","YiChan Lee","YIChan Lee", "Yi-Chan Lee"),
+                                 Kiramat = c("Kiramat Ullah", "Kiramat Ullah ")))
+
+places1 <- places1[!duplicated(places1$PMID), ]
+#dat_secondary$reviewer
+table(places1$reviewer)
+places1 <- places1 %>%
+  separate(timestamp, sep = " ", into = c("date", "time") ) %>%
+  group_by(reviewer, date) %>% add_count
+## format date
+places1$date <- as.Date(mdy(places1$date))
+
+## cumulative counts per person
+places <- 
+  places1%>%
+  select(reviewer, date, n) %>%
+  arrange(date) %>% 
+  filter(reviewer != "English") %>%
+  distinct() %>%
+  ungroup() %>%
+  group_by(reviewer) %>%
+  mutate(cumulative_count = cumsum(n))
+```
+
+
+Let's dig deeper into the papers that didn't make it (since most of them did not qualify for inclusion): 
+
+```{r look at qualifying papers, eval = FALSE }
+dat_plot <- places1 %>% ungroup() %>% select(heart_failure_yn, human_yn,metabolomics_yn, data_availability )
+## plot
+
+mydat <- dat_plot %>% 
+  make_long(heart_failure_yn, human_yn,metabolomics_yn, data_availability )
+reagg <- mydat %>%
+  dplyr::group_by(node)%>%  # Here we are grouping the data by node and then we are taking the frequency of it 
+  tally()
+mydat2 <- merge(mydat,
+             reagg, 
+             by.x = 'node', 
+             by.y = 'node', 
+             all.x = TRUE)
+mydat2 %>%
+  ggplot(aes(x = x,                        
+             next_x = next_x,                                     
+             node = node,
+             next_node = next_node,        
+             fill = factor(node),
+             label = paste0(node, " = ", n))) +           # This Creates a label for each node) +
+  geom_sankey(flow.alpha = 0.5,          #This Creates the transparency of your node 
+                      node.color = "black",     # This is your node color        
+                      show.legend = FALSE) +
+  geom_sankey_label(size = 4, fill = "white") + # specifies the Label node
+  theme_bw() +
+  theme(axis.title = element_blank(),
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+                 axis.ticks = element_blank(),
+                 panel.grid = element_blank() ) +
+  theme(legend.position = 'none') +
+
+  scale_fill_viridis_d(option = "inferno")+
+  labs(title = "Systematic Review: Screening Results")
+#ggsave("supp_fig1_screening_results.png", dpi = 300, height = 7, width = 7.8)
+print("Not shown are the articles not in English.")
+print("6 articles here claimed to have data available, but 3 or those 6 had data in proper format for proper use.")
+```
+lets look at papers that nearly qualified
+```{r, eval = FALSE}
+lilb <- dat_secondary1 %>%
+    filter(reviewer != "EW" & reviewer != "Ew" & reviewer != "ew" & reviewer != "EW " & reviewer != " EW" & reviewer != "English") 
+table(lilb$heart_failure_yn)
+lilb2 <- lilb %>% filter(heart_failure_yn == "Yes, study of heart failure.")
+table(lilb2$human_yn)
+lilb3 <- lilb2 %>% filter(human_yn== "yes, human adult study (or combination human + animal)")
+table(lilb3$metabolomics_yn)
+lilb4 <- lilb3 %>% filter(metabolomics_yn != "No, does not measure metabolomics or does not apply")
+table(lilb4$data_availability)
+#table(lilb4$data_avail_statement)
+```
+
+A systematic survey of the literature identified approximately 700 articles discussing HF, the microbiome, and metabolomics. Of these, 82 were primary studies of heart failure patients, 61 involved human adults, 23 included an untargeted metabolomics measure, and 3 studies had data that was usable and publicly accessible. 
+
+## Looking at Metabolomics Data
+
+```{r read in data,  echo = FALSE, messages = FALSE, warning = FALSE}
+d1 <- read.csv("MTBLS8183_GC-MS_positive__metabolite_profiling_v2_maf.tsv", sep = "\t") ## GCMS positive 
+## title: Landscape of gut microbiota and metabolites and their interaction in comorbid heart failure and depressive symptoms: a random forest analysis study 2023
+#d2 <- read.csv("MTBLS8802_LC-MS_positive_hilic_metabolite_profiling_v2_maf.tsv", sep = "\t") ## LCMS positive 
+# our stemi paper...
+#d2.5 <- read.csv("MTBLS8802_Targeted_PeakTable_all_for public upload.txt", sep = "\t")
+## confirm that this is the same as d2
+d3_neg <- read.csv("compiled_stdy_metabolomics_dat - ST_001364_AN002270_neg_ion_metabolites.tsv", sep = "\t")
+d3_pos <- read.csv("compiled_stdy_metabolomics_dat - ST_001364_AN002270_pos_ion_metabolites.tsv", sep = "\t")
+d2 <- read.csv("compiled_stdy_metabolomics_dat - ST000587_AN000902_metabolites.tsv", sep = "\t")
+d2_2 <- read.csv("ST000588_1_datmat.txt", sep = "\t")
+## now read in the metadata files
+d1_meta <- read.csv("MTBLS8183_sample_info.txt", sep = "\t") # feces, human
+#d2_meta <- read.csv("MTBLS8802_sample_info.txt", sep = "\t")
+d23_meta <- read.csv("compiled_stdy_metabolomics_dat - metadata_st.tsv", sep = "\t")
+
+#colnames(d2_2) %in% d23_meta$sample
+
+#"HF08" %in% d23_meta$sample#
+#length(unique(minimeta$sample))
+#table(minimeta$heart_cond)
+metab_desc <- read.csv("metabolites-verlap-desc.csv")
+```
+
+A total of three studies qualified and had available data. Here is a description of each dataset and it's simplified name for our purposes: 
+
+* **$\color{#0073C2FF}{\text{D1 ** : This is MTBLS8183}}$, a cohort of 96 patients with heart failure who provided whole **stool** for **GCMS** 
+    + HF diagnosis: met the 2016 ESC guideline criteria for the diagnosis of heart failure, and integration of at least one of the following: 
+        - elevated natriuretic peptide levels 
+        - objective evidence of cardiogenic pulmonary or body circulation stasis, including imaging (e.g., chest radiograph and echocardiogram) 
+        - resting or stress hemodynamic monitoring (e.g., right heart catheter and pulmonary artery catheter). 
+    + This data came from the following paper: [doi: 10.1128/msystems.00515-23](https://journals.asm.org/doi/10.1128/msystems.00515-23).
+  
+* **$\color{#E0A526}{\text{D2 ** : This is ST000587_AN000902}}$, a cohort with 11 stable heart failure patients and 12 control patients who provided **exhaled breath condensate (EBC)**, saliva, and blood for **NMR** (only EBC uploaded and included in our study because could not find data from blood).
+    + HF diagnosis: classic systolic HF who are admitted to St Mary’s Hospital with decompensated disease
+    + age and gender matched controls
+    + This data came from the following location (I don't think there is a paper with it): [Metabolomics Workbench Repo](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&StudyID=ST000587&StudyType=NMR&ResultType=1)
+    
+* **$\color{#E31C79}{\text{D3 ** : This is ST_001364_AN002270}}$ with positive and negative **LCMS/MS** ion detection with 51 **left ventricular (LV) samples** from 44 cryopreserved human ICM and DCM hearts, including age-matched, histopathologically normal, donor controls of both genders for comparison. 
+    + This data comes from [doi: 10.21228/M8R094](doi: 10.21228/M8R094). 
+    + HF samples come from patients undergoing heart transplant for heart failure. Donor hearts from from donated hearts that could not be used for a variety of reasons (e.g. transportation logistics, recipient mismatch, etc)
+
+```{r quality control, echo = FALSE, messages = FALSE, warning = FALSE}
+# (!require(devtools)) install.packages("devtools")
+#devtools::install_github("yanlinlin82/ggvenn")
+# batch ?? transformation?
+
+d1_metabo <- d1$metabolite_identification
+d2_breath_metabo <- d2$Samples
+d3n_metabo <- d3_neg$Samples ## two overlapped with d4
+d3p_metabo <- d3_pos$Samples
+d3_metabo <- append(d3n_metabo, d3p_metabo)
+d2_2 <- d2_2 %>% filter(Metabolite_name != "Factors")
+d2_2_metabo <- d2_2$Metabolite_name
+
+#append(d2_metabo, d2_2_metabo)
+## plot in a venn diagram to see the overlap simply
+## reference for plotting: https://www.datanovia.com/en/blog/venn-diagram-with-r-or-rstudio-a-million-ways/ 
+x <- list(
+  D1_STOOL = d1_metabo, 
+  D2_EBC = d2_breath_metabo,
+  D2_SALIVA = d2_2_metabo, 
+  D3_LV = d3_metabo)
+#  D3_pos = d3p_metabo)
+  
+ggvenn(
+  x, 
+  fill_color = c("#0073C2FF", "lightgoldenrod2", "lightgoldenrod3", "hotpink2"),
+  stroke_size = 0.5, set_name_size = 4
+  ) +
+  labs(title = "Overlap of Detected Metabolites Across Studies")
+ggsave("supp_fig_1_venn_d123_overlap.png", height = 7, width = 7.5)
+#str(d2_metabo)
+
+#d23_overlap <- unlist(unique(d2_metabo[d2_metabo %in% d3_metabo]))
+d13_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d3_metabo]))
+d13_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d3_metabo]))
+print("The following metabolites were detected in both left ventricle hearts and stool of HF.")
+d13_overlap
+#print("The following metabolites were detected in left ventricle hearts and stool of HF PTs, negative ion")
+#d13n_overlap
+print("The following metabolites were detected in breath and stool of HF PTs. ")
+d12_breath_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d2_breath_metabo]))
+d12_breath_overlap
+print("The following metabolites were detected in saliva and stool oh HF patients. ")
+d12_sal_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d2_2_metabo]))
+d12_sal_overlap
+
+print("The following metabolites were detected in saliva and LV. ")
+d23_sal_overlap <- unlist(unique(d3_metabo[d3_metabo %in% d2_2_metabo]))
+d23_sal_overlap
+
+#d13n_overlap
+print("The following metabolites were detected in breath and LV of HF PTs. ")
+d23_breath_overlap <- unlist(unique(d3_metabo[d3_metabo %in% d2_breath_metabo]))
+#d12_sal_overlap
+d23_breath_overlap
+
+#interested_metabolites1 <- append(d23n_overlap, d13p_overlap) 
+interested_metabolites <- d13_overlap
+```
+This is supplemental figure 1, but one of the first plots I created to investigate the data. We weren't sure there would be high overlap of metabolites between studies because samples are from different locations and use different metabolomics methods. Despite this, we still see a smaller fraction of metabolites can be detected in multiple sample types / by different metabolomics methods. We also get to see how different sample types and methods can ID a different number of metabolites. 
+
+Now we want to investigate the metabolites that are differentially expressed for heart failure patients, specifically. Some data cleaning is included in this next code chunk as well. 
+
+```{r subsample overlapped metabolites by HF up or down, echo = FALSE, messages = FALSE, warning = FALSE}
+d23_meta <- d23_meta %>%
+  mutate(heart_cond = ifelse(grepl("ICM|DCM", studyID),"HF",
+                             ifelse(grepl("heart_failure", condition), "HF",
+                             "CTRL"))) %>%
+  mutate(analysisID = ifelse(grepl("heart_failure|control", condition), "D2", "D3" ))
+
+d1_meta <- d1_meta %>%
+  filter(Characteristics.Sample.type. != "pooled quality control sample") %>%
+  mutate(heart_cond = ifelse(grepl("HF", Factor.Value.Cohort.), "HF", "CTRL"),
+         sample = Source.Name)
+d1_meta$studyID = "D1"
+## did the above to unify HF / control labels
+d1minimeta <- d1_meta %>%
+  select(sample, heart_cond, studyID)
+
+d23_minimeta <- d23_meta %>% select(sample, heart_cond, studyID) %>%
+  mutate(studyID = ifelse(grepl("Condition", studyID), "D3",
+                          ifelse(grepl("ST000", studyID), "D2",
+         "idk")))
+
+minimeta <- base::rbind(d1minimeta, d23_minimeta)
+## now combine metabilite data
+d1mini  <- d1 %>% pivot_longer(cols = QC.1:last_col(),
+                     names_to = "sample", values_to = "abun") %>%
+  select(sample, metabolite_identification, abun) %>%
+  mutate(studyID = "D1", Samples = metabolite_identification) %>%
+  select(-metabolite_identification) %>%
+  filter(!grepl("QC", sample))
+d1mini$sample <- gsub('\\.', '-', d1mini$sample)
+
+d2mini <- d2 %>%
+  pivot_longer(cols = HF01:last_col(),
+              names_to = "sample", values_to = "abun") %>%
+  mutate(studyID = "D2_EBC")
+d2_2_mini <- d2_2 %>% pivot_longer(cols = C10:last_col(),
+                      names_to = "sample", values_to = "abun") %>%
+  mutate(studyID = "D2_SALIVA") %>%
+  select(-RefMet_name)
+d2_2_mini <- d2_2_mini %>% 
+  mutate(Samples = Metabolite_name, abun = as.numeric(abun)) %>% 
+  select(-Metabolite_name) %>% 
+  filter(abun > 0)
+
+d3p_mini <- d3_pos %>% pivot_longer(cols = X78_15:last_col(),
+                        names_to = "sample", values_to = "abun") %>%
+  mutate(studyID = "D3")
+d3n_mini <- d3_neg %>% pivot_longer(cols = X78_15:last_col(),
+                        names_to = "sample", values_to = "abun") %>%
+  mutate(studyID = "D3" )
+#d3_mini <- rbind(d3n_mini, d3p_mini)
+
+d3metamin <- d23_meta %>%
+  filter(analysisID=="D3") %>%
+  select(sample,condition)
+
+d3min <- merge(d3p_mini, d3n_mini, all = TRUE)
+d3min$sample <- str_replace(d3min$sample, "X", "")
+
+d3min <-left_join(d3min, d3metamin, join_by("sample"== "condition")) %>%
+  select(Samples, sample.y, studyID, abun) %>%
+  mutate(sample = sample.y) %>%
+  select(-sample.y)
+#unique(d3min$studyID)
+d23min <- merge(d2mini, d3min, all = TRUE)
+metab1 <- merge(d1mini, d23min, all = TRUE)
+metab2 <- merge(metab1, d2_2_mini, all = T) %>% filter(abun > 0)
+
+metab <-
+  metab2 %>%
+  merge(minimeta, all = TRUE, by = "sample")%>%
+  mutate(studyID = paste0(studyID.x)) %>%
+  #filter(studyID == "D2_SALIVA") %>% ##QC check 
+  select(-studyID.x, -studyID.y) %>%
+  group_by(studyID, heart_cond) %>%
+  mutate(tot = length(unique(sample))) %>% ## number of samples in studyID group
+  group_by(studyID, Samples, heart_cond) %>%
+  mutate(abun = as.numeric(abun))  %>% ## Samples is metabolites
+  mutate(grp_median = median(abun)) %>%
+  #dplyr::select(-studyID.x) %>%
+  mutate(filt_threshold = ceiling( (20*tot)/100) )  %>% ## 20 percent of samples, celing rounds up to nearest whole number
+  mutate(obs_count = n()) %>% ## number of obs of metabolite in samples
+  filter(obs_count > filt_threshold) %>% ## yay now we are filtering to remove metabolites less than 20% of sample
+    distinct() %>%## just a check %>%    filter(studyID == "D3")
+  select(-obs_count, - tot, -grp_median, -filt_threshold) 
+
+# add log transformation and median normalization 
+### no longer used as log transformations and median norms appear to be inappropriate for this data (data from repos is already normalized)
+### however the repos don't have details on what normalization methods were used, so I just have to trust that what was uploaded is correct
+## keeping this code here as a reference, also bc trans_metab df is referenced below so easier to keep this 
+trans_metab <-metab %>%
+  ungroup()
+
+#trans_metab %>%
+#  merge(metab_desc, by.x = "Samples", by.y = "Metabolite") %>%
+#  filter(abun > 0) %>%
+#  mutate(study_group = paste0(studyID, "_", heart_cond)) %>%
+#  ggplot(aes(x = log10(abun), y = Samples, fill = study_group, shape = heart_cond)) +
+#  geom_boxplot(outlier.shape = NA ) +
+#  geom_point(position = position_jitterdodge(jitter.width = 0.15,
+#                                             dodge.width = 1), alpha = 0.6, size = 1) + 
+#  theme_bw() +
+#  scale_shape_manual( values=c("HF"=15, "CTRL" = 17, "NA" = 10) ) +
+#  scale_fill_manual(values = r_pal) + 
+#  facet_wrap(.~fxnl_category, scales = "free")  
+
+```
+
+Let's go ahead and plot the metabolites that overlap between studies so we can see their distribution. 
+
+```{r plotting overlapping metabolites,  out.width="90%", echo = FALSE, messages = FALSE, warning = FALSE}
+trans_metab %>%
+  ungroup() %>%
+  mutate(study_group = paste0(studyID, "_",heart_cond))%>%
+#  filter(Samples %in% interested_metabolites) %>%
+  merge(metab_desc, by.x = "Samples", by.y = "Metabolite") %>%
+  ggplot(aes(x = abun, y = Samples, fill = study_group, shape = heart_cond)) +
+  geom_boxplot(outlier.shape = NA ) +
+  geom_point(position = position_jitterdodge(jitter.width = 0.15,
+                                             dodge.width = 1), alpha = 0.6, size = 1) + 
+  theme_bw() +
+  scale_shape_manual( values=c("HF"=15, "CTRL" = 17, "NA" = 10) ) +
+  scale_fill_manual(values = r_pal) + 
+  facet_wrap(.~fxnl_category, scales = "free") 
+
+## lets add a heatmap here instead
+#ggheatmap(metab)
+#heatmapdat <- trans_metab %>% select(sample, Samples, heart_cond, studyID, abun) %>%
+#  pivot_wider(names_from = sample, values_from = norm_abun_log10, values_fill = 0)
+
+trans_metab %>% arrange(heart_cond) %>%
+  ggplot(aes(x = Samples, y = sample, fill = log10(abun))) +
+  geom_tile() +#  coord_fixed() +
+  scale_fill_gradient2(low = "#075AFF",
+                       mid = "#FFFFCC",
+                       high = "#FF0000") +
+  facet_wrap(studyID~heart_cond, scales = "free") +
+  theme_bw()
+```
+
+It turns out a heat map is not very informative here. Oh well, it happens! I'm keeping this here so that others can see what we tried and what we decided to put in the publication/preprint.
+
+Let's compare these metabolites to control to see what is up vs down regulated. Data from the repos are already normalized (we checked!), so we won't be adding another data transformation step here. We should also compare within-study between group beta dispersions to understand if the within group diversity is similar across groups / organs (also an assumption for PCA).
+
+Since I need to do a PCA four times, lets write a function for it. Heads up to others - this bit of code takes a bit of time to run locally. You computer may sound like it is trying to take off to space. 
+
+```{r pca function}
+## this function name is a bit misleading - "raw_abun" refers to raw value from the repo, not a raw value from metabolomics machines. 
+## however I'm not changing it because 1) im afraid of breaking something and 2) this is a relic of when we were trying to figure out what normalization methods had been applied to the data in the repos 
+## I was able to replicate the PCAs in the pubs with this method
+
+conduct_pca_raw_abun <- function(studyID_filt, main_dat){
+  d1wide <- main_dat %>%
+    ungroup() %>%
+    select(Samples, abun, sample, studyID)%>%
+    filter(studyID == studyID_filt)%>%
+#    mutate(norm_abun_log10 = as.numeric(.data$norm_abun_log10)) %>%
+    pivot_wider(names_from = "Samples", values_from = abun, values_fill = 0 )
+ # return(d1wide)
+  
+  d1_pca <- main_dat %>% 
+    ungroup() %>%
+    select(Samples, abun, sample, studyID)%>%
+    filter(studyID == studyID_filt)%>%
+    pivot_wider(names_from = "Samples", values_from = abun, values_fill = 0 ) %>%
+    select(where(is.numeric)) %>% # retain only numeric columns
+    prcomp(scale = TRUE) # do PCA on scaled data
+
+  d1wide <- merge(d1wide, minimeta, by = "sample", all.x = T) %>% distinct()
+  d1wide <- d1wide %>% mutate(study_group = paste0(studyID.x, "_",heart_cond))
+  plot_name <- paste0(studyID_filt, " PCA Plot")
+  pca_plot <- d1_pca %>%
+    augment(d1wide) %>% # add original dataset back in
+    ggplot(aes(.fittedPC1, .fittedPC2, color = heart_cond)) + 
+    geom_point(size = 3, alpha = 0.7) +
+    scale_color_manual(values = c(HF = "goldenrod3", CTRL = "grey45")  ) +
+    theme_hc(12) + background_grid() +
+    labs(title = plot_name, x = "PC1", y = "PC2" ) +
+    stat_ellipse() +
+    theme(legend.title = element_blank())
+
+  arrow_style <- arrow(    angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt"))
+# plot rotation matrix
+  arrow_plot <- d1_pca %>%
+    tidy(matrix = "rotation") %>%
+    pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
+    ggplot(aes(PC1, PC2)) +
+    geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+    geom_text(
+      aes(label = column),
+      hjust = 1, nudge_x = -0.02, 
+      color = "#904C2F"
+    ) +
+    #xlim(-1.25, .5) + ylim(-.5, 1) +
+    coord_fixed() + # fix aspect ratio to 1:1
+   theme_minimal_grid(12) + labs(title = plot_name)
+
+  percent_plot <- d1_pca %>%
+    tidy(matrix = "eigenvalues") %>%
+    ggplot(aes(as.integer(PC), percent)) +
+    geom_col(fill = "#56B4E9", alpha = 0.8) +
+    scale_y_continuous(
+      labels = scales::percent_format(),
+      expand = expansion(mult = c(0, 0.01))
+    ) +
+    theme_hc(12) +
+    labs(title = "% Var.", y = "Percent Variance Explained", x = "PC") +
+    #xlim(0,10) # ylim(0,10) +
+    scale_x_continuous(limits = c(0, 11), breaks = c(0, 2, 4, 6, 8, 10))
+  
+  combo_plot <- plot_grid(pca_plot, percent_plot, rel_widths = c(2, 1))
+  #return(pca_plot)
+  #return(arrow_plot)
+  #return(percent_plot)
+  return(pca_plot)
+}
+
+p3 <- conduct_pca_raw_abun("D3", main_dat=trans_metab)
+ggsave("pca_wo_pv_d3.png", height = 7, width = 10)
+p1 <- conduct_pca_raw_abun("D1", main_dat=trans_metab)
+ggsave("pca_wo_pv_d1.png", height = 7, width = 10)
+#ggsave("d1_raw_abun.png")
+p2_ebc <- conduct_pca_raw_abun("D2_EBC", main_dat=trans_metab)
+ggsave("pca_wo_pv_d2_ebc.png", height = 7, width = 10)
+p2_sal <- conduct_pca_raw_abun("D2_SALIVA", main_dat=trans_metab)
+ggsave("pca_wo_pv_d2_saliva.png", height = 7, width = 10)
+
+pca_all <- plot_grid(p1,p3, p2_ebc, p2_sal, ncol = 2, labels = "AUTO", byrow = TRUE)
+pca_all
+ggsave("pca_wo_pv_all.png", dpi = 400, height = 10, width = 10)
+```
+
+Next we want to detect significance from PCA to see what is qualified for the opls-da analysis. OPLS-DA will overfit data, but it will not always be obvious when this is the case. By only running OPLS-DA on data that is significant from PCA, we reduce the risk of overfitting. In the preprint there are some good citations that discuss this in depth. 
+
+```{r test pca significance}
+## assumes columns are variables/features and rows are sampleIDs / obs
+pca_sig_test <- function(studyID_filt, main_dat){
+  
+  d1_pca_cat <- main_dat %>% 
+    ungroup() %>%
+    dplyr::select(Samples, abun, sample, studyID, heart_cond)%>%
+    filter(studyID == studyID_filt & abun > 0) %>%
+    select(-studyID) %>% 
+    pivot_wider(names_from = "Samples", values_from = abun , values_fill = 0)  #%>%select( -Isovalerate ,-Ornithine) #-Isoleucine,   #-Isopropanol) ## D2 studies had too few observations for these variables because the overall sample size was so small. the 20% threshold was basically not strong enough for that so needed to remove these as well, unfortunately. went ahead and moved that to a special function for d2 below 
+  
+  d1_pca <- d1_pca_cat %>% dplyr::select(where(is.numeric))
+  ## our data is already scales, so not using the below scaling function. keeping here for other's reference though.
+  #d1_pca_scaled <- scale(d1_pca)
+  results <- PCAtest(d1_pca, nboot = 100, nperm = 100, plot = FALSE, counter = FALSE, varcorr = TRUE)
+  
+  # adonis/adonis2 not appropriate because it assumed we are working with distance matrices, which we are not?? unless we input the pca itself?
+  # <- adonis2(d1_pcaa ~ heart_cond, data = d1_pca_cat, method='eu')
+  ## pairwi9se.adonis2() inappropriate here bc assumes working with bray-curtis/microbe data, which we are not. 
+  
+  ## test pca in UV scaling, produces same results so hashing out (no point of doing it). leaving for future reviewers. 
+  return(results)
+  # inData <- main_dat %>%
+  #   ungroup() %>% 
+  #   filter(studyID == studyID_filt) %>%
+  #  dplyr::select(Samples, abun, sample, studyID) %>%
+  #uv_mat <- santaR:::scaling_UV(inData)
+  #result2 <- PCAtest(uv_mat, nboot=100, nperm=100, plot = TRUE)
+  ## produces identical results, leaving here only if a reviewer wants to test or see with a scaling method
+}
+
+pca_sig_test("D3", trans_metab)
+pca_sig_test("D1", trans_metab)
+## these are hashed out because it takes awhile to run when not creating the document for github. i recomend reviewers do the same because it takes too long otherwise
+
+## assumes columns are variables/features and rows are sampleIDs / obs
+pca_sig_test_d2 <- function(studyID_filt, main_dat){
+  
+  d1_pca_cat <- main_dat %>% 
+    ungroup() %>%
+    dplyr::select(Samples, abun, sample, studyID, heart_cond)%>%
+    filter(studyID == studyID_filt & abun > 0) %>%
+    select(-studyID) %>% 
+    pivot_wider(names_from = "Samples", values_from = abun , values_fill = 0)  %>%select( -Isovalerate ,-Ornithine, -Isoleucine,  -Isopropanol) ## D2 studies had too few observations for these variables because the overall sample size was so small. the 20% threshold was basically not strong enough for that so needed to remove these as well, unfortunately 
+  
+  d1_pca <- d1_pca_cat %>% dplyr::select(where(is.numeric))
+  ## our data is already scales, so not using the below scaling function. keeping here for other's reference though.
+  results <- PCAtest(d1_pca, nboot = 100, nperm = 100, plot = FALSE, counter = FALSE, varcorr = TRUE)
+  return(results)
+  # inData <- main_dat %>%
+  #   ungroup() %>% 
+  #   filter(studyID == studyID_filt) %>%
+  #  dplyr::select(Samples, abun, sample, studyID) %>%
+  #uv_mat <- santaR:::scaling_UV(inData)
+  #result2 <- PCAtest(uv_mat, nboot=100, nperm=100, plot = TRUE)
+  ## produces identical results, leaving here only if a reviewer wants to test or see with a scaling method
+}
+pca_sig_test_d2("D2_SALIVA", trans_metab)
+pca_sig_test_d2("D2_EBC", trans_metab)#
+
+```
+
+PCA revealed significant differences between group structure for D1 and D3 (observed psi and phi greater than null, p value < 0.01). While D2 EBC samples had a single significant principal component, this is likely due to confounding, such as from multicollinearity among metabolic pathways, rather than meaningful group differences, as significance was only in one dimension (PC1). Further, D2 saliva samples had uneven beta dispersion across groups (within-group variance), violating the PCA assumptions of multivariate homogeneity of group dispersions, so no conclusions of significance can be drawn from D2 PCA results. This is Table 1 of the publication/preprint.
+
+Next, we want to investigate each metabolite that is significant. 
+
+
+```{r univar testing bb}
+univariate_testing <- function(studyID_filt, main_dat){
+    y = data.frame("pval", "metabolite", "studyID", "adj_pval_fdr")
+    colnames(y) <- c("pval", "metabolite", "studyID", "adj_pval_fdr")
+    smol_dat <- main_dat %>%
+        ungroup() %>%
+        filter(studyID == studyID_filt) 
+    metab_list <- as.list(unique(smol_dat$Samples))
+    
+    for (i in metab_list) {
+      new_line = data.frame("pval", "metabolite", "studyID", "adj_pval_fdr")
+      univar_testing <- smol_dat %>%
+        filter(Samples == i ) %>%
+        distinct() %>%
+        mutate(heart_cond = as.factor(heart_cond)) #%>%filter(length( forcats::fct_unique(heart_cond)) == 2)
+        ## something to confirm two levels of factor
+      if (length( forcats::fct_unique(univar_testing$heart_cond)) == 2) {
+        x_abun <- univar_testing$abun
+        y_heart_cond <- univar_testing$heart_cond
+        w <- wilcox.test(x_abun ~ y_heart_cond, alternative = "two.sided", exact = TRUE)
+        new_line$pval <- as.numeric(w$p.value)
+        new_line$metabolite <- i
+        new_line$studyID <- studyID_filt
+        new_line <- new_line %>% select(pval, metabolite, studyID) %>%
+          mutate(adj_pval_fdr = p.adjust(pval, method = "fdr", n = length(metab_list)))
+        y <- rbind(y, new_line)
+      }
+    }
+  ## after math add info to file  
+  fname = paste0("univariate_testing_", studyID_filt, ".txt")
+  write.table(y, file = fname, append = FALSE, quote = FALSE, row.names = FALSE, sep = "\t")
+}
+#wilcox_test(formula = abun ~ heart_cond, alternative = "two.sided", data = trans_metab)
+
+univariate_testing("D2_SALIVA", trans_metab)
+univariate_testing("D2_EBC", trans_metab)
+univariate_testing("D3", trans_metab)
+univariate_testing("D1", trans_metab)
+
+```
+
+This univariate testing function will produce a file that gives raw and adjusted p-values for each metabolite in each study. There is some discussion about what appropriate adjusted p-value cut off levels are. Some say 0.05 is a fair cut off for adjusted p values with a targetted hypothesis (like only being interested in microbially mediated metabolites), while others day that 0.005 is a necessary cut off for adjusted p values, though this is more in the context of biomarker identification. We've seen all of the above strategies used in the literature, so we hope that other researchers can use this data/file to draw their own conclusions about the significance of metabolites not discussed in our publication based on what p-values they think are appropriate. This is table 2 of the publication/preprint. 
+
+Now that we have generated univariate statistics, lets do the classic volcano plot
+
+```{r univariate volcano plot}
+make_volc_plots <- function(studyID_filt, main_dat){
+  fname = paste0("univariate_testing_", studyID_filt, ".txt")
+  d <- read.csv(file =fname, sep = "\t", skip = 1, row.names = NULL)
+
+  d_sig <- d %>% filter(adj_pval_fdr < 0.05)
+  sig_metas <- main_dat %>%
+    filter(studyID ==  studyID_filt) %>%
+    filter(Samples %in% d_sig$metabolite) %>%
+    ggplot(aes(x = heart_cond, y = abun, fill = heart_cond)) +
+    geom_boxplot(outlier.shape = NA, alpha = 0.5) +
+    geom_jitter(height = 0, width = 0.2, alpha = 0.7) +
+    theme_bw() +
+    scale_fill_manual(values = cbbPalette) +
+    facet_wrap(.~Samples, scales = "free") +
+    labs(title = paste0("Significant Metabolites, ", studyID_filt)) +
+    theme_set(theme_bw(base_size=20))
+
+  plotname = paste0("significant_metabolites_", studyID_filt, ".png")
+  ggsave(plotname, height = 15, width = 20, plot = sig_metas)
+  
+  #volcano plot?? 
+  volc_plot <- main_dat %>%
+    filter(studyID == studyID_filt) %>%
+    #ungroup() %>%
+    group_by(heart_cond, Samples) %>% 
+    summarise(value = median(abun) ) %>%
+    pivot_wider(names_from = heart_cond, values_from = value, values_fill = 0.000001) %>%
+    mutate(fold_change = log2(HF) - log2(CTRL)) %>%
+    mutate(label_info = ifelse(fold_change %in% top_n(x = ., n = 10, wt = fold_change), "top10", " ")) %>%
+    merge(d, by.x = "Samples", by.y = "metabolite") %>%
+    mutate(signi = ifelse(Samples %in% d_sig$metabolite, "significant", "not significant"))%>%
+    ggplot(aes(x = fold_change, y = -log10(adj_pval_fdr), color = signi)) +
+    scale_color_manual(values = cbbPalette) +
+    labs(title = paste0(studyID_filt," Volcano Plot"), color = " ") +
+    theme_pubclean()  +
+    geom_vline(xintercept=c(0), linetype = "dashed") +
+    geom_hline(yintercept=-log10(0.05), linetype = "dashed") +      
+    #geom_text(aes(label=ifelse(label_info=="top10",as.character(Samples),'')),hjust=0,vjust=0)
+    geom_label_repel(aes(label = Samples),
+                  box.padding   = 0.35, 
+                  point.padding = 0.5,
+                  segment.color = 'grey50',
+                  max.overlaps = 15) +
+    theme_set(theme_pubclean(base_size=20))+
+    geom_point()# +
+    #scale_x_continuous(expand = expansion(add = 0.5)) +
+    #scale_y_continuous(expand = expansion(add = c(0,3))) 
+
+  print(volc_plot)
+  plot2name = paste0("volcanoplot_", studyID_filt, ".png")
+  ggsave(plot2name, plot = volc_plot)
+  #print(d_sig)
+  print(volc_plot)
+}
+
+v1 <- make_volc_plots("D1", trans_metab)
+v1
+ggsave("volcano_plt_d1.png", dpi = 300)
+
+v3 <- make_volc_plots("D3", trans_metab)
+v3
+ggsave("volcano_plt_d3.png", dpi = 300)
+
+plot_grid(v1,v3, ncol = 2, labels = "AUTO")
+ggsave("volcano_plt_d13.png", dpi = 300)
+
+#make_volc_plots("D2_EBC", trans_metab)
+# make_volc_plots("D2_SALIVA", trans_metab)
+## d2 studies have no sig after adjustment so not running
+```
+
+Ortholog partial least squares discriminant analysis (OPLS-DA) was conducted only for studies with significant group differences in PCA to examine what features contribute the most to group differences (D1 and D3) with R package ropls(). OPLS-DA is inclined to overfit models to data, and the risk of overfitting results is reduced by only conducting OPLS-DA for data with significant group differences as revealed by PCA. VIPs from the OPLS-DA are not reported as VIPs are not useful for OPLS modeling of a single response (i.e. heart failure status). Further results of specific metabolites from OPLS-DA are not reported but included this code output as univariate testing with stringent FDR correction and p-value filtering more appropriate for this analysis.
+
+```{r oplsda1}
+set.seed(20150615) ## if you know why i set the seed to this date, you get a special prize##
+## this is repeated from the set up just to be sure that the seed is right
+
+minimeta <- rbind(minimeta,
+      minimeta %>% 
+        filter(studyID == "D2") %>% 
+        mutate(studyID = "D2_SALIVA"))
+
+conduct_oplsda <- function(studyID_filt, main_dat){
+  metab_wide <- main_dat %>%
+    ungroup() %>%
+    pivot_wider(names_from = Samples, values_from = abun, values_fill = 0)
+
+  inMeta <- minimeta %>% filter(studyID == studyID_filt & sample %in% metab_wide$sample) %>% arrange(sample) %>% select(-studyID)
+  colnames(inMeta) <- c("ind", "group")
+  
+  ## prep dataframe 
+  inData <- 
+    metab %>% ungroup() %>% filter(studyID == studyID_filt) %>%
+    dplyr::select(Samples, abun, sample, studyID) %>%
+         distinct() %>%
+    filter(sample %in% inMeta$ind) %>%
+    #  group_by(sample, Samples) %>%
+    #    filter(n()>1)
+        mutate(sample = paste0(sample, "_", studyID)) %>%
+      pivot_wider(names_from = "Samples", values_from = "abun") %>% 
+    ungroup() %>%
+      dplyr::select(-studyID, -sample) #%>%  arrange(sample)
+  
+  opls.pca <- opls(inData)
+  vect_y <- inMeta$group
+  fname = paste0("oplsda_model_", studyID_filt, ".svg")
+  
+  hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, subset = "odd", plotSubC = studyID_filt)
+  ggsave(fname)
+  
+  hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, plotSubC = studyID_filt)
+  
+  plot(hf.oplsda,
+       typeVc = "x-score",
+       parAsColFcVn = vect_y,
+       fig = fname, plotSubC = studyID_filt,
+       parPaletteVc = c("grey30", "goldenrod2"))
+}
+## prep inMeta for RDS
+
+conduct_oplsda("D3", trans_metab)
+conduct_oplsda("D1", trans_metab)
+
+```
+Understanding OPLS-DA outputs: 
+
+* r2x is the fraction of variance explained by the x variable, which is the metabolomics data. 
+
+* R2y is percent variance explained by y variable (heart condition). 
+
+* q2y is the prediction performance of the model in correctly assigning heart failure status based on metabolomic (ortholog?) profile. 
+
+* pR2y is the p value of the permutated R2y. If predicted R2y is consistently higher than R2y, that is bad and indicates the model has poor performance. Similarly, pQ2 should not be above its significance line as that indicates an unreliable model. As I understand the math and this output, D1 and D3 are performing well. 
+
+* RMSEE is the root mean squared error of estimation and is a measure of model error (0.05 = 5% error rate in assigning vect_y (heart_cond) based on x (data matrix). 
+
+#### Pathway Analysis
+
+Now that we have data tested for significance, we want to see what pathways are significant within this data. I tested a couple different methods for this. First is the categories in the csv `sig_metabolites_univariate_analysis_fdr`, which came from my interpretation of PubChem categories. I decided this wasn't systematic enough so we also used KEGG/rast categories, however, I still think these are useful as it gives some bland categories a human touch and I am including them here. 
+
+```{r univariate results plots, eval = FALSE}
+cats <- read.csv("sig_metabolites_univariate_analysis_fdr - Sheet1.csv")
+## merge categories for abundances for some plotting
+
+unidat <- metab %>% 
+  select(sample, Samples, abun, studyID, heart_cond) %>%
+  merge(cats, metab, by.y = "metabolite", by.x = "Samples") %>%
+  filter(!grepl("QC", sample)) %>%
+  mutate(study_group = as.factor(paste0(studyID.y, "_", heart_cond)))
+
+unidat$studyID = unidat$studyID.x
+unidat <- unidat %>% select(-studyID.x, -studyID.y) %>% mutate(adj.p = ifelse(adj_pval_fdr >= 0.001, paste0("= ", adj_pval_fdr), "< 0.001"))
+
+
+for (i in unique(unidat$Samples)) {
+  textdat <- unidat %>%
+    filter(Samples == i) %>%
+    select(adj.p, study_group)
+  
+  a <- unidat %>%
+    filter(Samples == i) %>%
+    ggplot(aes(x = Samples, y = abun, fill = study_group)) +
+    geom_boxplot(outlier.shape = NA, alpha = 0.5) +
+    geom_point(position = position_jitterdodge(), alpha = 0.7)+
+    theme_bw() +
+    facet_wrap(.~pathway, scales = "free") +
+    labs(title = paste0(i), x = "") +
+    theme_set(theme_bw(base_size=10))+
+    scale_fill_manual(values = c("D1_CTRL" = "grey30",
+                                "D3_CTRL" = "grey20",
+                                "D1_HF" = "goldenrod3",
+                                "D3_HF" = "goldenrod1")) +
+    #geom_text(data = textdat, aes(x = 1.5, y = 0, label = paste0("adj. p ", adj.p)))
+    labs(subtitle = paste0("adj. p ", textdat$adj.p), size = 5) +
+    theme(legend.position = "top", legend.title = element_blank())
+  
+  print(a)
+  fname = paste0("univariate_sig_plots/",i, ".png" )
+  ggsave(plot=a, filename=fname, dpi = 300, height = 4, width = 3)
+
+}
+```
+
+Lucky for us i was able to work some magic (use the MetaboAnalyst website) and map the kegg pathways to the metabolite common names. website is metabanalyst dot com. I wasn't able to find a way to do this within R or via the command line. Please let me know if you know of a better day to do this. 
+
+```{r read in kegg data, eval = FALSE}
+#library(pathview)
+kegg <- read.csv("map_common_name_to_kegg.csv.csv")
+pathdat <- merge(unidat, kegg, by.x = "Samples", by.y = "Query", all.x = TRUE)
+#pathdat %>%
+#  filter(adj_pval_fdr < 0.05) %>%
+#  select(sample,heart_cond, Samples, abun, KEGG)
+
+
+graph <- buildGraphFromKEGGREST( organism = "hsa", filter.path = NULL) ## only needs to run once per session for users
+
+tmpdir <- paste0(tempdir(), "\\my_database2")
+# Make sure the database does not exist from a former vignette build
+# Otherwise the vignette will rise an error
+# because FELLA will not overwrite an existing database
+unlink(tmpdir, recursive = TRUE)
+
+buildDataFromGraph(keggdata.graph = graph,
+                    databaseDir = tmpdir, 
+                    internalDir = FALSE, 
+                    matrices = "none", 
+                    normality = "diffusion", 
+                    niter = 100)
+fella.data <- loadKEGGdata(databaseDir = tmpdir, 
+                           internalDir = FALSE,
+                           loadMatrix = "none")
+
+
+
+pathdat %>%
+  group_by(studyID) %>%
+  summarize(unique_kegg = length(unique(KEGG)))
+## not many things mapping to kegg pathways so different pathway analysis below 
+```
+
+great! the above only needs to run a single time so we are starting a new code block. 
+
+```{r fella pathway analysis}
+
+pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
+  
+  filt_dat <- main_dat %>% filter(studyID == studyID_filt)
+  cmp.list <- filt_dat$KEGG  
+  analysis.enrich <- enrich(compounds = cmp.list, 
+                            data = fella.data, 
+                            method = "diffusion", 
+                            approx = "simulation")
+
+  analysis.enrich %>%
+    getInput() %>%
+    getName(data = fella.data)
+
+  plot(analysis.enrich, 
+     method = "diffusion", 
+     data = fella.data,
+     nlimit = 250,
+     plotLegend = FALSE)
+
+    ## subnetwork analysis
+#  g.enrich <- generateResultsGraph(object = analysis.enrich,
+#                              data = fella.data,  method = "diffusion")
+#  tab.enrich <- generateResultsTable(object = analysis.enrich,
+#                                  data = fella.data, 
+#                                  method = "diffusion")
+  plot(analysis.enrich, 
+     method = "diffusion", 
+     data = fella.data,
+     nlimit = 50,
+     plotLegend = TRUE,)
+
+  myTable <- generateResultsTable(
+    object = analysis.enrich, 
+    method = "diffusion", 
+    #threshold = 0.05, ## p thresh? 
+    data = fella.data)
+  #print(knitr::kable(head(myTable, 20))) ## print top 20 table, depreciated since written to file now
+  k_name = paste0("kable_tbl_", studyID_filt)
+  myTable$studyID = studyID_filt
+  write.csv(myTable, file = k_name, row.names = TRUE, quote = FALSE)
+  
+  plot(
+    x = analysis.enrich, 
+    method = "diffusion", 
+    main = "Enrichment using the diffusion analysis in FELLA", 
+    threshold = 0.01, 
+    data = fella.data 
+  )
+  ## write a lil something something to automatically visualize the top 10 pathways per study here
+  top10 <- myTable$KEGG.id[1:10]
+  
+  for ( i in top10){
+    i = as.character(i)
+    fname = paste0(studyID_filt, "_", i)
+    pathview(cpd.data = cmp.list, species = "hsa", pathway.id = i, out.suffix = fname, kegg.native = FALSE)
+  }
+}
+
+pathway_analysis("D1", pathdat) ## take a huge amount of processing so leaving out 
+pathway_analysis("D3", pathdat)
+#browseKEGG(analysis.enrich, 'hsa04110')
+#clusterProfiler::dotplot(analysis.enrich)
+library(pathview)
+
+filt_dat <- pathdat %>% filter(studyID == "D3")
+cmp.list <- filt_dat$KEGG  
+pathview(cpd.data = cmp.list, species = "hsa", pathway.id = "00250")
+
+#pathdat
+#unique(pathdat$HMDB)
+
+pathdat <- pathdat %>%
+  mutate(db_id = ifelse(!is.na(HMDB), paste0("hmdb:", HMDB),  paste0("pubchem:", PubChem))) 
+#                       ifelse(!is.na(ChEBI), paste0("chebi:", ChEBI),
+#                              ifelse(!is.na(KEGG), paste0("kegg:",KEGG), Samples
+#                                     ))))) %>%
+pathdat %>%
+  select(db_id) %>%
+  distinct() %>%
+  write_csv(file = "data_full_annotation.csv")
+
+```
+
+ok then i read that file into ramp https://rampdb.nih.gov/pathways-from-analytes  and got new pathways labels (because too many metabolites didn't map to anything in KEGG) new pathway analysis. However, I found these results to not be particularly useful or informative compared to what was already done above, so this is not included in the publication. Partially, KEGG is more standard, so I thought it would be better to include those results. I also made the decision to still include this code here so others can see what we did, what we decided to include, and how results may vary with different bioinformatic methods (in our case, no huge variance). 
+
+```{r new pathway analysis with ramp}
+mop <- read.csv("fetchPathwaysFromAnalytes-download-ramp.tsv", sep = "\t")
+#mop ## commonName, inputID
+#pathdat ## db_iud = inputId
+
+newpath <- merge(mop, pathdat, by.x = "inputId", by.y = "db_id", all.y = T)
+newpath <- newpath %>% 
+  mutate(studyID = ifelse(studyID == "D1", "D1_new",
+                          ifelse(studyID == "D3", "D3_new", studyID))) %>%
+  filter(pathwaySource=="kegg")
+
+pathways <- unique(newpath$pathwayName)
+#Helper function for string wrapping. 
+# Default 20 character target width.
+swr = function(string, nwrap=20) {
+  paste(strwrap(string, width=nwrap), collapse="\n")
+}
+swr = Vectorize(swr)
+newpath$pathwayName <- swr(newpath$pathwayName)
+
+#######################
+for (p in pathways){
+    a <- newpath %>%
+      filter(pathwayName == p) %>%
+      ggplot(aes(x = Samples, y = abun, fill = study_group)) +
+      geom_boxplot(outlier.shape = NA, alpha = 0.5) +
+      geom_point(position = position_jitterdodge(), alpha = 0.7)+
+      theme_bw() +
+      facet_wrap(.~pathwayName, scales = "free", labeller = labeller(grp = label_wrap_gen(25))) +
+      labs(title = paste0("Significant Metabolites")) +
+      theme_set(theme_bw(base_size=20))+
+      scale_fill_manual(values = c("D1_CTRL" = "grey30",
+                                  "D3_CTRL" = "grey20",
+                                  "D1_HF" = "goldenrod3",
+                                  "D3_HF" = "goldenrod1")) +
+      #geom_text(data = textdat, aes(x = 1.5, y = 0, label = paste0("adj. p ", adj.p)))
+      labs(subtitle = paste0("adj. p ", textdat$adj.p), size = 5, 
+           x = " ") +
+      theme(legend.position = "top", legend.title = element_blank()) +
+      theme(axis.text.x = element_text(angle = 45, hjust=1))
+    
+      print(a)
+      fname = paste0("univariate_sig_plots_ramp_pathways/kegg/",p, ".png" )
+      ggsave(plot=a, filename=fname, dpi = 300, height = 7, width = 5)
+}
+
+#table(is.na(newpath$pathwayName))
+```
+
+
+And that's a wrap! We need to give a big thank you to the authorship team. Everyone worked very hard to review the papers screened for this meta-analysis and provided valuable input as we were looking at preliminary results. I am especially grateful to Dr. Patrick Hsieh, my postdoc mentor and PI of this project, who provided input, support, and discussion through this whole project. 

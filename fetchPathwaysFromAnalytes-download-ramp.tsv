@@ -1,0 +1,695 @@
+pathwayName	pathwaySource	pathwayId	inputId	commonName
+10q11.21q11.23 copy number variation syndrome	wiki	WP5352	hmdb:HMDB0000259	Serotonin
+10q22q23 copy number variation	wiki	WP5402	hmdb:HMDB0000250	Pyrophosphate
+15q25 copy number variation	wiki	WP5408	hmdb:HMDB0000050	Adenosine
+15q25 copy number variation	wiki	WP5408	hmdb:HMDB0000089	Cytidine
+15q25 copy number variation	wiki	WP5408	hmdb:HMDB0000273	Thymidine
+15q25 copy number variation	wiki	WP5408	hmdb:HMDB0000296	Uridine
+16p11.2 proximal deletion syndrome	wiki	WP4949	hmdb:HMDB0000250	Pyrophosphate
+3q29 copy number variation syndrome	wiki	WP4906	hmdb:HMDB0000250	Pyrophosphate
+7q11.23 copy number variation syndrome	wiki	WP4932	hmdb:HMDB0000259	Serotonin
+8p23.1 copy number variation syndrome	wiki	WP5346	hmdb:HMDB0000250	Pyrophosphate
+Abacavir ADME	reactome	R-HSA-2161522	hmdb:HMDB0000050	Adenosine
+Abacavir metabolism	reactome	R-HSA-2161541	hmdb:HMDB0000050	Adenosine
+Abacavir transport and metabolism	wiki	WP2712	hmdb:HMDB0000050	Adenosine
+Acrylamide biotransformation and exposure biomarkers	wiki	WP4233	hmdb:HMDB0000125	Glutathione
+Activation of NMDA receptors and postsynaptic events	reactome	R-HSA-442755	hmdb:HMDB0000250	Pyrophosphate
+Activation of TRKA receptors	reactome	R-HSA-187015	hmdb:HMDB0000050	Adenosine
+Adenosine P1 receptors	reactome	R-HSA-417973	hmdb:HMDB0000050	Adenosine
+Adenylate cyclase activating pathway	reactome	R-HSA-170660	hmdb:HMDB0000250	Pyrophosphate
+ADORA2B mediated anti-inflammatory cytokines production	reactome	R-HSA-9660821	hmdb:HMDB0000050	Adenosine
+ADORA2B mediated anti-inflammatory cytokines production	reactome	R-HSA-9660821	hmdb:HMDB0000250	Pyrophosphate
+Aflatoxin activation and detoxification	reactome	R-HSA-5423646	hmdb:HMDB0000125	Glutathione
+Aflatoxin activation and detoxification	wiki	WP3306	hmdb:HMDB0000125	Glutathione
+Agmatine biosynthesis	reactome	R-HSA-351143	hmdb:HMDB0001414	Putrescine
+Alanine and aspartate metabolism	wiki	WP106	hmdb:HMDB0000168	L-Asparagine
+Alanine, aspartate and glutamate metabolism	kegg	map00250	hmdb:HMDB0000030	Biotin
+Alanine, aspartate and glutamate metabolism	kegg	map00250	hmdb:HMDB0000125	Glutathione
+Alanine, aspartate and glutamate metabolism	kegg	map00250	hmdb:HMDB0000168	L-Asparagine
+Alanine, aspartate and glutamate metabolism	kegg	map00250	hmdb:HMDB0000904	Citrulline
+Alpha-linolenic (omega-3) and linoleic (omega-6) acid metabolism	wiki	WP2724	hmdb:HMDB0000250	Pyrophosphate
+alpha-linolenic (omega3) and linoleic (omega6) acid metabolism	reactome	R-HSA-2046104	hmdb:HMDB0000250	Pyrophosphate
+alpha-linolenic acid (ALA) metabolism	reactome	R-HSA-2046106	hmdb:HMDB0000250	Pyrophosphate
+Alpha-oxidation of phytanate	reactome	R-HSA-389599	hmdb:HMDB0000250	Pyrophosphate
+Amine ligand-binding receptors	reactome	R-HSA-375280	hmdb:HMDB0000259	Serotonin
+Amine Oxidase reactions	reactome	R-HSA-140179	hmdb:HMDB0000259	Serotonin
+Amine Oxidase reactions	reactome	R-HSA-140179	hmdb:HMDB0001414	Putrescine
+Amino Acid conjugation	reactome	R-HSA-156587	hmdb:HMDB0000250	Pyrophosphate
+Amino acid metabolism in triple-negative breast cancer cells	wiki	WP5213	hmdb:HMDB0000125	Glutathione
+Amino acid transport across the plasma membrane	reactome	R-HSA-352230	hmdb:HMDB0000168	L-Asparagine
+Angiopoietin-like protein 8 regulatory pathway	wiki	WP3915	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Antimicrobial action and antimicrobial resistance in Mtb	reactome	R-HSA-9639775	hmdb:HMDB0000250	Pyrophosphate
+Antimicrobial peptides	reactome	R-HSA-6803157	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+Antimicrobial peptides	wiki	WP4101	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+APC/C-mediated degradation of cell cycle proteins	reactome	R-HSA-174143	hmdb:HMDB0000250	Pyrophosphate
+APEX1-Independent Resolution of AP Sites via the Single Nucleotide Replacement Pathway	reactome	R-HSA-5649702	hmdb:HMDB0000250	Pyrophosphate
+Aquaporin-mediated transport	reactome	R-HSA-445717	hmdb:HMDB0000250	Pyrophosphate
+Arachidonic acid metabolism	wiki	WP2650	hmdb:HMDB0000125	Glutathione
+Arachidonic Acid Metabolism	kegg	map00590	hmdb:HMDB0000125	Glutathione
+Arginine and proline metabolism	kegg	map00330	hmdb:HMDB0000128	Guanidoacetic acid
+Arginine and proline metabolism	kegg	map00330	hmdb:HMDB0000904	Citrulline
+Arginine and proline metabolism	kegg	map00330	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Arsenic metabolism and reactive oxygen species generation	wiki	WP5233	hmdb:HMDB0000125	Glutathione
+Aspartate and asparagine metabolism	reactome	R-HSA-8963693	hmdb:HMDB0000168	L-Asparagine
+Aspartate and asparagine metabolism	wiki	WP4979	hmdb:HMDB0000168	L-Asparagine
+Aspartate and asparagine metabolism	reactome	R-HSA-8963693	hmdb:HMDB0000250	Pyrophosphate
+Aspartate and asparagine metabolism	wiki	WP4979	hmdb:HMDB0000250	Pyrophosphate
+Aspirin ADME	reactome	R-HSA-9749641	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+Aspirin ADME	reactome	R-HSA-9749641	hmdb:HMDB0000250	Pyrophosphate
+Assembly of the SARS-CoV-2 Replication-Transcription Complex (RTC)	reactome	R-HSA-9694271	hmdb:HMDB0000250	Pyrophosphate
+Azathioprine ADME	reactome	R-HSA-9748787	hmdb:HMDB0000125	Glutathione
+Azathioprine ADME	reactome	R-HSA-9748787	hmdb:HMDB0000250	Pyrophosphate
+Base Excision Repair	reactome	R-HSA-73884	hmdb:HMDB0000250	Pyrophosphate
+Benzene metabolism	wiki	WP3891	hmdb:HMDB0002434	Hydroquinone
+Beta oxidation of butanoyl-CoA to acetyl-CoA	reactome	R-HSA-77352	hmdb:HMDB0000250	Pyrophosphate
+beta-Alanine metabolism	kegg	map00410	hmdb:HMDB0000026	Ureidopropionic acid
+beta-Alanine metabolism	kegg	map00410	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Beta-oxidation of pristanoyl-CoA	reactome	R-HSA-389887	hmdb:HMDB0000824	Propionylcarnitine,PROPIONYLCARNITINE (C3),O-Propanoylcarnitine
+Bile acid and bile salt metabolism	reactome	R-HSA-194068	hmdb:HMDB0000250	Pyrophosphate
+Bile acid and bile salt metabolism	wiki	WP1788	hmdb:HMDB0000250	Pyrophosphate
+Biogenic amine synthesis	wiki	WP550	hmdb:HMDB0000259	Serotonin
+Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB	reactome	R-HSA-141333	hmdb:HMDB0000259	Serotonin
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000026	Ureidopropionic acid
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000089	Cytidine
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000125	Glutathione
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000273	Thymidine
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000296	Uridine
+Biomarkers for pyrimidine metabolism disorders	wiki	WP4584	hmdb:HMDB0000630	Cytosine
+Biomarkers for urea cycle disorders	wiki	WP4583	hmdb:HMDB0000128	Guanidoacetic acid
+Biomarkers for urea cycle disorders	wiki	WP4583	hmdb:HMDB0000904	Citrulline
+Biosynthesis and regeneration of tetrahydrobiopterin and catabolism of phenylalanine	wiki	WP4156	hmdb:HMDB0000259	Serotonin
+Biosynthesis and regeneration of tetrahydrobiopterin and catabolism of phenylalanine	wiki	WP4156	hmdb:HMDB0002215	4a-Carbinolamine tetrahydrobiopterin,q-H2BPT
+Biosynthesis of aspirin-triggered D-series resolvins	reactome	R-HSA-9020265	hmdb:HMDB0000125	Glutathione
+Biosynthesis of D-series resolvins	reactome	R-HSA-9018676	hmdb:HMDB0000125	Glutathione
+Biosynthesis of DHA-derived SPMs	reactome	R-HSA-9018677	hmdb:HMDB0000125	Glutathione
+Biosynthesis of DHA-derived SPMs	wiki	WP4439	hmdb:HMDB0000125	Glutathione
+Biosynthesis of DHA-derived sulfido conjugates	reactome	R-HSA-9026395	hmdb:HMDB0000125	Glutathione
+Biosynthesis of E-series 18(R)-resolvins	reactome	R-HSA-9023661	hmdb:HMDB0000125	Glutathione
+Biosynthesis of E-series 18(S)-resolvins	reactome	R-HSA-9018896	hmdb:HMDB0000125	Glutathione
+Biosynthesis of EPA-derived SPMs	reactome	R-HSA-9018679	hmdb:HMDB0000125	Glutathione
+Biosynthesis of EPA-derived SPMs	wiki	WP4440	hmdb:HMDB0000125	Glutathione
+Biosynthesis of maresin conjugates in tissue regeneration (MCTR)	reactome	R-HSA-9026762	hmdb:HMDB0000125	Glutathione
+Biosynthesis of protectin and resolvin conjugates in tissue regeneration (PCTR and RCTR)	reactome	R-HSA-9026766	hmdb:HMDB0000125	Glutathione
+Biosynthesis of unsaturated fatty acids	kegg	map01040	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Biotin Metabolism	kegg	map00780	hmdb:HMDB0000030	Biotin
+Biotin metabolism, including IMDs	wiki	WP5031	hmdb:HMDB0000030	Biotin
+Biotin transport and metabolism	reactome	R-HSA-196780	hmdb:HMDB0000030	Biotin
+Biotin transport and metabolism	reactome	R-HSA-196780	hmdb:HMDB0000250	Pyrophosphate
+Ca-dependent events	reactome	R-HSA-111996	hmdb:HMDB0000250	Pyrophosphate
+Calmodulin induced events	reactome	R-HSA-111933	hmdb:HMDB0000250	Pyrophosphate
+CaM pathway	reactome	R-HSA-111997	hmdb:HMDB0000250	Pyrophosphate
+Cholestasis	wiki	WP5238	hmdb:HMDB0000125	Glutathione
+Cholesterol biosynthesis	reactome	R-HSA-191273	hmdb:HMDB0000250	Pyrophosphate
+Cholesterol biosynthesis	wiki	WP1795	hmdb:HMDB0000250	Pyrophosphate
+Cholesterol biosynthesis	reactome	R-HSA-191273	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol biosynthesis	wiki	WP1795	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol biosynthesis pathway	wiki	WP197	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol biosynthesis pathway in hepatocytes	wiki	WP5329	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol biosynthesis with skeletal dysplasias	wiki	WP4804	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol metabolism	wiki	WP5304	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol metabolism with Bloch and Kandutsch-Russell pathways	wiki	WP4718	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Cholesterol synthesis disorders	wiki	WP5193	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Citric Acid Cycle	kegg	map00020	hmdb:HMDB0000030	Biotin
+Citric acid cycle and respiratory electron transport	wiki	WP2766	hmdb:HMDB0000125	Glutathione
+CLEC7A (Dectin-1) signaling	reactome	R-HSA-5607764	hmdb:HMDB0000250	Pyrophosphate
+Cobalamin (Cbl) metabolism	reactome	R-HSA-9759218	hmdb:HMDB0000125	Glutathione
+Cobalamin (Cbl, vitamin B12) transport and metabolism	reactome	R-HSA-196741	hmdb:HMDB0000125	Glutathione
+Coenzyme A biosynthesis	reactome	R-HSA-196783	hmdb:HMDB0000250	Pyrophosphate
+Conjugation of benzoate with glycine	reactome	R-HSA-177135	hmdb:HMDB0000250	Pyrophosphate
+Conjugation of carboxylic acids	reactome	R-HSA-159424	hmdb:HMDB0000250	Pyrophosphate
+Conjugation of phenylacetate with glutamine	reactome	R-HSA-177162	hmdb:HMDB0000250	Pyrophosphate
+Conjugation of salicylate with glycine	reactome	R-HSA-177128	hmdb:HMDB0000250	Pyrophosphate
+Conversion from APC/C:Cdc20 to APC/C:Cdh1 in late anaphase	reactome	R-HSA-176407	hmdb:HMDB0000250	Pyrophosphate
+Cori cycle	wiki	WP1946	hmdb:HMDB0002649	Erythrose,erythroses
+Costimulation by the CD28 family	reactome	R-HSA-388841	hmdb:HMDB0000250	Pyrophosphate
+Costimulation by the CD28 family	wiki	WP1799	hmdb:HMDB0000250	Pyrophosphate
+Creatine metabolism	reactome	R-HSA-71288	hmdb:HMDB0000128	Guanidoacetic acid
+Creatine metabolism	wiki	WP5002	hmdb:HMDB0000128	Guanidoacetic acid
+Creatine pathway	wiki	WP5190	hmdb:HMDB0000128	Guanidoacetic acid
+CREB1 phosphorylation through the activation of Adenylate Cyclase	reactome	R-HSA-442720	hmdb:HMDB0000250	Pyrophosphate
+Cysteine and methionine catabolism	wiki	WP4504	hmdb:HMDB0000050	Adenosine
+Cysteine and methionine catabolism	wiki	WP4504	hmdb:HMDB0000125	Glutathione
+Cytosine methylation	wiki	WP3585	hmdb:HMDB0000630	Cytosine
+Cytosolic iron-sulfur cluster assembly	wiki	WP2690	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Cytosolic sensors of pathogen-associated DNA	reactome	R-HSA-1834949	hmdb:HMDB0000250	Pyrophosphate
+Cytosolic sensors of pathogen-associated DNA	wiki	WP2794	hmdb:HMDB0000250	Pyrophosphate
+Cytosolic sulfonation of small molecules	reactome	R-HSA-156584	hmdb:HMDB0000250	Pyrophosphate
+Cytosolic tRNA aminoacylation	reactome	R-HSA-379716	hmdb:HMDB0000168	L-Asparagine
+Cytosolic tRNA aminoacylation	reactome	R-HSA-379716	hmdb:HMDB0000250	Pyrophosphate
+DAG and IP3 signaling	reactome	R-HSA-1489509	hmdb:HMDB0000250	Pyrophosphate
+DAG and IP3 signaling	wiki	WP2688	hmdb:HMDB0000250	Pyrophosphate
+Deadenylation of mRNA	reactome	R-HSA-429947	hmdb:HMDB0000250	Pyrophosphate
+Deadenylation-dependent mRNA decay	reactome	R-HSA-429914	hmdb:HMDB0000250	Pyrophosphate
+Defective HLCS causes multiple carboxylase deficiency	reactome	R-HSA-3371599	hmdb:HMDB0000030	Biotin
+Defective MAOA causes BRUNS	reactome	R-HSA-5579012	hmdb:HMDB0000259	Serotonin
+Defective SLC27A4 causes ichthyosis prematurity syndrome (IPS)	reactome	R-HSA-5619108	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Defective SLC27A4 causes ichthyosis prematurity syndrome (IPS)	reactome	R-HSA-5619108	hmdb:HMDB0002212	Arachidic acid,Arachic acid
+Defective SLC29A3 causes histiocytosis-lymphadenopathy plus syndrome (HLAS)	reactome	R-HSA-5619063	hmdb:HMDB0000050	Adenosine
+Defective SLC29A3 causes histiocytosis-lymphadenopathy plus syndrome (HLAS)	reactome	R-HSA-5619063	hmdb:HMDB0000089	Cytidine
+Defective SLC29A3 causes histiocytosis-lymphadenopathy plus syndrome (HLAS)	reactome	R-HSA-5619063	hmdb:HMDB0000273	Thymidine
+Defective SLC29A3 causes histiocytosis-lymphadenopathy plus syndrome (HLAS)	reactome	R-HSA-5619063	hmdb:HMDB0000296	Uridine
+Defects in biotin (Btn) metabolism	reactome	R-HSA-3323169	hmdb:HMDB0000030	Biotin
+Defects in vitamin and cofactor metabolism	reactome	R-HSA-3296482	hmdb:HMDB0000030	Biotin
+Degradation of cysteine and homocysteine	reactome	R-HSA-1614558	hmdb:HMDB0000125	Glutathione
+Degradation of cysteine and homocysteine	reactome	R-HSA-1614558	hmdb:HMDB0002991	Cysteamine,2AET
+Detoxification of Reactive Oxygen Species	reactome	R-HSA-3299685	hmdb:HMDB0000125	Glutathione
+Detoxification of reactive oxygen species	wiki	WP2824	hmdb:HMDB0000125	Glutathione
+Diet-dependent trimethylamine/trimethylamine N-oxide metabolism	wiki	WP5219	hmdb:HMDB0000925	Trimethylamine N-oxide,TMAO
+Diseases of nucleotide metabolism	reactome	R-HSA-9735804	hmdb:HMDB0000050	Adenosine
+DNA Damage Bypass	reactome	R-HSA-73893	hmdb:HMDB0000250	Pyrophosphate
+DNA Damage Bypass	wiki	WP1803	hmdb:HMDB0000250	Pyrophosphate
+DNA Damage Reversal	reactome	R-HSA-73942	hmdb:HMDB0000050	Adenosine
+DNA Damage Reversal	wiki	WP1804	hmdb:HMDB0000050	Adenosine
+Dopamine metabolism	wiki	WP2436	hmdb:HMDB0000125	Glutathione
+Early Phase of HIV Life Cycle	reactome	R-HSA-162594	hmdb:HMDB0000250	Pyrophosphate
+Early SARS-CoV-2 Infection Events	reactome	R-HSA-9772572	hmdb:HMDB0000250	Pyrophosphate
+Effects of nitric oxide	wiki	WP1995	hmdb:HMDB0000904	Citrulline
+Endogenous sterols	reactome	R-HSA-211976	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Endothelin pathways	wiki	WP2197	hmdb:HMDB0000904	Citrulline
+eNOS activation	reactome	R-HSA-203615	hmdb:HMDB0000904	Citrulline
+Enterocyte cholesterol metabolism	wiki	WP5333	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Ethanol oxidation	reactome	R-HSA-71384	hmdb:HMDB0000250	Pyrophosphate
+Ethylmalonic encephalopathy	wiki	WP5030	hmdb:HMDB0000125	Glutathione
+Extra-nuclear estrogen signaling	reactome	R-HSA-9009391	hmdb:HMDB0000904	Citrulline
+Extra-nuclear estrogen signaling	wiki	WP4977	hmdb:HMDB0000904	Citrulline
+Extra-nuclear estrogen signaling	wiki	WP4977	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Fanconi Anemia Pathway	reactome	R-HSA-6783310	hmdb:HMDB0000250	Pyrophosphate
+Fanconi Anemia Pathway	wiki	WP3569	hmdb:HMDB0000250	Pyrophosphate
+Fas ligand pathway and stress induction of heat shock proteins	wiki	WP314	hmdb:HMDB0000125	Glutathione
+Fatty acid omega-oxidation	wiki	WP206	hmdb:HMDB0000623	Dodecanedioic acid,FA 12:1;O2
+Fatty acyl-CoA biosynthesis	reactome	R-HSA-75105	hmdb:HMDB0000250	Pyrophosphate
+Fatty acyl-CoA biosynthesis	wiki	WP4114	hmdb:HMDB0000250	Pyrophosphate
+FCGR3A-mediated IL10 synthesis	reactome	R-HSA-9664323	hmdb:HMDB0000250	Pyrophosphate
+Ferroptosis	wiki	WP4313	hmdb:HMDB0000125	Glutathione
+FGF23 signaling in hypophosphatemic rickets and related disorders	wiki	WP4790	hmdb:HMDB0000250	Pyrophosphate
+Flavan-3-ol metabolic pathway	wiki	WP4238	hmdb:HMDB0001964	Caffeic acid
+Flavan-3-ol metabolic pathway	wiki	WP4238	hmdb:HMDB0013674	1,2,3-Trihydroxybenzene,Pyrogallol
+FMO oxidises nucleophiles	reactome	R-HSA-217271	hmdb:HMDB0000925	Trimethylamine N-oxide,TMAO
+Folate metabolism	wiki	WP176	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Formation of selenosugars for excretion	reactome	R-HSA-2408499	hmdb:HMDB0000125	Glutathione
+Formation of TC-NER Pre-Incision Complex	reactome	R-HSA-6781823	hmdb:HMDB0000250	Pyrophosphate
+Formation of the active cofactor, UDP-glucuronate	reactome	R-HSA-173599	hmdb:HMDB0000250	Pyrophosphate
+Free fatty acids regulate insulin secretion	reactome	R-HSA-400451	hmdb:HMDB0000250	Pyrophosphate
+G alpha (z) signaling events	wiki	WP4422	hmdb:HMDB0000250	Pyrophosphate
+G alpha (z) signalling events	reactome	R-HSA-418597	hmdb:HMDB0000250	Pyrophosphate
+G-protein mediated events	reactome	R-HSA-112040	hmdb:HMDB0000250	Pyrophosphate
+GABA metabolism (aka GHB)	wiki	WP4157	hmdb:HMDB0001414	Putrescine
+Gamma carboxylation, hypusine formation and arylsulfatase activation	wiki	WP2762	hmdb:HMDB0000250	Pyrophosphate
+Gamma carboxylation, hypusinylation, hydroxylation, and arylsulfatase activation	reactome	R-HSA-163841	hmdb:HMDB0000250	Pyrophosphate
+Gamma-glutamyl cycle for the biosynthesis and degradation of glutathione, including diseases	wiki	WP4518	hmdb:HMDB0000078	Cysteinylglycine,Cysteinyl-glycine
+Gamma-glutamyl cycle for the biosynthesis and degradation of glutathione, including diseases	wiki	WP4518	hmdb:HMDB0000125	Glutathione
+Gap-filling DNA repair synthesis and ligation in GG-NER	reactome	R-HSA-5696397	hmdb:HMDB0000250	Pyrophosphate
+Gap-filling DNA repair synthesis and ligation in TC-NER	reactome	R-HSA-6782210	hmdb:HMDB0000250	Pyrophosphate
+GDP-fucose biosynthesis	reactome	R-HSA-6787639	hmdb:HMDB0000250	Pyrophosphate
+Global Genome Nucleotide Excision Repair (GG-NER)	reactome	R-HSA-5696399	hmdb:HMDB0000250	Pyrophosphate
+Glucagon signaling in metabolic regulation	reactome	R-HSA-163359	hmdb:HMDB0000250	Pyrophosphate
+Glucagon-like Peptide-1 (GLP1) regulates insulin secretion	reactome	R-HSA-381676	hmdb:HMDB0000250	Pyrophosphate
+Glucose homeostasis	wiki	WP661	hmdb:HMDB0000904	Citrulline
+Glucose metabolism	wiki	WP4093	hmdb:HMDB0000030	Biotin
+Glucuronidation	reactome	R-HSA-156588	hmdb:HMDB0000250	Pyrophosphate
+Glutathione conjugation	reactome	R-HSA-156590	hmdb:HMDB0000078	Cysteinylglycine,Cysteinyl-glycine
+Glutathione conjugation	reactome	R-HSA-156590	hmdb:HMDB0000125	Glutathione
+Glutathione metabolism	wiki	WP100	hmdb:HMDB0000078	Cysteinylglycine,Cysteinyl-glycine
+Glutathione metabolism	kegg	map00480	hmdb:HMDB0000078	Cysteinylglycine,Cysteinyl-glycine
+Glutathione metabolism	wiki	WP100	hmdb:HMDB0000125	Glutathione
+Glutathione metabolism	kegg	map00480	hmdb:HMDB0000125	Glutathione
+Glutathione synthesis and recycling	reactome	R-HSA-174403	hmdb:HMDB0000078	Cysteinylglycine,Cysteinyl-glycine
+Glutathione synthesis and recycling	reactome	R-HSA-174403	hmdb:HMDB0000125	Glutathione
+Glycerolipid Metabolism	kegg	map00561	hmdb:HMDB0002434	Hydroquinone
+Glycerophospholipid biosynthetic pathway	wiki	WP2533	hmdb:HMDB0000250	Pyrophosphate
+Glycine metabolism	wiki	WP1495	hmdb:HMDB0000125	Glutathione
+Glycogen metabolism	reactome	R-HSA-8982491	hmdb:HMDB0000250	Pyrophosphate
+Glycogen metabolism	wiki	WP4072	hmdb:HMDB0000250	Pyrophosphate
+Glycogen synthesis	reactome	R-HSA-3322077	hmdb:HMDB0000250	Pyrophosphate
+Glyoxylate metabolism and glycine degradation	wiki	WP3562	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+GPER1 signaling	reactome	R-HSA-9634597	hmdb:HMDB0000250	Pyrophosphate
+GPR143 in melanocytes and retinal pigment epithelium cells	wiki	WP4941	hmdb:HMDB0000250	Pyrophosphate
+Growth factors and hormones in Beta-cell proliferation	wiki	WP5385	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+HDR through Homologous Recombination (HRR)	reactome	R-HSA-5685942	hmdb:HMDB0000250	Pyrophosphate
+HDR through Homologous Recombination (HRR) or Single Strand Annealing (SSA)	reactome	R-HSA-5693567	hmdb:HMDB0000250	Pyrophosphate
+HDR through Homologous Recombination or Single Strand Annealing	wiki	WP3567	hmdb:HMDB0000250	Pyrophosphate
+HDR through MMEJ (alt-NHEJ)	reactome	R-HSA-5685939	hmdb:HMDB0000250	Pyrophosphate
+HDR through MMEJ (alt-NHEJ)	wiki	WP3570	hmdb:HMDB0000250	Pyrophosphate
+Hedgehog 'off' state	reactome	R-HSA-5610787	hmdb:HMDB0000250	Pyrophosphate
+Hedgehog 'off' state	wiki	WP3316	hmdb:HMDB0000250	Pyrophosphate
+Heme biosynthesis	reactome	R-HSA-189451	hmdb:HMDB0000250	Pyrophosphate
+Hippocampal synaptogenesis and neurogenesis	wiki	WP5231	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+HIV Transcription Initiation	reactome	R-HSA-167161	hmdb:HMDB0000250	Pyrophosphate
+Homology Directed Repair	reactome	R-HSA-5693538	hmdb:HMDB0000250	Pyrophosphate
+IDO metabolic pathway	wiki	WP5414	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Inactivation, recovery and regulation of the phototransduction cascade	reactome	R-HSA-2514859	hmdb:HMDB0000250	Pyrophosphate
+Infection with Mycobacterium tuberculosis	reactome	R-HSA-9635486	hmdb:HMDB0000125	Glutathione
+Infection with Mycobacterium tuberculosis	reactome	R-HSA-9635486	hmdb:HMDB0000250	Pyrophosphate
+Influenza A virus infection	wiki	WP1438	hmdb:HMDB0000125	Glutathione
+Inositol phosphate metabolism	reactome	R-HSA-1483249	hmdb:HMDB0000213	myo-Inositol 1-phosphate
+Inositol phosphate metabolism	wiki	WP2741	hmdb:HMDB0000213	myo-Inositol 1-phosphate
+Inositol phosphate metabolism	reactome	R-HSA-1483249	hmdb:HMDB0001313	D-myo-Inositol 4-phosphate,I4P
+Inositol phosphate metabolism	wiki	WP2741	hmdb:HMDB0001313	D-myo-Inositol 4-phosphate,I4P
+Integration of energy metabolism	wiki	WP1831	hmdb:HMDB0000250	Pyrophosphate
+Interconversion of nucleotide di- and triphosphates	reactome	R-HSA-499943	hmdb:HMDB0000125	Glutathione
+Interconversion of nucleotide di- and triphosphates	wiki	WP4059	hmdb:HMDB0000125	Glutathione
+Interconversion of nucleotide di- and triphosphates	reactome	R-HSA-499943	hmdb:HMDB0000250	Pyrophosphate
+Interconversion of nucleotide di- and triphosphates	wiki	WP4059	hmdb:HMDB0000250	Pyrophosphate
+Interconversion of polyamines	reactome	R-HSA-351200	hmdb:HMDB0001414	Putrescine
+Intracellular metabolism of fatty acids regulates insulin secretion	reactome	R-HSA-434313	hmdb:HMDB0000250	Pyrophosphate
+Iron uptake and transport	reactome	R-HSA-917937	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+Iron uptake and transport	wiki	WP2670	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+ISG15 antiviral mechanism	reactome	R-HSA-1169408	hmdb:HMDB0000250	Pyrophosphate
+ISG15 antiviral mechanism	wiki	WP2672	hmdb:HMDB0000250	Pyrophosphate
+KEAP1-NFE2L2 pathway	reactome	R-HSA-9755511	hmdb:HMDB0000250	Pyrophosphate
+Kennedy pathway from sphingolipids	wiki	WP3933	hmdb:HMDB0000250	Pyrophosphate
+Ketone body metabolism	reactome	R-HSA-74182	hmdb:HMDB0000250	Pyrophosphate
+Ketone body metabolism	wiki	WP4113	hmdb:HMDB0000250	Pyrophosphate
+Krebs cycle disorders	wiki	WP4236	hmdb:HMDB0000824	Propionylcarnitine,PROPIONYLCARNITINE (C3),O-Propanoylcarnitine
+Latent infection - Other responses of Mtb to phagocytosis	reactome	R-HSA-1222499	hmdb:HMDB0000125	Glutathione
+Latent infection - Other responses of Mycobacterium tuberculosis to phagocytosis	wiki	WP5003	hmdb:HMDB0000125	Glutathione
+Leucine, isoleucine and valine metabolism	wiki	WP4686	hmdb:HMDB0000030	Biotin
+Leucine, isoleucine and valine metabolism	wiki	WP4686	hmdb:HMDB0000378	2-Methylbutyroylcarnitine,2-Methylbutyrylcarnitine,CAR 5:0
+Leucine, isoleucine and valine metabolism	wiki	WP4686	hmdb:HMDB0000824	Propionylcarnitine,PROPIONYLCARNITINE (C3),O-Propanoylcarnitine
+Leukotriene metabolic pathway	wiki	WP5171	hmdb:HMDB0000125	Glutathione
+Linoleic acid (LA) metabolism	reactome	R-HSA-2046105	hmdb:HMDB0000250	Pyrophosphate
+Major receptors targeted by epinephrine and norepinephrine	wiki	WP4589	hmdb:HMDB0000250	Pyrophosphate
+Maternal to zygotic transition (MZT)	reactome	R-HSA-9816359	hmdb:HMDB0000250	Pyrophosphate
+MECP2 and associated Rett syndrome	wiki	WP3584	hmdb:HMDB0000259	Serotonin
+Melatonin metabolism and effects	wiki	WP3298	hmdb:HMDB0000259	Serotonin
+Metabolic disorders of biological oxidation enzymes	reactome	R-HSA-5579029	hmdb:HMDB0000125	Glutathione
+Metabolic disorders of biological oxidation enzymes	reactome	R-HSA-5579029	hmdb:HMDB0000259	Serotonin
+Metabolic reprogramming in colon cancer	wiki	WP4290	hmdb:HMDB0000125	Glutathione
+Metabolic reprogramming in colon cancer	wiki	WP4290	hmdb:HMDB0000168	L-Asparagine
+Metabolism of amine-derived hormones	reactome	R-HSA-209776	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Metabolism of amine-derived hormones	wiki	WP3548	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Metabolism of amine-derived hormones	reactome	R-HSA-209776	hmdb:HMDB0000259	Serotonin
+Metabolism of amine-derived hormones	wiki	WP3548	hmdb:HMDB0000259	Serotonin
+Metabolism of amine-derived hormones	wiki	WP3548	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Metabolism of cofactors	reactome	R-HSA-8978934	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of cofactors	wiki	WP4990	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of cofactors	wiki	WP4990	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Metabolism of fat-soluble vitamins	reactome	R-HSA-6806667	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of ingested H2SeO4 and H2SeO3 into H2Se	reactome	R-HSA-2408550	hmdb:HMDB0000125	Glutathione
+Metabolism of ingested H2SeO4 and H2SeO3 into H2Se	reactome	R-HSA-2408550	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of ingested SeMet, Sec, MeSec into H2Se	reactome	R-HSA-2408508	hmdb:HMDB0000050	Adenosine
+Metabolism of ingested SeMet, Sec, MeSec into H2Se	reactome	R-HSA-2408508	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of nitric oxide: NOS3 activation and regulation	reactome	R-HSA-202131	hmdb:HMDB0000904	Citrulline
+Metabolism of nitric oxide: NOS3 activation and regulation	wiki	WP1850	hmdb:HMDB0000904	Citrulline
+Metabolism of nitric oxide: NOS3 activation and regulation	wiki	WP1850	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Metabolism of non-coding RNA	reactome	R-HSA-194441	hmdb:HMDB0000897	7-Methylguanine,7-methylguanosine cap
+Metabolism of non-coding RNA	wiki	WP2715	hmdb:HMDB0000897	7-Methylguanine,7-methylguanosine cap
+Metabolism of polyamines	reactome	R-HSA-351202	hmdb:HMDB0001414	Putrescine
+Metabolism of polyamines	wiki	WP3555	hmdb:HMDB0001414	Putrescine
+Metabolism of porphyrins	reactome	R-HSA-189445	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of porphyrins	wiki	WP1852	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of serotonin	reactome	R-HSA-380612	hmdb:HMDB0000259	Serotonin
+Metabolism of vitamin K	reactome	R-HSA-6806664	hmdb:HMDB0000250	Pyrophosphate
+Metabolism of vitamin K	wiki	WP3822	hmdb:HMDB0000250	Pyrophosphate
+Metabolism overview	wiki	WP3602	hmdb:HMDB0000904	Citrulline
+Metal sequestration by antimicrobial proteins	reactome	R-HSA-6799990	hmdb:HMDB0000152	Gentisic acid,2.5DHBA
+Methionine de novo and salvage pathway	wiki	WP3580	hmdb:HMDB0000050	Adenosine
+Methionine de novo and salvage pathway	wiki	WP3580	hmdb:HMDB0000250	Pyrophosphate
+Methionine de novo and salvage pathway	wiki	WP3580	hmdb:HMDB0001414	Putrescine
+Methionine Metabolism	kegg	map00270	hmdb:HMDB0000050	Adenosine
+Methionine Metabolism	kegg	map00270	hmdb:HMDB0001414	Putrescine
+Methionine metabolism leading to sulfur amino acids and related disorders	wiki	WP4292	hmdb:HMDB0000050	Adenosine
+Methionine metabolism leading to sulfur amino acids and related disorders	wiki	WP4292	hmdb:HMDB0000250	Pyrophosphate
+Methylation	reactome	R-HSA-156581	hmdb:HMDB0000050	Adenosine
+Methylation	reactome	R-HSA-156581	hmdb:HMDB0000125	Glutathione
+Methylation	reactome	R-HSA-156581	hmdb:HMDB0000250	Pyrophosphate
+Minus-strand DNA synthesis	reactome	R-HSA-164516	hmdb:HMDB0000250	Pyrophosphate
+Miscellaneous transport and binding events	reactome	R-HSA-5223345	hmdb:HMDB0000250	Pyrophosphate
+Miscellaneous transport and binding events	wiki	WP3320	hmdb:HMDB0000250	Pyrophosphate
+Mismatch Repair	reactome	R-HSA-5358508	hmdb:HMDB0000250	Pyrophosphate
+Mismatch Repair	wiki	WP3381	hmdb:HMDB0000250	Pyrophosphate
+Mismatch repair (MMR) directed by MSH2:MSH3 (MutSbeta)	reactome	R-HSA-5358606	hmdb:HMDB0000250	Pyrophosphate
+Mismatch repair (MMR) directed by MSH2:MSH6 (MutSalpha)	reactome	R-HSA-5358565	hmdb:HMDB0000250	Pyrophosphate
+Mitochondrial Fatty Acid Beta-Oxidation	reactome	R-HSA-77289	hmdb:HMDB0000250	Pyrophosphate
+Mitochondrial fatty acid beta-oxidation	wiki	WP4034	hmdb:HMDB0000250	Pyrophosphate
+mitochondrial fatty acid beta-oxidation of saturated fatty acids	reactome	R-HSA-77286	hmdb:HMDB0000250	Pyrophosphate
+Mitochondrial tRNA aminoacylation	reactome	R-HSA-379726	hmdb:HMDB0000168	L-Asparagine
+Mitochondrial tRNA aminoacylation	reactome	R-HSA-379726	hmdb:HMDB0000250	Pyrophosphate
+Modified nucleosides derived from tRNA as urinary cancer markers	wiki	WP4485	hmdb:HMDB0000050	Adenosine
+Modified nucleosides derived from tRNA as urinary cancer markers	wiki	WP4485	hmdb:HMDB0000089	Cytidine
+Modified nucleosides derived from tRNA as urinary cancer markers	wiki	WP4485	hmdb:HMDB0000296	Uridine
+Molybdenum cofactor biosynthesis	reactome	R-HSA-947581	hmdb:HMDB0000250	Pyrophosphate
+Monoamine GPCRs	wiki	WP58	hmdb:HMDB0000259	Serotonin
+Monoamine transport	wiki	WP727	hmdb:HMDB0000259	Serotonin
+mRNA, protein, and metabolite inducation pathway by cyclosporin A	wiki	WP3953	hmdb:HMDB0000168	L-Asparagine
+Na+/Cl- dependent neurotransmitter transporters	reactome	R-HSA-442660	hmdb:HMDB0000168	L-Asparagine
+Na+/Cl- dependent neurotransmitter transporters	reactome	R-HSA-442660	hmdb:HMDB0000259	Serotonin
+NAD biosynthesis II (from tryptophan)	wiki	WP2485	hmdb:HMDB0000250	Pyrophosphate
+NAD biosynthesis II (from tryptophan)	wiki	WP2485	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+NAD+ biosynthetic pathways	wiki	WP3645	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Neurodegeneration with brain iron accumulation (NBIA) subtypes pathway	wiki	WP4577	hmdb:HMDB0000250	Pyrophosphate
+Neuroinflammation	wiki	WP4919	hmdb:HMDB0000904	Citrulline
+Neurotransmitter clearance	reactome	R-HSA-112311	hmdb:HMDB0000259	Serotonin
+Neurotransmitter clearance	wiki	WP1870	hmdb:HMDB0000259	Serotonin
+Neurotransmitter disorders	wiki	WP4220	hmdb:HMDB0000259	Serotonin
+Neurotransmitter disorders	wiki	WP4220	hmdb:HMDB0002215	4a-Carbinolamine tetrahydrobiopterin,q-H2BPT
+Neurotransmitter receptors and postsynaptic signal transmission	wiki	WP2754	hmdb:HMDB0000259	Serotonin
+Neurotransmitter release cycle	reactome	R-HSA-112310	hmdb:HMDB0000259	Serotonin
+Neurotransmitter release cycle	wiki	WP1871	hmdb:HMDB0000259	Serotonin
+NFE2L2 regulating anti-oxidant/detoxification enzymes	reactome	R-HSA-9818027	hmdb:HMDB0000250	Pyrophosphate
+NGF-independant TRKA activation	reactome	R-HSA-187024	hmdb:HMDB0000050	Adenosine
+Nicotinamide salvaging	reactome	R-HSA-197264	hmdb:HMDB0000250	Pyrophosphate
+Nicotinate metabolism	reactome	R-HSA-196807	hmdb:HMDB0000250	Pyrophosphate
+Nicotinate metabolism	wiki	WP4097	hmdb:HMDB0000250	Pyrophosphate
+Nitric oxide stimulates guanylate cyclase	reactome	R-HSA-392154	hmdb:HMDB0000250	Pyrophosphate
+Nitric oxide stimulates guanylate cyclase	reactome	R-HSA-392154	hmdb:HMDB0000904	Citrulline
+Nitrogen metabolism	kegg	map00910	hmdb:HMDB0000030	Biotin
+Nitrogen metabolism	kegg	map00910	hmdb:HMDB0000168	L-Asparagine
+NO/cGMP/PKG mediated neuroprotection	wiki	WP4008	hmdb:HMDB0000904	Citrulline
+Nonhomologous End-Joining	wiki	WP3550	hmdb:HMDB0000250	Pyrophosphate
+Nonhomologous End-Joining (NHEJ)	reactome	R-HSA-5693571	hmdb:HMDB0000250	Pyrophosphate
+Nuclear events mediated by NFE2L2	reactome	R-HSA-9759194	hmdb:HMDB0000250	Pyrophosphate
+Nuclear receptors in lipid metabolism and toxicity	wiki	WP299	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+Nucleobase biosynthesis	wiki	WP4084	hmdb:HMDB0000250	Pyrophosphate
+Nucleobase biosynthesis	wiki	WP4084	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000014	Deoxycytidine
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000026	Ureidopropionic acid
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000050	Adenosine
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000089	Cytidine
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000125	Glutathione
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000250	Pyrophosphate
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000273	Thymidine
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0000296	Uridine
+Nucleobase catabolism	wiki	WP4042	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Nucleotide biosynthesis	reactome	R-HSA-8956320	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000014	Deoxycytidine
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000026	Ureidopropionic acid
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000050	Adenosine
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000089	Cytidine
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000273	Thymidine
+Nucleotide catabolism	reactome	R-HSA-8956319	hmdb:HMDB0000296	Uridine
+Nucleotide Excision Repair	reactome	R-HSA-5696398	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide Excision Repair	wiki	WP1980	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide GPCRs	wiki	WP80	hmdb:HMDB0000050	Adenosine
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000014	Deoxycytidine
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000014	Deoxycytidine
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000050	Adenosine
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000050	Adenosine
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000089	Cytidine
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000089	Cytidine
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000250	Pyrophosphate
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000273	Thymidine
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000273	Thymidine
+Nucleotide salvage	reactome	R-HSA-8956321	hmdb:HMDB0000296	Uridine
+Nucleotide salvage	wiki	WP4082	hmdb:HMDB0000296	Uridine
+Nucleotide salvage defects	reactome	R-HSA-9734207	hmdb:HMDB0000050	Adenosine
+Nucleotide-like (purinergic) receptors	reactome	R-HSA-418038	hmdb:HMDB0000050	Adenosine
+OAS antiviral response	reactome	R-HSA-8983711	hmdb:HMDB0000250	Pyrophosphate
+OAS antiviral response	wiki	WP4460	hmdb:HMDB0000250	Pyrophosphate
+Omega-9 fatty acid synthesis	wiki	WP4724	hmdb:HMDB0000944	Behenic acid,C22:0
+Omega-9 fatty acid synthesis	wiki	WP4724	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Omega-9 fatty acid synthesis	wiki	WP4724	hmdb:HMDB0002212	Arachidic acid,Arachic acid
+Ophthalmate biosynthesis in hepatocytes	wiki	WP4487	hmdb:HMDB0000125	Glutathione
+Opioid signaling	wiki	WP1978	hmdb:HMDB0000250	Pyrophosphate
+Opioid Signalling	reactome	R-HSA-111885	hmdb:HMDB0000250	Pyrophosphate
+Organic cation transport	reactome	R-HSA-549127	hmdb:HMDB0000259	Serotonin
+Organic cation/anion/zwitterion transport	reactome	R-HSA-549132	hmdb:HMDB0000259	Serotonin
+Overview of nanoparticle effects	wiki	WP3287	hmdb:HMDB0000125	Glutathione
+Pantothenate and CoA Biosynthesis	kegg	map00770	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Pantothenate and CoA Biosynthesis	kegg	map00770	hmdb:HMDB0002991	Cysteamine,2AET
+PAOs oxidise polyamines to amines	reactome	R-HSA-141334	hmdb:HMDB0001414	Putrescine
+Paracetamol ADME	reactome	R-HSA-9753281	hmdb:HMDB0000125	Glutathione
+PCNA-Dependent Long Patch Base Excision Repair	reactome	R-HSA-5651801	hmdb:HMDB0000250	Pyrophosphate
+PD-1 signaling	reactome	R-HSA-389948	hmdb:HMDB0000250	Pyrophosphate
+Peroxisomal lipid metabolism	reactome	R-HSA-390918	hmdb:HMDB0000250	Pyrophosphate
+Peroxisomal lipid metabolism	wiki	WP1878	hmdb:HMDB0000250	Pyrophosphate
+Peroxisomal lipid metabolism	reactome	R-HSA-390918	hmdb:HMDB0000824	Propionylcarnitine,PROPIONYLCARNITINE (C3),O-Propanoylcarnitine
+Peroxisomal lipid metabolism	wiki	WP1878	hmdb:HMDB0000824	Propionylcarnitine,PROPIONYLCARNITINE (C3),O-Propanoylcarnitine
+Phenylalanine and tyrosine metabolism	reactome	R-HSA-8963691	hmdb:HMDB0000125	Glutathione
+Phenylalanine and tyrosine metabolism	wiki	WP4981	hmdb:HMDB0000125	Glutathione
+Phosphate bond hydrolysis by NUDT proteins	reactome	R-HSA-2393930	hmdb:HMDB0000250	Pyrophosphate
+Phosphatidylinositol Phosphate Metabolism	kegg	map00562	hmdb:HMDB0000213	myo-Inositol 1-phosphate
+Phosphatidylinositol Phosphate Metabolism	kegg	map00562	hmdb:HMDB0001313	D-myo-Inositol 4-phosphate,I4P
+PKA activation	reactome	R-HSA-163615	hmdb:HMDB0000250	Pyrophosphate
+PKA activation in glucagon signalling	reactome	R-HSA-164378	hmdb:HMDB0000250	Pyrophosphate
+PKA-mediated phosphorylation of CREB	reactome	R-HSA-111931	hmdb:HMDB0000250	Pyrophosphate
+PKR-mediated signaling	reactome	R-HSA-9833482	hmdb:HMDB0000250	Pyrophosphate
+Platelet degranulation	reactome	R-HSA-114608	hmdb:HMDB0000250	Pyrophosphate
+Platelet degranulation	reactome	R-HSA-114608	hmdb:HMDB0000259	Serotonin
+Platelet homeostasis	reactome	R-HSA-418346	hmdb:HMDB0000250	Pyrophosphate
+Platelet homeostasis	wiki	WP1885	hmdb:HMDB0000250	Pyrophosphate
+Platelet homeostasis	reactome	R-HSA-418346	hmdb:HMDB0000904	Citrulline
+Platelet homeostasis	wiki	WP1885	hmdb:HMDB0000904	Citrulline
+Platelet-mediated interactions with vascular and circulating cells	wiki	WP4462	hmdb:HMDB0000259	Serotonin
+PLC beta mediated events	reactome	R-HSA-112043	hmdb:HMDB0000250	Pyrophosphate
+POLB-Dependent Long Patch Base Excision Repair	reactome	R-HSA-110362	hmdb:HMDB0000250	Pyrophosphate
+Post NMDA receptor activation events	reactome	R-HSA-438064	hmdb:HMDB0000250	Pyrophosphate
+Processing and activation of SUMO	reactome	R-HSA-3215018	hmdb:HMDB0000250	Pyrophosphate
+Propanoate metabolism	kegg	map00640	hmdb:HMDB0000030	Biotin
+Protein repair	reactome	R-HSA-5676934	hmdb:HMDB0000168	L-Asparagine
+Protein repair	wiki	WP3800	hmdb:HMDB0000168	L-Asparagine
+Protein ubiquitination	reactome	R-HSA-8852135	hmdb:HMDB0000250	Pyrophosphate
+Protein ubiquitination	wiki	WP4125	hmdb:HMDB0000250	Pyrophosphate
+Purine catabolism	reactome	R-HSA-74259	hmdb:HMDB0000050	Adenosine
+Purine catabolism	reactome	R-HSA-74259	hmdb:HMDB0000250	Pyrophosphate
+Purine metabolism	wiki	WP4792	hmdb:HMDB0000050	Adenosine
+Purine metabolism and related disorders	wiki	WP4224	hmdb:HMDB0000050	Adenosine
+Purine ribonucleoside monophosphate biosynthesis	reactome	R-HSA-73817	hmdb:HMDB0000250	Pyrophosphate
+Purine salvage	reactome	R-HSA-74217	hmdb:HMDB0000050	Adenosine
+Purine salvage	reactome	R-HSA-74217	hmdb:HMDB0000250	Pyrophosphate
+Purinergic signaling	wiki	WP4900	hmdb:HMDB0000050	Adenosine
+Purinergic signaling	wiki	WP4900	hmdb:HMDB0000125	Glutathione
+Pyrimidine biosynthesis	reactome	R-HSA-500753	hmdb:HMDB0000250	Pyrophosphate
+Pyrimidine catabolism	reactome	R-HSA-73621	hmdb:HMDB0000014	Deoxycytidine
+Pyrimidine catabolism	reactome	R-HSA-73621	hmdb:HMDB0000026	Ureidopropionic acid
+Pyrimidine catabolism	reactome	R-HSA-73621	hmdb:HMDB0000089	Cytidine
+Pyrimidine catabolism	reactome	R-HSA-73621	hmdb:HMDB0000273	Thymidine
+Pyrimidine catabolism	reactome	R-HSA-73621	hmdb:HMDB0000296	Uridine
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000014	Deoxycytidine
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000026	Ureidopropionic acid
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000089	Cytidine
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000250	Pyrophosphate
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000273	Thymidine
+Pyrimidine metabolism	wiki	WP4022	hmdb:HMDB0000296	Uridine
+Pyrimidine metabolism and related diseases	wiki	WP4225	hmdb:HMDB0000026	Ureidopropionic acid
+Pyrimidine metabolism and related diseases	wiki	WP4225	hmdb:HMDB0000089	Cytidine
+Pyrimidine metabolism and related diseases	wiki	WP4225	hmdb:HMDB0000273	Thymidine
+Pyrimidine metabolism and related diseases	wiki	WP4225	hmdb:HMDB0000296	Uridine
+Pyrimidine metabolism and related diseases	wiki	WP4225	hmdb:HMDB0000904	Citrulline
+Pyrimidine salvage	reactome	R-HSA-73614	hmdb:HMDB0000014	Deoxycytidine
+Pyrimidine salvage	reactome	R-HSA-73614	hmdb:HMDB0000089	Cytidine
+Pyrimidine salvage	reactome	R-HSA-73614	hmdb:HMDB0000273	Thymidine
+Pyrimidine salvage	reactome	R-HSA-73614	hmdb:HMDB0000296	Uridine
+Pyrophosphate hydrolysis	reactome	R-HSA-71737	hmdb:HMDB0000250	Pyrophosphate
+Pyrophosphate hydrolysis	wiki	WP4037	hmdb:HMDB0000250	Pyrophosphate
+Pyruvate metabolism	kegg	map00620	hmdb:HMDB0000030	Biotin
+Pyruvate metabolism	reactome	R-HSA-70268	hmdb:HMDB0000125	Glutathione
+Pyruvate metabolism	kegg	map00620	hmdb:HMDB0000125	Glutathione
+Pyruvate metabolism and Citric Acid (TCA) cycle	reactome	R-HSA-71406	hmdb:HMDB0000125	Glutathione
+RAB geranylgeranylation	reactome	R-HSA-8873719	hmdb:HMDB0000250	Pyrophosphate
+RAB geranylgeranylation	wiki	WP4071	hmdb:HMDB0000250	Pyrophosphate
+Rap1 signaling	wiki	WP1895	hmdb:HMDB0000250	Pyrophosphate
+Rap1 signalling	reactome	R-HSA-392517	hmdb:HMDB0000250	Pyrophosphate
+RAS processing	reactome	R-HSA-9648002	hmdb:HMDB0000250	Pyrophosphate
+Recycling of bile acids and salts	reactome	R-HSA-159418	hmdb:HMDB0000250	Pyrophosphate
+Regulation of insulin secretion	reactome	R-HSA-422356	hmdb:HMDB0000250	Pyrophosphate
+Regulation of mitotic cell cycle	reactome	R-HSA-453276	hmdb:HMDB0000250	Pyrophosphate
+Regulation of mitotic cell cycle	wiki	WP4109	hmdb:HMDB0000250	Pyrophosphate
+Regulation of pyruvate dehydrogenase (PDH) complex	reactome	R-HSA-204174	hmdb:HMDB0000125	Glutathione
+Regulation of thyroid hormone activity	reactome	R-HSA-350864	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Replication of the SARS-CoV-1 genome	reactome	R-HSA-9682706	hmdb:HMDB0000250	Pyrophosphate
+Replication of the SARS-CoV-2 genome	reactome	R-HSA-9694686	hmdb:HMDB0000250	Pyrophosphate
+Resolution of Abasic Sites (AP sites)	reactome	R-HSA-73933	hmdb:HMDB0000250	Pyrophosphate
+Resolution of Abasic Sites (AP sites)	wiki	WP3345	hmdb:HMDB0000250	Pyrophosphate
+Resolution of AP sites via the multiple-nucleotide patch replacement pathway	reactome	R-HSA-110373	hmdb:HMDB0000250	Pyrophosphate
+Resolution of AP sites via the single-nucleotide replacement pathway	reactome	R-HSA-110381	hmdb:HMDB0000250	Pyrophosphate
+Respiratory syncytial virus (RSV) genome replication, transcription and translation	reactome	R-HSA-9820965	hmdb:HMDB0000250	Pyrophosphate
+Respiratory syncytial virus genome transcription	reactome	R-HSA-9828642	hmdb:HMDB0000250	Pyrophosphate
+Respiratory Syncytial Virus Infection Pathway	reactome	R-HSA-9820952	hmdb:HMDB0000250	Pyrophosphate
+Response to elevated platelet cytosolic Ca ions	wiki	WP1903	hmdb:HMDB0000250	Pyrophosphate
+Response to elevated platelet cytosolic Ca ions	wiki	WP1903	hmdb:HMDB0000259	Serotonin
+Response to elevated platelet cytosolic Ca2+	reactome	R-HSA-76005	hmdb:HMDB0000250	Pyrophosphate
+Response to elevated platelet cytosolic Ca2+	reactome	R-HSA-76005	hmdb:HMDB0000259	Serotonin
+Reversal of alkylation damage by DNA dioxygenases	reactome	R-HSA-73943	hmdb:HMDB0000050	Adenosine
+Reverse Transcription of HIV RNA	reactome	R-HSA-162589	hmdb:HMDB0000250	Pyrophosphate
+Ribavirin ADME	reactome	R-HSA-9755088	hmdb:HMDB0000250	Pyrophosphate
+Riboflavin and CoQ disorders	wiki	WP5037	hmdb:HMDB0000250	Pyrophosphate
+Riboflavin and CoQ disorders	wiki	WP5037	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Riboflavin Metabolism	kegg	map00740	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Riboflavin Metabolism	kegg	map00740	hmdb:HMDB0002434	Hydroquinone
+RNA Polymerase II HIV Promoter Escape	reactome	R-HSA-167162	hmdb:HMDB0000250	Pyrophosphate
+RNA Polymerase II Promoter Escape	reactome	R-HSA-73776	hmdb:HMDB0000250	Pyrophosphate
+RNA Polymerase II Transcription Initiation	reactome	R-HSA-75953	hmdb:HMDB0000250	Pyrophosphate
+RNA Polymerase II Transcription Initiation And Promoter Clearance	reactome	R-HSA-76042	hmdb:HMDB0000250	Pyrophosphate
+Role of hypoxia, angiogenesis, and FGF pathway in OA chondrocyte hypertrophy	wiki	WP5373	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+ROS and RNS production in phagocytes	reactome	R-HSA-1222556	hmdb:HMDB0000125	Glutathione
+ROS and RNS production in phagocytes	wiki	WP3551	hmdb:HMDB0000125	Glutathione
+ROS and RNS production in phagocytes	reactome	R-HSA-1222556	hmdb:HMDB0000904	Citrulline
+ROS and RNS production in phagocytes	wiki	WP3551	hmdb:HMDB0000904	Citrulline
+RSV-host interactions	reactome	R-HSA-9833110	hmdb:HMDB0000250	Pyrophosphate
+SARS-CoV-1 Genome Replication and Transcription	reactome	R-HSA-9679514	hmdb:HMDB0000250	Pyrophosphate
+SARS-CoV-1 Infection	wiki	WP5020	hmdb:HMDB0000250	Pyrophosphate
+SARS-CoV-2 Genome Replication and Transcription	reactome	R-HSA-9694682	hmdb:HMDB0000250	Pyrophosphate
+SARS-CoV-2 Infection	wiki	WP5021	hmdb:HMDB0000250	Pyrophosphate
+SARS-CoV-2 modulates host translation machinery	reactome	R-HSA-9754678	hmdb:HMDB0000897	7-Methylguanine,7-methylguanosine cap
+Selenocompound metabolism	kegg	map00450	hmdb:HMDB0000050	Adenosine
+Selenocysteine synthesis	reactome	R-HSA-2408557	hmdb:HMDB0000250	Pyrophosphate
+Serotonin and anxiety-related events	wiki	WP3944	hmdb:HMDB0000259	Serotonin
+Serotonin and melatonin biosynthesis	reactome	R-HSA-209931	hmdb:HMDB0000259	Serotonin
+Serotonin clearance from the synaptic cleft	reactome	R-HSA-380615	hmdb:HMDB0000259	Serotonin
+Serotonin HTR1 group and FOS pathway	wiki	WP722	hmdb:HMDB0000259	Serotonin
+Serotonin Neurotransmitter Release Cycle	reactome	R-HSA-181429	hmdb:HMDB0000259	Serotonin
+Serotonin receptor 2 and ELK-SRF/GATA4 signaling	wiki	WP732	hmdb:HMDB0000259	Serotonin
+Serotonin receptor 4/6/7 and NR3C signaling	wiki	WP734	hmdb:HMDB0000259	Serotonin
+Serotonin receptors	reactome	R-HSA-390666	hmdb:HMDB0000259	Serotonin
+Serotonin transporter activity	wiki	WP1455	hmdb:HMDB0000259	Serotonin
+Sialic acid metabolism	reactome	R-HSA-4085001	hmdb:HMDB0000250	Pyrophosphate
+Sialic acid metabolism	wiki	WP3363	hmdb:HMDB0000250	Pyrophosphate
+Signaling by NTRK1	wiki	WP1873	hmdb:HMDB0000050	Adenosine
+Signaling by NTRK1 (TRKA)	reactome	R-HSA-187037	hmdb:HMDB0000050	Adenosine
+Signaling by NTRKs	reactome	R-HSA-166520	hmdb:HMDB0000050	Adenosine
+Signaling by VEGF	reactome	R-HSA-194138	hmdb:HMDB0000904	Citrulline
+Signaling by VEGF	wiki	WP1919	hmdb:HMDB0000904	Citrulline
+Signaling by VEGF	wiki	WP1919	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Smooth Muscle Contraction	reactome	R-HSA-445355	hmdb:HMDB0000250	Pyrophosphate
+Smooth Muscle Contraction	wiki	WP3811	hmdb:HMDB0000250	Pyrophosphate
+snRNP Assembly	reactome	R-HSA-191859	hmdb:HMDB0000897	7-Methylguanine,7-methylguanosine cap
+Steroid Biosynthesis	kegg	map00100	hmdb:HMDB0001251	Lanosterol,Lanosterin,ST 30:2;O
+STING mediated induction of host immune responses	reactome	R-HSA-1834941	hmdb:HMDB0000250	Pyrophosphate
+Sulfation biotransformation reaction	wiki	WP692	hmdb:HMDB0000125	Glutathione
+Sulfide oxidation to sulfate	reactome	R-HSA-1614517	hmdb:HMDB0000125	Glutathione
+Sulfur amino acid metabolism	reactome	R-HSA-1614635	hmdb:HMDB0000050	Adenosine
+Sulfur amino acid metabolism	wiki	WP3574	hmdb:HMDB0000050	Adenosine
+Sulfur amino acid metabolism	reactome	R-HSA-1614635	hmdb:HMDB0000125	Glutathione
+Sulfur amino acid metabolism	wiki	WP3574	hmdb:HMDB0000125	Glutathione
+Sulfur amino acid metabolism	reactome	R-HSA-1614635	hmdb:HMDB0000250	Pyrophosphate
+Sulfur amino acid metabolism	wiki	WP3574	hmdb:HMDB0000250	Pyrophosphate
+Sulfur amino acid metabolism	wiki	WP3574	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Sulfur amino acid metabolism	reactome	R-HSA-1614635	hmdb:HMDB0002991	Cysteamine,2AET
+Sulfur amino acid metabolism	wiki	WP3574	hmdb:HMDB0002991	Cysteamine,2AET
+SUMO is conjugated to E1 (UBA2:SAE1)	reactome	R-HSA-3065676	hmdb:HMDB0000250	Pyrophosphate
+SUMOylation	wiki	WP2778	hmdb:HMDB0000250	Pyrophosphate
+Surfactant metabolism	reactome	R-HSA-5683826	hmdb:HMDB0000050	Adenosine
+Surfactant metabolism	wiki	WP3579	hmdb:HMDB0000050	Adenosine
+Synaptic vesicle pathway	wiki	WP2267	hmdb:HMDB0000259	Serotonin
+Synthesis of 12-eicosatetraenoic acid derivatives	reactome	R-HSA-2142712	hmdb:HMDB0000125	Glutathione
+Synthesis of 15-eicosatetraenoic acid derivatives	reactome	R-HSA-2142770	hmdb:HMDB0000125	Glutathione
+Synthesis of 5-eicosatetraenoic acids	reactome	R-HSA-2142688	hmdb:HMDB0000125	Glutathione
+Synthesis of active ubiquitin: roles of E1 and E2 enzymes	reactome	R-HSA-8866652	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of bile acids and bile salts	reactome	R-HSA-192105	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of bile acids and bile salts via 24-hydroxycholesterol	reactome	R-HSA-193775	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of bile acids and bile salts via 7alpha-hydroxycholesterol	reactome	R-HSA-193368	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of diphthamide-EEF2	reactome	R-HSA-5358493	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of Dolichyl-phosphate	reactome	R-HSA-446199	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of GDP-mannose	reactome	R-HSA-446205	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of IP2, IP, and Ins in the cytosol	reactome	R-HSA-1855183	hmdb:HMDB0000213	myo-Inositol 1-phosphate
+Synthesis of IP2, IP, and Ins in the cytosol	reactome	R-HSA-1855183	hmdb:HMDB0001313	D-myo-Inositol 4-phosphate,I4P
+Synthesis of Ketone Bodies	reactome	R-HSA-77111	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of Leukotrienes (LT) and Eoxins (EX)	reactome	R-HSA-2142691	hmdb:HMDB0000125	Glutathione
+Synthesis of PC	reactome	R-HSA-1483191	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of PE	reactome	R-HSA-1483213	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of PG	reactome	R-HSA-1483148	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of PI	reactome	R-HSA-1483226	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of Prostaglandins (PG) and Thromboxanes (TX)	reactome	R-HSA-2162123	hmdb:HMDB0000125	Glutathione
+Synthesis of substrates in N-glycan biosythesis	reactome	R-HSA-446219	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of UDP-N-acetyl-glucosamine	reactome	R-HSA-446210	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of very long-chain fatty acyl-CoAs	reactome	R-HSA-75876	hmdb:HMDB0000250	Pyrophosphate
+Synthesis of wybutosine at G37 of tRNA(Phe)	wiki	WP3553	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+T cell modulation in pancreatic cancer	wiki	WP5078	hmdb:HMDB0000050	Adenosine
+Taurine and Hypotaurine Metabolism	kegg	map00430	hmdb:HMDB0002991	Cysteamine,2AET
+Termination of translesion DNA synthesis	reactome	R-HSA-5656169	hmdb:HMDB0000250	Pyrophosphate
+The phototransduction cascade	reactome	R-HSA-2514856	hmdb:HMDB0000250	Pyrophosphate
+Threonine catabolism	reactome	R-HSA-8849175	hmdb:HMDB0000250	Pyrophosphate
+Threonine catabolism	wiki	WP3803	hmdb:HMDB0000250	Pyrophosphate
+Thyroxine (thyroid hormone) production	wiki	WP1981	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Thyroxine biosynthesis	reactome	R-HSA-209968	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Tolerance by Mtb to nitric oxide produced by macrophages	reactome	R-HSA-1222538	hmdb:HMDB0000125	Glutathione
+TP53 Regulates Metabolic Genes	reactome	R-HSA-5628897	hmdb:HMDB0000125	Glutathione
+TP53 Regulates Metabolic Genes	wiki	WP3349	hmdb:HMDB0000125	Glutathione
+Trans-sulfuration pathway	wiki	WP2333	hmdb:HMDB0000125	Glutathione
+Trans-sulfuration, one-carbon metabolism and related pathways	wiki	WP2525	hmdb:HMDB0000125	Glutathione
+Trans-sulfuration, one-carbon metabolism and related pathways	wiki	WP2525	hmdb:HMDB0001414	Putrescine
+Transcription of SARS-CoV-1 sgRNAs	reactome	R-HSA-9682708	hmdb:HMDB0000250	Pyrophosphate
+Transcription of SARS-CoV-2 sgRNAs	reactome	R-HSA-9694786	hmdb:HMDB0000250	Pyrophosphate
+Transcription of the HIV genome	reactome	R-HSA-167172	hmdb:HMDB0000250	Pyrophosphate
+Transcription-Coupled Nucleotide Excision Repair (TC-NER)	reactome	R-HSA-6781827	hmdb:HMDB0000250	Pyrophosphate
+Transcriptional regulation by RUNX2	reactome	R-HSA-8878166	hmdb:HMDB0000250	Pyrophosphate
+Transcriptional regulation by RUNX2	wiki	WP4415	hmdb:HMDB0000250	Pyrophosphate
+Translation of Replicase and Assembly of the Replication Transcription Complex	reactome	R-HSA-9694676	hmdb:HMDB0000250	Pyrophosphate
+Translesion Synthesis by POLH	reactome	R-HSA-110320	hmdb:HMDB0000250	Pyrophosphate
+Translesion synthesis by POLI	reactome	R-HSA-5656121	hmdb:HMDB0000250	Pyrophosphate
+Translesion synthesis by POLK	reactome	R-HSA-5655862	hmdb:HMDB0000250	Pyrophosphate
+Translesion synthesis by REV1	reactome	R-HSA-110312	hmdb:HMDB0000250	Pyrophosphate
+Translesion synthesis by Y family DNA polymerases bypasses lesions on DNA template	reactome	R-HSA-110313	hmdb:HMDB0000250	Pyrophosphate
+Transport and synthesis of PAPS	reactome	R-HSA-174362	hmdb:HMDB0000250	Pyrophosphate
+Transport of fatty acids	reactome	R-HSA-804914	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Transport of fatty acids	reactome	R-HSA-804914	hmdb:HMDB0002212	Arachidic acid,Arachic acid
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000050	Adenosine
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000089	Cytidine
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000259	Serotonin
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000273	Thymidine
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000296	Uridine
+Transport of nucleosides and free purine and pyrimidine bases across the plasma membrane	reactome	R-HSA-83936	hmdb:HMDB0000630	Cytosine
+Transport of organic anions	reactome	R-HSA-879518	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000030	Biotin
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000030	Biotin
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000050	Adenosine
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000050	Adenosine
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000089	Cytidine
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000089	Cytidine
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000259	Serotonin
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000259	Serotonin
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000273	Thymidine
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000273	Thymidine
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000296	Uridine
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000296	Uridine
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0000630	Cytosine
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0000630	Cytosine
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0002003	Tetracosanoic acid,Lignoceric acid,Carnaubic acid
+Transport of vitamins, nucleosides, and related molecules	reactome	R-HSA-425397	hmdb:HMDB0002212	Arachidic acid,Arachic acid
+Transport of vitamins, nucleosides, and related molecules	wiki	WP1937	hmdb:HMDB0002212	Arachidic acid,Arachic acid
+tRNA Aminoacylation	reactome	R-HSA-379724	hmdb:HMDB0000168	L-Asparagine
+tRNA aminoacylation	wiki	WP1938	hmdb:HMDB0000168	L-Asparagine
+tRNA Aminoacylation	reactome	R-HSA-379724	hmdb:HMDB0000250	Pyrophosphate
+tRNA aminoacylation	wiki	WP1938	hmdb:HMDB0000250	Pyrophosphate
+tRNA modification in the mitochondrion	reactome	R-HSA-6787450	hmdb:HMDB0000250	Pyrophosphate
+tRNA modification in the mitochondrion	wiki	WP3684	hmdb:HMDB0000250	Pyrophosphate
+tRNA modification in the nucleus and cytosol	reactome	R-HSA-6782315	hmdb:HMDB0000250	Pyrophosphate
+tRNA modification in the nucleus and cytosol	wiki	WP3561	hmdb:HMDB0000250	Pyrophosphate
+tRNA processing in the mitochondrion	reactome	R-HSA-6785470	hmdb:HMDB0000250	Pyrophosphate
+tRNA processing in the mitochondrion	wiki	WP3809	hmdb:HMDB0000250	Pyrophosphate
+tRNA processing in the nucleus	reactome	R-HSA-6784531	hmdb:HMDB0000250	Pyrophosphate
+tRNA processing in the nucleus	wiki	WP3552	hmdb:HMDB0000250	Pyrophosphate
+Tryptophan catabolism	reactome	R-HSA-71240	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Tryptophan catabolism	wiki	WP4994	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Tryptophan catabolism leading to NAD+ production	wiki	WP4210	hmdb:HMDB0000259	Serotonin
+Tryptophan catabolism leading to NAD+ production	wiki	WP4210	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Tryptophan metabolism	wiki	WP465	hmdb:HMDB0000259	Serotonin
+Tryptophan metabolism	kegg	map00380	hmdb:HMDB0000259	Serotonin
+Tryptophan metabolism	wiki	WP465	hmdb:HMDB0000303	Tryptamine
+Tryptophan metabolism	kegg	map00380	hmdb:HMDB0000303	Tryptamine
+Tryptophan metabolism	kegg	map00380	hmdb:HMDB0000684	L-Kynurenine,Kynurenine
+Tyrosine catabolism	reactome	R-HSA-8963684	hmdb:HMDB0000125	Glutathione
+Tyrosine metabolism	kegg	map00350	hmdb:HMDB0000248	Thyroxine,Thyroxine (T4)
+Ubiquinol biosynthesis	reactome	R-HSA-2142789	hmdb:HMDB0000250	Pyrophosphate
+Uptake and actions of bacterial toxins	reactome	R-HSA-5339562	hmdb:HMDB0000250	Pyrophosphate
+Uptake and function of anthrax toxins	reactome	R-HSA-5210891	hmdb:HMDB0000250	Pyrophosphate
+Uptake and function of anthrax toxins	wiki	WP3390	hmdb:HMDB0000250	Pyrophosphate
+Urea cycle	reactome	R-HSA-70635	hmdb:HMDB0000250	Pyrophosphate
+Urea cycle	wiki	WP4973	hmdb:HMDB0000250	Pyrophosphate
+Urea cycle	reactome	R-HSA-70635	hmdb:HMDB0000904	Citrulline
+Urea cycle	wiki	WP4973	hmdb:HMDB0000904	Citrulline
+Urea cycle and associated pathways	wiki	WP4595	hmdb:HMDB0000296	Uridine
+Urea cycle and associated pathways	wiki	WP4595	hmdb:HMDB0000904	Citrulline
+Urea cycle and metabolism of amino groups	wiki	WP497	hmdb:HMDB0000128	Guanidoacetic acid
+Urea cycle and metabolism of amino groups	wiki	WP497	hmdb:HMDB0000904	Citrulline
+Urea cycle and metabolism of amino groups	wiki	WP497	hmdb:HMDB0001414	Putrescine
+Urea cycle and related diseases	wiki	WP4571	hmdb:HMDB0000904	Citrulline
+Valine, leucine and isoleucine degradation	kegg	map00280	hmdb:HMDB0000030	Biotin
+Vasopressin regulates renal water homeostasis via Aquaporins	reactome	R-HSA-432040	hmdb:HMDB0000250	Pyrophosphate
+Vasopressin regulates renal water homeostasis via aquaporins	wiki	WP2662	hmdb:HMDB0000250	Pyrophosphate
+VEGFA-VEGFR2 Pathway	reactome	R-HSA-4420097	hmdb:HMDB0000904	Citrulline
+VEGFR2 mediated vascular permeability	reactome	R-HSA-5218920	hmdb:HMDB0000904	Citrulline
+Visual phototransduction	wiki	WP2776	hmdb:HMDB0000250	Pyrophosphate
+Vitamin B12 disorders	wiki	WP4271	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Vitamin B2 (riboflavin) metabolism	reactome	R-HSA-196843	hmdb:HMDB0000250	Pyrophosphate
+Vitamin B5 (pantothenate) metabolism	reactome	R-HSA-199220	hmdb:HMDB0000250	Pyrophosphate
+Vitamin B5 (pantothenate) metabolism	reactome	R-HSA-199220	hmdb:HMDB0002991	Cysteamine,2AET
+Vitamin B6 Metabolism	kegg	map00750	hmdb:HMDB0001520	Flavin mononucleotide,FMN
+Vitamin C (ascorbate) metabolism	reactome	R-HSA-196836	hmdb:HMDB0000125	Glutathione
+Z-decay: degradation of maternal mRNAs by zygotically expressed factors	reactome	R-HSA-9820865	hmdb:HMDB0000250	Pyrophosphate

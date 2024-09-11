@@ -1,0 +1,93 @@
+ONTOLOGY SOURCE REFERENCE
+Term Source Name	OHMI	MONDO	CHEBI	GENEPIO	OBI	EFO	NCIT	MS	
+Term Source File					http://data.bioontology.org/ontologies/OBI	http://data.bioontology.org/ontologies/EFO			http://purl.obolibrary.org/obo/ncit.owl
+Term Source Version					29	132			18.10e
+Term Source Description					Ontology for Biomedical Investigations	Experimental Factor Ontology			NCI Thesaurus OBO Edition
+INVESTIGATION
+Investigation Identifier	MTBLS8802
+Investigation Title	Investigation
+Investigation Description	Created using the MetaboLights Online Editor (MOE)
+Investigation Submission Date	2023-10-20
+Investigation Public Release Date	2023-11-01
+Comment[Created With Configuration]	MetaboLightsConfig20150707
+Comment[Last Opened With Configuration]	MetaboLightsConfig20150707
+INVESTIGATION PUBLICATIONS
+Investigation PubMed ID
+Investigation Publication DOI
+Investigation Publication Author List
+Investigation Publication Title
+Investigation Publication Status
+Investigation Publication Status Term Accession Number
+Investigation Publication Status Term Source REF
+INVESTIGATION CONTACTS
+Investigation Person Last Name
+Investigation Person First Name
+Investigation Person Mid Initials
+Investigation Person Email
+Investigation Person Phone
+Investigation Person Fax
+Investigation Person Address
+Investigation Person Affiliation
+Investigation Person Roles
+Investigation Person Roles Term Accession Number
+Investigation Person Roles Term Source REF
+STUDY
+Study Identifier	MTBLS8802
+Study Title	Gut butyrate-producers confer post-infarction cardiac protection.
+Study Description	The gut microbiome and its metabolites are increasingly implicated in several cardiovascular diseases, but their role in human myocardial infarction (MI) injury responses have yet to be established. To address this, we examined stool samples from 77 ST-elevation MI (STEMI) patients using 16 S V3-V4 next-generation sequencing, metagenomics and machine learning. Our analysis identified an enriched population of butyrate-producing bacteria. These findings were then validated using a controlled ischemia/reperfusion model using eight nonhuman primates. To elucidate mechanisms, we inoculated gnotobiotic mice with these bacteria and found that they can produce beta-hydroxybutyrate, supporting cardiac function post-MI. This was further confirmed using HMGCS2-deficient mice which lack endogenous ketogenesis and have poor outcomes after MI. Inoculation increased plasma ketone levels and provided significant improvements in cardiac function post-MI. Together, this demonstrates a previously unknown role of gut butyrate-producers in the post-MI response.
+Study Submission Date	2023-10-20
+Study Public Release Date	2023-11-01
+Study File Name	s_MTBLS8802.txt
+STUDY DESIGN DESCRIPTORS
+Study Design Type	microbiota	myocardial infarction	(R)-3-hydroxybutyrate	cardiac injury
+Study Design Type Term Accession Number	http://purl.obolibrary.org/obo/OHMI_0000463	http://purl.obolibrary.org/obo/MONDO_0005068	http://purl.obolibrary.org/obo/CHEBI_10983	http://purl.obolibrary.org/obo/GENEPIO_0100074
+Study Design Type Term Source REF	OHMI	MONDO	CHEBI	GENEPIO
+STUDY PUBLICATIONS
+Study PubMed ID	37945565
+Study Publication DOI	10.1038/s41467-023-43167-5
+Study Publication Author List	Chen Hung-Chih, Liu Yen-Wen, Chang Kuan-Cheng, Wu Yen-Wen, Chen Yi-Ming, Chao Yu-Kai, You Min-Yi, Lundy David J., Lin Chen-Ju, Hsieh Marvin L., Cheng Yu-Che, Prajnamitra Ray P., Lin Po-Ju, Ruan Shu-Chian, Chen David Hsin-Kuang, Shih Edward S. C., Chen Ke-Wei, Chang Shih-Sheng, Chang Cindy M. C., Puntney Riley, Moy Amy Wu, Cheng Yuan-Yuan, Chien Hsin-Yuan, Lee Jia-Jung, Wu Deng-Chyang, Hwang Ming-Jing, Coonen Jennifer, Hacker Timothy A., Yen C-L. Eric, Rey Federico E., Kamp Timothy J., Hsieh Patrick C. H.
+Study Publication Title	Gut butyrate-producers confer post-infarction cardiac protection
+Study Publication Status	Published
+Study Publication Status Term Accession Number	http://www.ebi.ac.uk/efo/EFO_0001796
+Study Publication Status Term Source REF	EFO
+STUDY FACTORS
+Study Factor Name	Disease
+Study Factor Type	disease
+Study Factor Type Term Accession Number	http://www.ebi.ac.uk/efo/EFO_0000408
+Study Factor Type Term Source REF	EFO
+STUDY ASSAYS
+Study Assay File Name	a_MTBLS8802_LC-MS_positive_hilic_metabolite_profiling.txt
+Study Assay Measurement Type	metabolite profiling
+Study Assay Measurement Type Term Accession Number	http://purl.obolibrary.org/obo/OBI_0000366
+Study Assay Measurement Type Term Source REF	OBI
+Study Assay Technology Type	mass spectrometry
+Study Assay Technology Type Term Accession Number	http://purl.obolibrary.org/obo/OBI_0000470
+Study Assay Technology Type Term Source REF	OBI
+Study Assay Technology Platform	Liquid Chromatography MS - positive - hilic
+STUDY PROTOCOLS
+Study Protocol Name	Sample collection	Extraction	Chromatography	Mass spectrometry	Data transformation	Metabolite identification
+Study Protocol Type	Sample collection	Extraction	Chromatography	Mass spectrometry	Data transformation	Metabolite identification
+Study Protocol Type Term Accession Number						
+Study Protocol Type Term Source REF						
+Study Protocol Description	<p>The plasma were withdraw from patients with confirmed ST-elevation myocardial infarction (STEMI) after primary percutaneous coronary intervention (PCI) (defined as STEMIT1) and 14-30 days after intervention (defined as STEMIT2).&nbsp;Samples were kept at -80 °C for later analysis. Age-matched control plasma were obtained from Taiwan Biobank.</p>	<p>The plasma samples were deprived of protein by mixing 10 μL of the plasma samples with 90 μL of methanol. The mixture was centrifuged at 15,000 x g for 15 min and supernatant was filtered through a 0.22 μm PP membrane (RC-4, Sartorius, Göttingen, Germany).&nbsp;Please update this protocol description</p>	<p>The mixture was centrifuged at 15,000 x g for 15 min and supernatant was filtered through a 0.22 μm PP membrane (RC-4, Sartorius, Göttingen, Germany). A total of 3 repeated analysis was performed for each sample using Agilent 1290 UHPLC system coupled with 6540-QTOF (UHPLC-QTOF) (Agilent Technologies, Santa Clara, CA).</p>	<p>A total of 3 repeated analysis was performed for each sample using Agilent 1290 UHPLC system coupled with 6540-QTOF (UHPLC-QTOF) (Agilent Technologies, Santa Clara, CA).&nbsp;</p>	<p>Obtained potential metabolite features were normalized by sum of total peak area, log transformed and autoscaled (mean-centered and divided by the standard deviation of each variable) prior to statistical analysis using MetaboAnalyst 5.0</p>	<p>Acquired total ion chromatogram was processed with True Ion Pick (TIPick) algorithm for background subtraction and peak picking.&nbsp;Peaks were identified by matching m/z to an established in-house database: the National Taiwan University MetaCore Metabolomics Chemical Standard Library.&nbsp;</p>
+Study Protocol URI						
+Study Protocol Version						
+Study Protocol Parameters Name		Post Extraction;Derivatization	Chromatography Instrument;Autosampler model;Column model;Column type;Guard column	Scan polarity;Scan m/z range;Instrument;Ion source;Mass analyzer		
+Study Protocol Parameters Name Term Accession Number		;	;;;;	;;;;		
+Study Protocol Parameters Name Term Source REF		;	;;;;	;;;;		
+Study Protocol Components Name						
+Study Protocol Components Type						
+Study Protocol Components Type Term Accession Number						
+Study Protocol Components Type Term Source REF						
+STUDY CONTACTS
+Study Person Last Name	Chen	Liu	Chang	Wu	Chen	Chao	You	Lundy	Lin	Hsieh	Cheng	Prajnamitra	Lin	Ruan	Chen	Shih	Chen	Chang	Chang	Puntney	Moy	Cheng	Chien	Lee	Wu	Hwang	Coonen	Hacker	Yen	Rey	Kamp	Hsieh
+Study Person First Name	Hung-Chih	Yen-Wen	Kuan-Cheng	Yen-Wen	Yi-Ming	Yu-Kai	Min-Yi	David J	Chen-Ju	Marvin L	Yu-Che	Ray P	Po-Ju	Shu-Chian	David Hsin-Kuang	Edward S C	Ke-Wei	Shih-Sheng	Cindy M C	Riley	Amy Wu	Yuan-Yuan	Hsin-Yuan	Jia-Jung	Deng-Chyang	Ming-Jing	Jennifer	Timothy A	C-L Eric	Federico E	Timothy J	Patrick
+Study Person Mid Initials																																CH
+Study Person Email	byron.hc.chen@gmail.com																															phsieh@ibms.sinica.edu.tw
+Study Person Phone	+886-227899170																															
+Study Person Fax																																
+Study Person Address	128 Sec. 2, Academia Rd. Nankang, Taipei 115, Taiwan																															
+Study Person Affiliation	Institute of Biomedical Sciences, Academia Sinica																															Institute of Biomedical Sciences, Academia Sinica
+Study Person Roles	first author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Author	Investigator
+Study Person Roles Term Accession Number	http://purl.obolibrary.org/obo/MS_1002034	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C42781	http://purl.obolibrary.org/obo/NCIT_C25936
+Study Person Roles Term Source REF	MS																															NCIT
