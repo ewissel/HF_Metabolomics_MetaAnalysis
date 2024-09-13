@@ -42,6 +42,7 @@ library(igraph)
 library(clusterProfiler)
 library(tidyr) ## for some reason, tidyr issues are popping up so let's see what happens if we load this package last
 library(stringr)
+library(pathview)
 
 conflict_prefer("select", winner = "dplyr", quiet = FALSE)
 conflict_prefer("filter", winner = "dplyr", quiet = FALSE)
@@ -600,9 +601,9 @@ pca_all
 ggsave("figs/pca_wo_pv_all.png", dpi = 400, height = 10, width = 10)
 ```
 
-Next we want to detect significance from PCA to see what is qualified for the opls-da analysis. OPLS-DA will overfit data, but it will not always be obvious when this is the case. By only running OPLS-DA on data that is significant from PCA, we reduce the risk of overfitting. In the preprint there are some good citations that discuss this in depth. 
+Next we want to detect significance from PCA to see what is qualified for the opls-da analysis. OPLS-DA will overfit data, but it will not always be obvious when this is the case. By only running OPLS-DA on data that is significant from PCA, we reduce the risk of overfitting. In the preprint there are some good citations that discuss this in depth. The following code chunk is not knit but the results are saved as part of the `.Rdata` file included in the repo on github. Feel free to check out those numbers there. (I got compiling issues where it kept getting stuck running the d3 pca when compiling the document, but not in interactive more. I don't know how to fix that so this is the solution I came up with.)
 
-```{r test pca significance}
+```{r test pca significance, eval = FALSE}
 ## assumes columns are variables/features and rows are sampleIDs / obs
 pca_sig_test <- function(studyID_filt, main_dat){
   
@@ -633,8 +634,8 @@ pca_sig_test <- function(studyID_filt, main_dat){
   ## produces identical results, leaving here only if a reviewer wants to test or see with a scaling method
 }
 
-pca_sig_test("D3", trans_metab)
-pca_sig_test("D1", trans_metab)
+d3_pca_test <- pca_sig_test("D3", trans_metab)
+d1_pca_test <- pca_sig_test("D1", trans_metab)
 ## these are hashed out because it takes awhile to run when not creating the document for github. i recomend reviewers do the same because it takes too long otherwise
 
 ## assumes columns are variables/features and rows are sampleIDs / obs
@@ -644,8 +645,14 @@ pca_sig_test_d2 <- function(studyID_filt, main_dat){
     ungroup() %>%
     dplyr::select(Samples, abun, sample, studyID, heart_cond)%>%
     filter(studyID == studyID_filt & abun > 0) %>%
+    ## special filtering for D2: must be in at least 5 samples, bc otherwise N is too small and the math doesn't like it. 
+    group_by(Samples) %>%
+    count() %>%
+    filter(n >= 5) %>%
+    ungroup() %>%
     select(-studyID) %>% 
-    pivot_wider(names_from = "Samples", values_from = abun , values_fill = 0)  %>%select( -Isovalerate ,-Ornithine, -Isoleucine,  -Isopropanol) ## D2 studies had too few observations for these variables because the overall sample size was so small. the 20% threshold was basically not strong enough for that so needed to remove these as well, unfortunately 
+    pivot_wider(names_from = "Samples", values_from = abun , values_fill = 0) ## dont need evil hardcoded filtering because implemented the at least N observations above
+    #%>%select( -Isovalerate ,-Ornithine, -Isoleucine,  -Isopropanol) ## D2 studies had too few observations for these variables because the overall sample size was so small. the 20% threshold was basically not strong enough for that so needed to remove these as well, unfortunately 
   
   d1_pca <- d1_pca_cat %>% dplyr::select(where(is.numeric))
   ## our data is already scales, so not using the below scaling function. keeping here for other's reference though.
@@ -659,8 +666,12 @@ pca_sig_test_d2 <- function(studyID_filt, main_dat){
   #result2 <- PCAtest(uv_mat, nboot=100, nperm=100, plot = TRUE)
   ## produces identical results, leaving here only if a reviewer wants to test or see with a scaling method
 }
-pca_sig_test_d2("D2_SALIVA", trans_metab)
-pca_sig_test_d2("D2_EBC", trans_metab)#
+d2_saliva_pca_test <- pca_sig_test_d2("D2_SALIVA", trans_metab)
+d2_ebc_pca_test <- pca_sig_test_d2("D2_EBC", trans_metab)#
+
+trans_metab %>% ungroup() %>%
+    dplyr::select(Samples, abun, sample, studyID, heart_cond) %>%
+    filter(studyID == "D2_SALIVA" & abun > 0) 
 
 ```
 
@@ -698,7 +709,7 @@ univariate_testing <- function(studyID_filt, main_dat){
       }
     }
   ## after math add info to file  
-  fname = paste0("univariate_testing_", studyID_filt, ".txt")
+  fname = paste0("dat_file/univariate_testing_", studyID_filt, ".txt")
   write.table(y, file = fname, append = FALSE, quote = FALSE, row.names = FALSE, sep = "\t")
 }
 #wilcox_test(formula = abun ~ heart_cond, alternative = "two.sided", data = trans_metab)
@@ -716,7 +727,7 @@ Now that we have generated univariate statistics, lets do the classic volcano pl
 
 ```{r univariate volcano plot}
 make_volc_plots <- function(studyID_filt, main_dat){
-  fname = paste0("univariate_testing_", studyID_filt, ".txt")
+  fname = paste0("dat_file/univariate_testing_", studyID_filt, ".txt")
   d <- read.csv(file =fname, sep = "\t", skip = 1, row.names = NULL)
 
   d_sig <- d %>% filter(adj_pval_fdr < 0.05)
@@ -772,14 +783,14 @@ make_volc_plots <- function(studyID_filt, main_dat){
 
 v1 <- make_volc_plots("D1", trans_metab)
 v1
-ggsave("volcano_plt_d1.png", dpi = 300)
+ggsave("figs/volcano_plt_d1.png", dpi = 300)
 
 v3 <- make_volc_plots("D3", trans_metab)
 v3
-ggsave("volcano_plt_d3.png", dpi = 300)
+ggsave("figs/volcano_plt_d3.png", dpi = 300)
 
 plot_grid(v1,v3, ncol = 2, labels = "AUTO")
-ggsave("volcano_plt_d13.png", dpi = 300)
+ggsave("figs/volcano_plt_d13.png", dpi = 300)
 
 #make_volc_plots("D2_EBC", trans_metab)
 # make_volc_plots("D2_SALIVA", trans_metab)
@@ -820,7 +831,7 @@ conduct_oplsda <- function(studyID_filt, main_dat){
   
   opls.pca <- opls(inData)
   vect_y <- inMeta$group
-  fname = paste0("oplsda_model_", studyID_filt, ".svg")
+  fname = paste0("figs/oplsda_model_", studyID_filt, ".svg")
   
   hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, subset = "odd", plotSubC = studyID_filt)
   ggsave(fname)
@@ -855,8 +866,8 @@ Understanding OPLS-DA outputs:
 
 Now that we have data tested for significance, we want to see what pathways are significant within this data. I tested a couple different methods for this. First is the categories in the csv `sig_metabolites_univariate_analysis_fdr`, which came from my interpretation of PubChem categories. I decided this wasn't systematic enough so we also used KEGG/rast categories, however, I still think these are useful as it gives some bland categories a human touch and I am including them here. 
 
-```{r univariate results plots, eval = FALSE}
-cats <- read.csv("sig_metabolites_univariate_analysis_fdr - Sheet1.csv")
+```{r univariate results plots}
+cats <- read.csv("dat_file/sig_metabolites_univariate_analysis_fdr - Sheet1.csv")
 ## merge categories for abundances for some plotting
 
 unidat <- metab %>% 
@@ -900,9 +911,9 @@ for (i in unique(unidat$Samples)) {
 
 Lucky for us i was able to work some magic (use the MetaboAnalyst website) and map the kegg pathways to the metabolite common names. website is metabanalyst dot com. I wasn't able to find a way to do this within R or via the command line. Please let me know if you know of a better day to do this. 
 
-```{r read in kegg data, eval = FALSE}
+```{r read in kegg data}
 #library(pathview)
-kegg <- read.csv("map_common_name_to_kegg.csv.csv")
+kegg <- read.csv("dat_file/map_common_name_to_kegg.csv.csv")
 pathdat <- merge(unidat, kegg, by.x = "Samples", by.y = "Query", all.x = TRUE)
 #pathdat %>%
 #  filter(adj_pval_fdr < 0.05) %>%
@@ -1018,18 +1029,19 @@ pathdat <- pathdat %>%
 pathdat %>%
   select(db_id) %>%
   distinct() %>%
-  write_csv(file = "data_full_annotation.csv")
+  write_csv(file = "dat_file/data_full_annotation.csv")
 
 ```
 
 ok then i read that file into ramp https://rampdb.nih.gov/pathways-from-analytes  and got new pathways labels (because too many metabolites didn't map to anything in KEGG) new pathway analysis. However, I found these results to not be particularly useful or informative compared to what was already done above, so this is not included in the publication. Partially, KEGG is more standard, so I thought it would be better to include those results. I also made the decision to still include this code here so others can see what we did, what we decided to include, and how results may vary with different bioinformatic methods (in our case, no huge variance). 
 
 ```{r new pathway analysis with ramp}
-mop <- read.csv("fetchPathwaysFromAnalytes-download-ramp.tsv", sep = "\t")
+mop <- read.csv("dat_file/fetchPathwaysFromAnalytes-download-ramp.tsv", sep = "\t")
 #mop ## commonName, inputID
 #pathdat ## db_iud = inputId
 
 newpath <- merge(mop, pathdat, by.x = "inputId", by.y = "db_id", all.y = T)
+
 newpath <- newpath %>% 
   mutate(studyID = ifelse(studyID == "D1", "D1_new",
                           ifelse(studyID == "D3", "D3_new", studyID))) %>%
