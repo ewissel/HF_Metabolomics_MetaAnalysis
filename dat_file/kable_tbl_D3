@@ -1,251 +1,251 @@
 ,KEGG.id,Entry.type,KEGG.name,p.score,studyID
-1,hsa00240,pathway,Pyrimidine metabolism - Homo sapiens (human),0.00208318746353255,D3
-2,hsa01232,pathway,Nucleotide metabolism - Homo sapiens (human),8.33541718763024e-05,D3
-3,hsa02010,pathway,ABC transporters - Homo sapiens (human),0.0040830207551888,D3
-4,hsa04022,pathway,cGMP-PKG signaling pathway - Homo sapiens (hu...,0.00208318746353255,D3
-5,hsa04024,pathway,cAMP signaling pathway - Homo sapiens (human),0.0120823539218138,D3
-6,hsa04080,pathway,Neuroactive ligand-receptor interaction - Hom...,0.0040830207551888,D3
-7,hsa04540,pathway,Gap junction - Homo sapiens (human),0.01408218721347,D3
-8,hsa04919,pathway,Thyroid hormone signaling pathway - Homo sapi...,0.00108327081770443,D3
-9,hsa04924,pathway,Renin secretion - Homo sapiens (human),0.0100825206301575,D3
-10,hsa04962,pathway,Vasopressin-regulated water reabsorption - Ho...,0.0130822705676419,D3
-11,hsa05032,pathway,Morphine addiction - Homo sapiens (human),0.00908260398432942,D3
-12,hsa05034,pathway,Alcoholism - Homo sapiens (human),0.0100825206301575,D3
-13,hsa05143,pathway,African trypanosomiasis - Homo sapiens (human...,0.00108327081770443,D3
-14,hsa05410,pathway,Hypertrophic cardiomyopathy - Homo sapiens (h...,0.0100825206301575,D3
-15,hsa05414,pathway,Dilated cardiomyopathy - Homo sapiens (human),0.0120823539218138,D3
-16,M00029,module,Urea cycle,0.00308310410936068,D3
-17,M00046,module,Pyrimidine degradation, uracil => beta-alanin...,0.0040830207551888,D3
-18,M00052,module,Pyrimidine ribonucleotide biosynthesis, UMP =...,0.00908260398432942,D3
-19,M00053,module,Deoxyribonucleotide biosynthesis, ADP/GDP/CDP...,0.0120823539218138,D3
-20,M00844,module,Arginine biosynthesis, ornithine => arginine,0.00308310410936068,D3
-21,M00958,module,Adenine ribonucleotide degradation, AMP => Ur...,0.00208318746353255,D3
-22,M00959,module,Guanine ribonucleotide degradation, GMP => Ur...,0.00308310410936068,D3
-23,M00978,module,Ornithine-ammonia cycle,0.00308310410936068,D3
-24,1.13.11.19,enzyme,cysteamine dioxygenase,0.00508293740101693,D3
-25,1.14.13.39,enzyme,nitric-oxide synthase (NADPH),0.00308310410936068,D3
-26,1.14.13.9,enzyme,kynurenine 3-monooxygenase,0.00608285404684505,D3
-27,1.21.99.3,enzyme,thyroxine 5-deiodinase,0.00308310410936068,D3
-28,1.21.99.4,enzyme,thyroxine 5'-deiodinase,0.00908260398432942,D3
-29,1.7.1.7,enzyme,GMP reductase,0.0130822705676419,D3
-30,2.1.1.2,enzyme,guanidinoacetate N-methyltransferase,0.0040830207551888,D3
-31,2.1.1.49,enzyme,amine N-methyltransferase,0.0150821038592982,D3
-32,2.1.3.3,enzyme,ornithine carbamoyltransferase,8.33541718763024e-05,D3
-33,2.1.4.1,enzyme,glycine amidinotransferase,0.00508293740101693,D3
-34,2.3.1.87,enzyme,aralkylamine N-acetyltransferase,0.00708277069267318,D3
-35,2.4.2.3,enzyme,uridine phosphorylase,0.00708277069267318,D3
-36,2.7.1.113,enzyme,deoxyguanosine kinase,0.0110824372759857,D3
-37,2.7.1.20,enzyme,adenosine kinase,8.33541718763024e-05,D3
-38,2.7.1.21,enzyme,thymidine kinase,0.0040830207551888,D3
-39,2.7.1.48,enzyme,uridine/cytidine kinase,8.33541718763024e-05,D3
-40,2.7.1.74,enzyme,deoxycytidine kinase,0.00508293740101693,D3
-41,2.7.1.76,enzyme,2'-deoxyadenosine kinase,0.0110824372759857,D3
-42,3.1.3.5,enzyme,5'-nucleotidase,8.33541718763024e-05,D3
-43,3.1.3.89,enzyme,5'-deoxynucleotidase,8.33541718763024e-05,D3
-44,3.1.3.91,enzyme,7-methylguanosine nucleotidase,8.33541718763024e-05,D3
-45,3.1.4.1,enzyme,phosphodiesterase I,0.00608285404684505,D3
-46,3.13.2.1,enzyme,adenosylhomocysteinase,0.01408218721347,D3
-47,3.4.15.1,enzyme,peptidyl-dipeptidase A,0.00908260398432942,D3
-48,3.4.21.20,enzyme,cathepsin G,0.00908260398432942,D3
-49,3.4.21.4,enzyme,trypsin,0.00608285404684505,D3
-50,3.4.21.5,enzyme,thrombin,0.0130822705676419,D3
-51,3.4.21.7,enzyme,plasmin,0.0130822705676419,D3
-52,3.4.21.78,enzyme,granzyme A,0.0040830207551888,D3
-53,3.4.23.15,enzyme,renin,0.0100825206301575,D3
-54,3.4.24.15,enzyme,thimet oligopeptidase,0.00108327081770443,D3
-55,3.5.1.1,enzyme,asparaginase,0.0100825206301575,D3
-56,3.5.1.12,enzyme,biotinidase,0.0110824372759857,D3
-57,3.5.1.6,enzyme,beta-ureidopropionase,0.0120823539218138,D3
-58,3.5.1.9,enzyme,arylformamidase,0.0100825206301575,D3
-59,3.5.1.92,enzyme,pantetheine hydrolase,0.00508293740101693,D3
-60,3.5.2.2,enzyme,dihydropyrimidinase,0.0110824372759857,D3
-61,3.5.4.12,enzyme,dCMP deaminase,0.00608285404684505,D3
-62,3.5.4.3,enzyme,guanine deaminase,0.0150821038592982,D3
-63,3.5.4.5,enzyme,cytidine deaminase,0.00108327081770443,D3
-64,3.5.4.6,enzyme,AMP deaminase,0.00608285404684505,D3
-65,3.6.1.12,enzyme,dCTP diphosphatase,0.0080826873385013,D3
-66,3.6.1.62,enzyme,5'-(N7-methylguanosine 5'-triphospho)-[mRNA] ...,8.33541718763024e-05,D3
-67,3.7.1.3,enzyme,kynureninase,0.00908260398432942,D3
-68,5.6.1.6,enzyme,channel-conductance-controlling ATPase,0.00208318746353255,D3
-69,6.1.1.22,enzyme,asparagine---tRNA ligase,0.01408218721347,D3
-70,6.3.4.5,enzyme,argininosuccinate synthase,0.00208318746353255,D3
-71,6.3.5.4,enzyme,asparagine synthase (glutamine-hydrolysing),0.0080826873385013,D3
-72,7.2.2.10,enzyme,P-type Ca2+ transporter,0.0080826873385013,D3
-73,7.2.2.13,enzyme,Na+/K+-exchanging ATPase,0.00608285404684505,D3
-74,7.4.2.14,enzyme,ABC-type antigen peptide transporter,0.0040830207551888,D3
-75,7.6.2.2,enzyme,ABC-type xenobiotic transporter,0.0040830207551888,D3
-76,7.6.2.3,enzyme,ABC-type glutathione-S-conjugate transporter,0.00708277069267318,D3
-77,R00025,reaction,ethylnitronate:oxygen 2-oxidoreductase (nitri...,0.0120823539218138,D3
-78,R00111,reaction,N-(omega)-hydroxyarginine,NADPH:oxygen oxidor...,0.00308310410936068,D3
-79,R00160,reaction,FAD nucleotidohydrolase,0.0040830207551888,D3
-80,R00161,reaction,ATP:FMN adenylyltransferase,0.00508293740101693,D3
-81,R00183,reaction,adenosine 5'-monophosphate phosphohydrolase,8.33541718763024e-05,D3
-82,R00185,reaction,ATP:adenosine 5'-phosphotransferase,8.33541718763024e-05,D3
-83,R00192,reaction,S-adenosyl-L-homocysteine hydrolase,0.0040830207551888,D3
-84,R00348,reaction,2-oxosuccinamate amidohydrolase,0.0130822705676419,D3
-85,R00483,reaction,L-aspartate:ammonia ligase (AMP-forming),0.00708277069267318,D3
-86,R00485,reaction,L-asparagine amidohydrolase,0.00608285404684505,D3
-87,R00486,reaction,3-cyano-L-alanine aminohydrolase,0.0110824372759857,D3
-88,R00510,reaction,cytidine-5'-monophosphate phosphoribohydrolas...,8.33541718763024e-05,D3
-89,R00511,reaction,cytidine-5'-monophosphate phosphohydrolase,8.33541718763024e-05,D3
-90,R00513,reaction,ATP:cytidine 5'-phosphotransferase,8.33541718763024e-05,D3
-91,R00517,reaction,GTP:cytidine 5'-phosphotransferase,8.33541718763024e-05,D3
-92,R00548,reaction,riboflavin-5-phosphate phosphohydrolase,0.00708277069267318,D3
-93,R00549,reaction,ATP:riboflavin 5'-phosphotransferase,0.00508293740101693,D3
-94,R00550,reaction,D-glucose-1-phosphate:riboflavin 5'-phosphotr...,0.0080826873385013,D3
-95,R00552,reaction,L-arginine iminohydrolase,8.33541718763024e-05,D3
-96,R00557,reaction,L-arginine,NADPH:oxygen oxidoreductase (nitri...,0.00108327081770443,D3
-97,R00565,reaction,L-arginine:glycine amidinotransferase,0.00208318746353255,D3
-98,R00578,reaction,L-aspartate:L-glutamine amido-ligase (AMP-for...,0.0080826873385013,D3
-99,R00905,reaction,3-ureidopropanoate amidohydrolase,8.33541718763024e-05,D3
-100,R00963,reaction,uridine 5'-monophosphate phosphohydrolase,8.33541718763024e-05,D3
-101,R00964,reaction,ATP:uridine 5'-phosphotransferase,8.33541718763024e-05,D3
-102,R00968,reaction,GTP:uridine 5'-phosphotransferase,0.00108327081770443,D3
-103,R00974,reaction,cytosine aminohydrolase,8.33541718763024e-05,D3
-104,R00976,reaction,uracil:acceptor oxidoreductase,0.0100825206301575,D3
-105,R00977,reaction,5,6-dihydrouracil:NAD+ oxidoreductase,0.00908260398432942,D3
-106,R00978,reaction,5,6-dihydrouracil:NADP+ oxidoreductase,0.00908260398432942,D3
-107,R00987,reaction,L-kynurenine hydrolase,0.0040830207551888,D3
-108,R01051,reaction,ATP:D-ribose 5-phosphotransferase,0.0150821038592982,D3
-109,R01053,reaction,ribose-5-phosphate:ammonia ligase (ADP-formin...,0.01408218721347,D3
-110,R01055,reaction,uracil hydro-lyase (adding D-ribose 5-phospha...,0.0100825206301575,D3
-111,R01074,reaction,biotin:CoA ligase (AMP-forming),0.0100825206301575,D3
-112,R01077,reaction,N6-D-biotinyl-L-lysine amidohydrolase,0.0110824372759857,D3
-113,R01078,reaction,dethiobiotin:sulfur sulfurtransferase,0.0120823539218138,D3
-114,R01080,reaction,uridine ribohydrolase,8.33541718763024e-05,D3
-115,R01126,reaction,inosine 5'-monophosphate phosphohydrolase,0.00908260398432942,D3
-116,R01131,reaction,ATP:inosine 5'-phosphotransferase,0.0100825206301575,D3
-117,R01245,reaction,adenosine ribohydrolase,8.33541718763024e-05,D3
-118,R01267,reaction,L-asparagine hydro-lyase (3-cyanoalanine-form...,0.0100825206301575,D3
-119,R01346,reaction,L-asparagine:2-oxo-acid aminotransferase,0.0130822705676419,D3
-120,R01398,reaction,carbamoyl-phosphate:L-ornithine carbamoyltran...,8.33541718763024e-05,D3
-121,R01411,reaction,5-methylcytosine aminohydrolase,0.0150821038592982,D3
-122,R01560,reaction,adenosine aminohydrolase,0.00508293740101693,D3
-123,R01561,reaction,adenosine:phosphate alpha-D-ribosyltransferas...,8.33541718763024e-05,D3
-124,R01562,reaction,adenosine 3'-phosphate phosphohydrolase,0.00708277069267318,D3
-125,R01567,reaction,ATP:thymidine 5'-phosphotransferase,8.33541718763024e-05,D3
-126,R01569,reaction,thymidylate 5'-phosphohydrolase,8.33541718763024e-05,D3
-127,R01570,reaction,thymidine:phosphate deoxy-alpha-D-ribosyltran...,8.33541718763024e-05,D3
-128,R01663,reaction,dCMP aminohydrolase,0.00608285404684505,D3
-129,R01664,reaction,2'-deoxycytidine 5'-monophosphate phosphohydr...,8.33541718763024e-05,D3
-130,R01665,reaction,ATP:dCMP phosphotransferase,0.00608285404684505,D3
-131,R01666,reaction,ATP:deoxycitidine 5'-phosphotransferase,0.00108327081770443,D3
-132,R01667,reaction,dCDP nucleotidohydrolase,0.00608285404684505,D3
-133,R01668,reaction,dCTP nucleotidohydrolase,0.0100825206301575,D3
-134,R01686,reaction,L-arginine:taurine amidinotransferase,0.0150821038592982,D3
-135,R01876,reaction,uridine:phosphate alpha-D-ribosyltransferase,8.33541718763024e-05,D3
-136,R01877,reaction,uridine 3'-monophosphate phosphohydrolase,0.0100825206301575,D3
-137,R01878,reaction,cytidine aminohydrolase,8.33541718763024e-05,D3
-138,R01881,reaction,ATP:creatine N-phosphotransferase,0.0150821038592982,D3
-139,R01883,reaction,S-adenosyl-L-methionine:guanidinoacetate N-me...,0.00308310410936068,D3
-140,R01885,reaction,ADP-ribose + H2O <=> alpha-D-Ribose 1-phospha...,0.01408218721347,D3
-141,R01954,reaction,L-citrulline:L-aspartate ligase (AMP-forming),0.00208318746353255,D3
-142,R01956,reaction,L-kynurenine:2-oxoglutarate aminotransferase,0.00608285404684505,D3
-143,R01959,reaction,N-formyl-L-kynurenine amidohydrolase,0.00508293740101693,D3
-144,R01960,reaction,L-kynurenine,NADPH:oxygen oxidoreductase (3-h...,0.00608285404684505,D3
-145,R01968,reaction,2'-deoxyguanosine 5'-monophosphate phosphohyd...,0.0110824372759857,D3
-146,R02088,reaction,2'-deoxyadenosine 5'-monophosphate phosphohyd...,0.0120823539218138,D3
-147,R02099,reaction,ATP:deoxyuridine 5'-phosphotransferase,0.00908260398432942,D3
-148,R02102,reaction,2'-deoxyuridine 5'-monophosphate phosphohydro...,0.00908260398432942,D3
-149,R02137,reaction,cytidine ribohydrolase,8.33541718763024e-05,D3
-150,R02269,reaction,5,6-dihydrouracil amidohydrolase,8.33541718763024e-05,D3
-151,R02296,reaction,cytidine:orthophosphate alpha-D-ribosyltransf...,8.33541718763024e-05,D3
-152,R02323,reaction,nicotinamide ribonucleotide phosphohydrolase,0.0110824372759857,D3
-153,R02370,reaction,cytidine 3'-phosphate phosphohydrolase,0.0110824372759857,D3
-154,R02467,reaction,cysteamine:oxygen oxidoreductase,0.00508293740101693,D3
-155,R02484,reaction,deoxyuridine:orthophosphate 2-deoxy-D-ribosyl...,0.0130822705676419,D3
-156,R02485,reaction,deoxycytidine aminohydrolase,8.33541718763024e-05,D3
-157,R02512,reaction,trimethylamine-N-oxide formaldehyde-lyase,0.0040830207551888,D3
-158,R02560,reaction,trimethylamine:cytochrome c oxidoreductase,0.0040830207551888,D3
-159,R02575,reaction,ATP:guanidoacetate N-phosphotransferase,0.00708277069267318,D3
-160,R02701,reaction,5-hydroxy-L-tryptophan decarboxy-lyase,0.00508293740101693,D3
-161,R02908,reaction,5-hydroxytryptamine:oxygen oxidoreductase(dea...,0.00708277069267318,D3
-162,R02909,reaction,5-hydroxytryptamine:oxygen 2,3-dioxygenase (i...,0.00608285404684505,D3
-163,R02910,reaction,S-adenosyl-L-methionine:amine N-methyltransfe...,0.0080826873385013,D3
-164,R02911,reaction,acetyl-CoA:aralkylamine N-acetyltransferase,0.00708277069267318,D3
-165,R02912,reaction,serotonin O-methyltransferase,0.0110824372759857,D3
-166,R02973,reaction,(R)-pantetheine amidohydrolase,0.00508293740101693,D3
-167,R03208,reaction,2 3,5-Diiodo-L-tyrosine + Hydrogen peroxide <...,0.00508293740101693,D3
-168,R03315,reaction,ATP:pseudouridine 5'-phosphotransferase,0.0080826873385013,D3
-169,R03346,reaction,nicotinate D-ribonucleotide phosphohydrolase,0.0150821038592982,D3
-170,R03537,reaction,2',3'-cyclic AMP 3'-nucleotidohydrolase,0.0100825206301575,D3
-171,R03538,reaction,2',3'-cyclic UMP 3'-nucleotidohydrolase,0.0100825206301575,D3
-172,R03648,reaction,L-asparagine:tRNA(Asn) ligase (AMP-forming),0.0130822705676419,D3
-173,R03927,reaction,Pantothenate + 2 Reduced acceptor <=> Pantoth...,0.0110824372759857,D3
-174,R03929,reaction,2',3'-cyclic CMP 3'-nucleotidohydrolase,0.0110824372759857,D3
-175,R03936,reaction,formylkynurenine hydrolase,0.00708277069267318,D3
-176,R05623,reaction,N,N,N-trimethylamine,NADPH:oxygen oxidoreduct...,0.0040830207551888,D3
-177,R05705,reaction,FMNH2:NAD+ oxidoreductase,0.0100825206301575,D3
-178,R05706,reaction,FMNH2:NADP+ oxidoreductase,0.0100825206301575,D3
-179,R06837,reaction,ribose 1-phosphokinase,0.0130822705676419,D3
-180,R08574,reaction,CTP:riboflavin 5'-phosphotransferase,0.0130822705676419,D3
-181,R09107,reaction,N-acetyl-L-citrulline amidohydrolase,0.00208318746353255,D3
-182,R09936,reaction,uracil,FMNH2:oxygen oxidoreductase (uracil hy...,0.0080826873385013,D3
-183,R10206,reaction,methanesulfonate,FMNH2:oxygen oxidoreductase,0.0130822705676419,D3
-184,R10836,reaction,AMP:phosphate (5-phospho-alpha-D-ribosyl)tran...,0.0110824372759857,D3
-185,R10837,reaction,CMP:phosphate (5-phospho-alpha-D-ribosyl)tran...,8.33541718763024e-05,D3
-186,R10838,reaction,UMP:phosphate (5-phospho-alpha-D-ribosyl)tran...,0.0100825206301575,D3
-187,R11323,reaction,dTTP diphosphohydrolase,0.0120823539218138,D3
-188,R11535,reaction,ADP:alpha-D-ribose-1-phosphate 5-phosphotrans...,0.0130822705676419,D3
-189,R11711,reaction,L-arginine,reduced-flavodoxin:oxygen oxidored...,0.00708277069267318,D3
-190,R11713,reaction,2 N(omega)-Hydroxyarginine + Reduced flavodox...,0.00908260398432942,D3
-191,R12659,reaction,Tryptamine + [Reduced NADPH---hemoprotein red...,0.00708277069267318,D3
-192,R12955,reaction,uridine 5'-monophosphate phosphoribohydrolase,0.0110824372759857,D3
-193,R12959,reaction,Hypotaurine + NADPH + H+ + Oxygen <=> Taurine...,0.0110824372759857,D3
-194,R13089,reaction,alpha-D-ribose-1-phosphate 5-kinase (ATP),0.0130822705676419,D3
-195,C00061,compound,FMN,0.00508293740101693,D3
-196,C00106,compound,Uracil,0.00208318746353255,D3
-197,C00117,compound,D-Ribose 5-phosphate,0.0120823539218138,D3
-198,C00120,compound,Biotin,0.00608285404684505,D3
-199,C00152,compound,L-Asparagine,0.0080826873385013,D3
-200,C00212,compound,Adenosine,8.33541718763024e-05,D3
-201,C00214,compound,Thymidine,8.33541718763024e-05,D3
-202,C00239,compound,dCMP,0.00308310410936068,D3
-203,C00294,compound,Inosine,0.0080826873385013,D3
-204,C00299,compound,Uridine,0.00108327081770443,D3
-205,C00327,compound,L-Citrulline,8.33541718763024e-05,D3
-206,C00328,compound,L-Kynurenine,0.0040830207551888,D3
-207,C00364,compound,dTMP,0.0040830207551888,D3
-208,C00380,compound,Cytosine,8.33541718763024e-05,D3
-209,C00429,compound,5,6-Dihydrouracil,0.00708277069267318,D3
-210,C00475,compound,Cytidine,8.33541718763024e-05,D3
-211,C00519,compound,Hypotaurine,0.0080826873385013,D3
-212,C00526,compound,Deoxyuridine,0.00608285404684505,D3
-213,C00543,compound,Dimethylamine,0.0130822705676419,D3
-214,C00581,compound,Guanidinoacetate,0.00308310410936068,D3
-215,C00620,compound,alpha-D-Ribose 1-phosphate,0.0120823539218138,D3
-216,C00672,compound,2-Deoxy-D-ribose 1-phosphate,0.0110824372759857,D3
-217,C00780,compound,Serotonin,0.00508293740101693,D3
-218,C00813,compound,Barbiturate,0.00908260398432942,D3
-219,C00864,compound,Pantothenate,0.0040830207551888,D3
-220,C00881,compound,Deoxycytidine,8.33541718763024e-05,D3
-221,C00978,compound,N-Acetylserotonin,0.0130822705676419,D3
-222,C01104,compound,Trimethylamine N-oxide,0.0040830207551888,D3
-223,C01151,compound,D-Ribose 1,5-bisphosphate,0.0080826873385013,D3
-224,C01168,compound,Pseudouridine 5'-phosphate,0.0100825206301575,D3
-225,C01252,compound,4-(2-Aminophenyl)-2,4-dioxobutanoate,0.0080826873385013,D3
-226,C01367,compound,3'-AMP,0.00708277069267318,D3
-227,C01368,compound,3'-UMP,0.0100825206301575,D3
-228,C01678,compound,Cysteamine,0.00508293740101693,D3
-229,C01829,compound,Thyroxine,0.00208318746353255,D3
-230,C02067,compound,Pseudouridine,0.0080826873385013,D3
-231,C02353,compound,2',3'-Cyclic AMP,0.0100825206301575,D3
-232,C02354,compound,2',3'-Cyclic CMP,0.0110824372759857,D3
-233,C02355,compound,2',3'-Cyclic UMP,0.0100825206301575,D3
-234,C02362,compound,2-Oxosuccinamate,0.0130822705676419,D3
-235,C02512,compound,3-Cyano-L-alanine,0.0100825206301575,D3
-236,C02642,compound,3-Ureidopropionate,8.33541718763024e-05,D3
-237,C02700,compound,L-Formylkynurenine,0.00708277069267318,D3
-238,C03166,compound,Phosphoguanidinoacetate,0.00708277069267318,D3
-239,C03406,compound,N-(L-Arginino)succinate,0.00208318746353255,D3
-240,C05647,compound,Formyl-5-hydroxykynurenamine,0.00608285404684505,D3
-241,C05653,compound,Formylanthranilate,0.0100825206301575,D3
-242,C05659,compound,5-Methoxytryptamine,0.0110824372759857,D3
-243,C05822,compound,3'-CMP,0.0110824372759857,D3
-244,C05933,compound,N(omega)-Hydroxyarginine,0.0110824372759857,D3
-245,C05944,compound,Pantothenol,0.0110824372759857,D3
-246,C06212,compound,N-Methylserotonin,0.0080826873385013,D3
-247,C15521,compound,Alkanesulfonate,0.0100825206301575,D3
-248,C15532,compound,N-Acetyl-L-citrulline,0.00608285404684505,D3
-249,C17023,compound,Sulfur donor,0.0120823539218138,D3
-250,C18091,compound,Ethylnitronate,0.0120823539218138,D3
+1,hsa00240,pathway,Pyrimidine metabolism - Homo sapiens (human),0.00208270489765476,D3
+2,hsa01232,pathway,Nucleotide metabolism - Homo sapiens (human),8.28706389326262e-05,D3
+3,hsa02010,pathway,ABC transporters - Homo sapiens (human),0.00308262202701583,D3
+4,hsa04022,pathway,cGMP-PKG signaling pathway - Homo sapiens (hu...,0.00208270489765476,D3
+5,hsa04080,pathway,Neuroactive ligand-receptor interaction - Hom...,0.00108278776829369,D3
+6,hsa04540,pathway,Gap junction - Homo sapiens (human),0.00808220767382117,D3
+7,hsa04919,pathway,Thyroid hormone signaling pathway - Homo sapi...,0.00108278776829369,D3
+8,hsa04923,pathway,Regulation of lipolysis in adipocytes - Homo ...,0.0110819590619044,D3
+9,hsa04924,pathway,Renin secretion - Homo sapiens (human),0.00808220767382117,D3
+10,hsa05032,pathway,Morphine addiction - Homo sapiens (human),0.00208270489765476,D3
+11,hsa05034,pathway,Alcoholism - Homo sapiens (human),0.00908212480318224,D3
+12,hsa05143,pathway,African trypanosomiasis - Homo sapiens (human...,0.00108278776829369,D3
+13,hsa05219,pathway,Bladder cancer - Homo sapiens (human),0.0120818761912654,D3
+14,M00029,module,Urea cycle,0.00908212480318224,D3
+15,M00046,module,Pyrimidine degradation, uracil => beta-alanin...,0.00308262202701583,D3
+16,M00844,module,Arginine biosynthesis, ornithine => arginine,0.0070822905444601,D3
+17,M00958,module,Adenine ribonucleotide degradation, AMP => Ur...,0.00208270489765476,D3
+18,M00959,module,Guanine ribonucleotide degradation, GMP => Ur...,0.00308262202701583,D3
+19,M00968,module,Pentose bisphosphate pathway (nucleoside degr...,0.0130817933206265,D3
+20,M00978,module,Ornithine-ammonia cycle,0.00508245628573797,D3
+21,1.13.11.19,enzyme,cysteamine dioxygenase,0.00608237341509904,D3
+22,1.14.13.39,enzyme,nitric-oxide synthase (NADPH),0.00608237341509904,D3
+23,1.14.13.9,enzyme,kynurenine 3-monooxygenase,0.00808220767382117,D3
+24,1.21.99.3,enzyme,thyroxine 5-deiodinase,0.0040825391563769,D3
+25,1.21.99.4,enzyme,thyroxine 5'-deiodinase,0.00608237341509904,D3
+26,2.1.1.2,enzyme,guanidinoacetate N-methyltransferase,0.00508245628573797,D3
+27,2.1.3.3,enzyme,ornithine carbamoyltransferase,0.00108278776829369,D3
+28,2.1.4.1,enzyme,glycine amidinotransferase,0.00508245628573797,D3
+29,2.3.1.87,enzyme,aralkylamine N-acetyltransferase,0.00508245628573797,D3
+30,2.4.2.3,enzyme,uridine phosphorylase,0.00308262202701583,D3
+31,2.4.2.4,enzyme,thymidine phosphorylase,0.0130817933206265,D3
+32,2.7.1.113,enzyme,deoxyguanosine kinase,0.0070822905444601,D3
+33,2.7.1.20,enzyme,adenosine kinase,8.28706389326262e-05,D3
+34,2.7.1.21,enzyme,thymidine kinase,0.00108278776829369,D3
+35,2.7.1.48,enzyme,uridine/cytidine kinase,8.28706389326262e-05,D3
+36,2.7.1.74,enzyme,deoxycytidine kinase,0.0130817933206265,D3
+37,2.7.1.76,enzyme,2'-deoxyadenosine kinase,0.0130817933206265,D3
+38,2.7.11.11,enzyme,cAMP-dependent protein kinase,0.0130817933206265,D3
+39,2.7.11.12,enzyme,cGMP-dependent protein kinase,0.0120818761912654,D3
+40,3.1.3.5,enzyme,5'-nucleotidase,8.28706389326262e-05,D3
+41,3.1.3.89,enzyme,5'-deoxynucleotidase,8.28706389326262e-05,D3
+42,3.1.3.91,enzyme,7-methylguanosine nucleotidase,8.28706389326262e-05,D3
+43,3.1.4.1,enzyme,phosphodiesterase I,0.00608237341509904,D3
+44,3.13.2.1,enzyme,adenosylhomocysteinase,0.0040825391563769,D3
+45,3.4.15.1,enzyme,peptidyl-dipeptidase A,0.0070822905444601,D3
+46,3.4.21.20,enzyme,cathepsin G,0.0130817933206265,D3
+47,3.4.21.4,enzyme,trypsin,0.00908212480318224,D3
+48,3.4.21.7,enzyme,plasmin,0.0120818761912654,D3
+49,3.4.21.78,enzyme,granzyme A,0.00108278776829369,D3
+50,3.4.23.15,enzyme,renin,0.0100820419325433,D3
+51,3.4.24.15,enzyme,thimet oligopeptidase,0.00108278776829369,D3
+52,3.5.1.1,enzyme,asparaginase,0.0040825391563769,D3
+53,3.5.1.12,enzyme,biotinidase,0.0070822905444601,D3
+54,3.5.1.92,enzyme,pantetheine hydrolase,0.00508245628573797,D3
+55,3.5.2.2,enzyme,dihydropyrimidinase,0.00908212480318224,D3
+56,3.5.4.12,enzyme,dCMP deaminase,0.00808220767382117,D3
+57,3.5.4.3,enzyme,guanine deaminase,0.00908212480318224,D3
+58,3.5.4.5,enzyme,cytidine deaminase,8.28706389326262e-05,D3
+59,3.5.4.6,enzyme,AMP deaminase,0.0110819590619044,D3
+60,3.6.1.12,enzyme,dCTP diphosphatase,0.0100820419325433,D3
+61,3.6.1.62,enzyme,5'-(N7-methylguanosine 5'-triphospho)-[mRNA] ...,8.28706389326262e-05,D3
+62,3.7.1.3,enzyme,kynureninase,0.0110819590619044,D3
+63,5.6.1.6,enzyme,channel-conductance-controlling ATPase,0.00308262202701583,D3
+64,6.1.1.22,enzyme,asparagine---tRNA ligase,0.0110819590619044,D3
+65,6.3.4.10,enzyme,biotin---[propionyl-CoA-carboxylase (ATP-hydr...,0.00908212480318224,D3
+66,6.3.4.11,enzyme,biotin---[methylcrotonoyl-CoA-carboxylase] li...,0.00908212480318224,D3
+67,6.3.4.15,enzyme,biotin---[biotin carboxyl-carrier protein] li...,0.00908212480318224,D3
+68,6.3.4.5,enzyme,argininosuccinate synthase,0.0040825391563769,D3
+69,6.3.4.9,enzyme,biotin---[methylmalonyl-CoA-carboxytransferas...,0.00908212480318224,D3
+70,6.3.5.4,enzyme,asparagine synthase (glutamine-hydrolysing),0.00208270489765476,D3
+71,7.2.2.13,enzyme,Na+/K+-exchanging ATPase,0.0100820419325433,D3
+72,7.4.2.14,enzyme,ABC-type antigen peptide transporter,0.00208270489765476,D3
+73,7.6.2.2,enzyme,ABC-type xenobiotic transporter,0.00508245628573797,D3
+74,7.6.2.3,enzyme,ABC-type glutathione-S-conjugate transporter,0.00308262202701583,D3
+75,R00025,reaction,ethylnitronate:oxygen 2-oxidoreductase (nitri...,0.0110819590619044,D3
+76,R00111,reaction,N-(omega)-hydroxyarginine,NADPH:oxygen oxidor...,0.0070822905444601,D3
+77,R00160,reaction,FAD nucleotidohydrolase,0.00308262202701583,D3
+78,R00161,reaction,ATP:FMN adenylyltransferase,0.00308262202701583,D3
+79,R00183,reaction,adenosine 5'-monophosphate phosphohydrolase,8.28706389326262e-05,D3
+80,R00185,reaction,ATP:adenosine 5'-phosphotransferase,8.28706389326262e-05,D3
+81,R00192,reaction,S-adenosyl-L-homocysteine hydrolase,8.28706389326262e-05,D3
+82,R00348,reaction,2-oxosuccinamate amidohydrolase,0.0100820419325433,D3
+83,R00483,reaction,L-aspartate:ammonia ligase (AMP-forming),0.00108278776829369,D3
+84,R00485,reaction,L-asparagine amidohydrolase,0.00208270489765476,D3
+85,R00510,reaction,cytidine-5'-monophosphate phosphoribohydrolas...,8.28706389326262e-05,D3
+86,R00511,reaction,cytidine-5'-monophosphate phosphohydrolase,8.28706389326262e-05,D3
+87,R00513,reaction,ATP:cytidine 5'-phosphotransferase,8.28706389326262e-05,D3
+88,R00517,reaction,GTP:cytidine 5'-phosphotransferase,8.28706389326262e-05,D3
+89,R00548,reaction,riboflavin-5-phosphate phosphohydrolase,0.00308262202701583,D3
+90,R00549,reaction,ATP:riboflavin 5'-phosphotransferase,0.00208270489765476,D3
+91,R00550,reaction,D-glucose-1-phosphate:riboflavin 5'-phosphotr...,0.00808220767382117,D3
+92,R00551,reaction,L-arginine amidinohydrolase,0.0120818761912654,D3
+93,R00552,reaction,L-arginine iminohydrolase,8.28706389326262e-05,D3
+94,R00557,reaction,L-arginine,NADPH:oxygen oxidoreductase (nitri...,8.28706389326262e-05,D3
+95,R00565,reaction,L-arginine:glycine amidinotransferase,0.00108278776829369,D3
+96,R00578,reaction,L-aspartate:L-glutamine amido-ligase (AMP-for...,0.00208270489765476,D3
+97,R00905,reaction,3-ureidopropanoate amidohydrolase,0.0040825391563769,D3
+98,R00963,reaction,uridine 5'-monophosphate phosphohydrolase,8.28706389326262e-05,D3
+99,R00964,reaction,ATP:uridine 5'-phosphotransferase,8.28706389326262e-05,D3
+100,R00968,reaction,GTP:uridine 5'-phosphotransferase,8.28706389326262e-05,D3
+101,R00974,reaction,cytosine aminohydrolase,8.28706389326262e-05,D3
+102,R00977,reaction,5,6-dihydrouracil:NAD+ oxidoreductase,0.00808220767382117,D3
+103,R00978,reaction,5,6-dihydrouracil:NADP+ oxidoreductase,0.00808220767382117,D3
+104,R00987,reaction,L-kynurenine hydrolase,0.00308262202701583,D3
+105,R01074,reaction,biotin:CoA ligase (AMP-forming),0.00508245628573797,D3
+106,R01077,reaction,N6-D-biotinyl-L-lysine amidohydrolase,0.0070822905444601,D3
+107,R01078,reaction,dethiobiotin:sulfur sulfurtransferase,0.00608237341509904,D3
+108,R01080,reaction,uridine ribohydrolase,8.28706389326262e-05,D3
+109,R01086,reaction,2-(Nomega-L-arginino)succinate arginine-lyase...,0.0100820419325433,D3
+110,R01227,reaction,guanosine 5'-monophosphate phosphohydrolase,0.00908212480318224,D3
+111,R01245,reaction,adenosine ribohydrolase,8.28706389326262e-05,D3
+112,R01267,reaction,L-asparagine hydro-lyase (3-cyanoalanine-form...,0.00908212480318224,D3
+113,R01346,reaction,L-asparagine:2-oxo-acid aminotransferase,0.00608237341509904,D3
+114,R01398,reaction,carbamoyl-phosphate:L-ornithine carbamoyltran...,8.28706389326262e-05,D3
+115,R01560,reaction,adenosine aminohydrolase,0.00508245628573797,D3
+116,R01561,reaction,adenosine:phosphate alpha-D-ribosyltransferas...,8.28706389326262e-05,D3
+117,R01562,reaction,adenosine 3'-phosphate phosphohydrolase,0.00908212480318224,D3
+118,R01567,reaction,ATP:thymidine 5'-phosphotransferase,8.28706389326262e-05,D3
+119,R01569,reaction,thymidylate 5'-phosphohydrolase,8.28706389326262e-05,D3
+120,R01570,reaction,thymidine:phosphate deoxy-alpha-D-ribosyltran...,0.00108278776829369,D3
+121,R01663,reaction,dCMP aminohydrolase,0.00808220767382117,D3
+122,R01664,reaction,2'-deoxycytidine 5'-monophosphate phosphohydr...,8.28706389326262e-05,D3
+123,R01665,reaction,ATP:dCMP phosphotransferase,0.00508245628573797,D3
+124,R01666,reaction,ATP:deoxycitidine 5'-phosphotransferase,8.28706389326262e-05,D3
+125,R01667,reaction,dCDP nucleotidohydrolase,0.00608237341509904,D3
+126,R01668,reaction,dCTP nucleotidohydrolase,0.0110819590619044,D3
+127,R01876,reaction,uridine:phosphate alpha-D-ribosyltransferase,8.28706389326262e-05,D3
+128,R01877,reaction,uridine 3'-monophosphate phosphohydrolase,0.00808220767382117,D3
+129,R01878,reaction,cytidine aminohydrolase,8.28706389326262e-05,D3
+130,R01883,reaction,S-adenosyl-L-methionine:guanidinoacetate N-me...,0.00508245628573797,D3
+131,R01954,reaction,L-citrulline:L-aspartate ligase (AMP-forming),0.00308262202701583,D3
+132,R01956,reaction,L-kynurenine:2-oxoglutarate aminotransferase,0.00508245628573797,D3
+133,R01959,reaction,N-formyl-L-kynurenine amidohydrolase,0.0040825391563769,D3
+134,R01960,reaction,L-kynurenine,NADPH:oxygen oxidoreductase (3-h...,0.00908212480318224,D3
+135,R01968,reaction,2'-deoxyguanosine 5'-monophosphate phosphohyd...,0.0070822905444601,D3
+136,R02099,reaction,ATP:deoxyuridine 5'-phosphotransferase,0.0100820419325433,D3
+137,R02102,reaction,2'-deoxyuridine 5'-monophosphate phosphohydro...,0.0100820419325433,D3
+138,R02137,reaction,cytidine ribohydrolase,8.28706389326262e-05,D3
+139,R02147,reaction,guanosine:phosphate alpha-D-ribosyltransferas...,0.0110819590619044,D3
+140,R02269,reaction,5,6-dihydrouracil amidohydrolase,0.00308262202701583,D3
+141,R02296,reaction,cytidine:orthophosphate alpha-D-ribosyltransf...,8.28706389326262e-05,D3
+142,R02323,reaction,nicotinamide ribonucleotide phosphohydrolase,0.0040825391563769,D3
+143,R02370,reaction,cytidine 3'-phosphate phosphohydrolase,0.0070822905444601,D3
+144,R02467,reaction,cysteamine:oxygen oxidoreductase,0.00608237341509904,D3
+145,R02484,reaction,deoxyuridine:orthophosphate 2-deoxy-D-ribosyl...,0.0120818761912654,D3
+146,R02485,reaction,deoxycytidine aminohydrolase,8.28706389326262e-05,D3
+147,R02509,reaction,N,N-dimethylformamide amidohydrolase,0.0120818761912654,D3
+148,R02512,reaction,trimethylamine-N-oxide formaldehyde-lyase,0.00108278776829369,D3
+149,R02560,reaction,trimethylamine:cytochrome c oxidoreductase,0.00108278776829369,D3
+150,R02575,reaction,ATP:guanidoacetate N-phosphotransferase,0.00608237341509904,D3
+151,R02701,reaction,5-hydroxy-L-tryptophan decarboxy-lyase,0.0070822905444601,D3
+152,R02749,reaction,2-deoxy-D-ribose 1-phosphate 1,5-phosphomutas...,0.0110819590619044,D3
+153,R02908,reaction,5-hydroxytryptamine:oxygen oxidoreductase(dea...,0.00608237341509904,D3
+154,R02909,reaction,5-hydroxytryptamine:oxygen 2,3-dioxygenase (i...,8.28706389326262e-05,D3
+155,R02910,reaction,S-adenosyl-L-methionine:amine N-methyltransfe...,0.00608237341509904,D3
+156,R02911,reaction,acetyl-CoA:aralkylamine N-acetyltransferase,0.00508245628573797,D3
+157,R02912,reaction,serotonin O-methyltransferase,0.0070822905444601,D3
+158,R02972,reaction,N-((R)-pantothenoyl)-L-cysteine carboxy-lyase,0.0100820419325433,D3
+159,R02973,reaction,(R)-pantetheine amidohydrolase,0.00508245628573797,D3
+160,R03208,reaction,2 3,5-Diiodo-L-tyrosine + Hydrogen peroxide <...,0.0070822905444601,D3
+161,R03346,reaction,nicotinate D-ribonucleotide phosphohydrolase,0.0110819590619044,D3
+162,R03537,reaction,2',3'-cyclic AMP 3'-nucleotidohydrolase,0.00908212480318224,D3
+163,R03538,reaction,2',3'-cyclic UMP 3'-nucleotidohydrolase,0.00908212480318224,D3
+164,R03648,reaction,L-asparagine:tRNA(Asn) ligase (AMP-forming),0.0100820419325433,D3
+165,R03762,reaction,biotin:CoA ligase (AMP-forming),0.00908212480318224,D3
+166,R03785,reaction,ATP:taurocyamine N-phosphotransferase,0.0110819590619044,D3
+167,R03927,reaction,Pantothenate + 2 Reduced acceptor <=> Pantoth...,0.0070822905444601,D3
+168,R03929,reaction,2',3'-cyclic CMP 3'-nucleotidohydrolase,0.0070822905444601,D3
+169,R03936,reaction,formylkynurenine hydrolase,0.00908212480318224,D3
+170,R04877,reaction,Ergothioneine <=> Thiourocanic acid + Trimeth...,0.0120818761912654,D3
+171,R05145,reaction,biotinyl-5'-AMP:apo-[carboxylase] ligase (AMP...,0.00908212480318224,D3
+172,R05623,reaction,N,N,N-trimethylamine,NADPH:oxygen oxidoreduct...,0.00108278776829369,D3
+173,R05705,reaction,FMNH2:NAD+ oxidoreductase,0.00608237341509904,D3
+174,R05706,reaction,FMNH2:NADP+ oxidoreductase,0.00608237341509904,D3
+175,R06837,reaction,ribose 1-phosphokinase,0.0100820419325433,D3
+176,R08574,reaction,CTP:riboflavin 5'-phosphotransferase,0.0040825391563769,D3
+177,R09107,reaction,N-acetyl-L-citrulline amidohydrolase,0.00608237341509904,D3
+178,R09936,reaction,uracil,FMNH2:oxygen oxidoreductase (uracil hy...,0.0070822905444601,D3
+179,R10127,reaction,biotin:NADP+ S-oxidoreductase (biotin S-oxide...,0.0070822905444601,D3
+180,R10206,reaction,methanesulfonate,FMNH2:oxygen oxidoreductase,0.0100820419325433,D3
+181,R10836,reaction,AMP:phosphate (5-phospho-alpha-D-ribosyl)tran...,0.0110819590619044,D3
+182,R10837,reaction,CMP:phosphate (5-phospho-alpha-D-ribosyl)tran...,8.28706389326262e-05,D3
+183,R11535,reaction,ADP:alpha-D-ribose-1-phosphate 5-phosphotrans...,0.00908212480318224,D3
+184,R11711,reaction,L-arginine,reduced-flavodoxin:oxygen oxidored...,0.0100820419325433,D3
+185,R11961,reaction,FMN + Oxygen <=> 8-Demethyl-8-formylriboflavi...,0.00508245628573797,D3
+186,R12659,reaction,tryptamine,NADPH---hemoprotein reductase:oxyg...,0.00908212480318224,D3
+187,R12956,reaction,thymidine 5'-monophosphate phosphodeoxyribohy...,0.0100820419325433,D3
+188,R13089,reaction,alpha-D-ribose-1-phosphate 5-kinase (ATP),0.00908212480318224,D3
+189,R13308,reaction,L-arginine aminodihydrolase (L-ornithine-form...,0.0120818761912654,D3
+190,C00061,compound,FMN,0.00308262202701583,D3
+191,C00106,compound,Uracil,0.00308262202701583,D3
+192,C00120,compound,Biotin,0.00108278776829369,D3
+193,C00152,compound,L-Asparagine,0.00208270489765476,D3
+194,C00212,compound,Adenosine,8.28706389326262e-05,D3
+195,C00214,compound,Thymidine,8.28706389326262e-05,D3
+196,C00239,compound,dCMP,0.0040825391563769,D3
+197,C00294,compound,Inosine,0.0120818761912654,D3
+198,C00299,compound,Uridine,8.28706389326262e-05,D3
+199,C00327,compound,L-Citrulline,8.28706389326262e-05,D3
+200,C00328,compound,L-Kynurenine,0.00308262202701583,D3
+201,C00364,compound,dTMP,0.0040825391563769,D3
+202,C00380,compound,Cytosine,8.28706389326262e-05,D3
+203,C00429,compound,5,6-Dihydrouracil,0.00508245628573797,D3
+204,C00475,compound,Cytidine,8.28706389326262e-05,D3
+205,C00526,compound,Deoxyuridine,0.00608237341509904,D3
+206,C00543,compound,Dimethylamine,0.0120818761912654,D3
+207,C00565,compound,Trimethylamine,0.00808220767382117,D3
+208,C00581,compound,Guanidinoacetate,0.00308262202701583,D3
+209,C00620,compound,alpha-D-Ribose 1-phosphate,0.00908212480318224,D3
+210,C00672,compound,2-Deoxy-D-ribose 1-phosphate,0.0070822905444601,D3
+211,C00780,compound,Serotonin,0.0040825391563769,D3
+212,C00831,compound,Pantetheine,0.00908212480318224,D3
+213,C00864,compound,Pantothenate,0.00508245628573797,D3
+214,C00881,compound,Deoxycytidine,8.28706389326262e-05,D3
+215,C01104,compound,Trimethylamine N-oxide,0.00108278776829369,D3
+216,C01151,compound,D-Ribose 1,5-bisphosphate,0.0120818761912654,D3
+217,C01252,compound,4-(2-Aminophenyl)-2,4-dioxobutanoate,0.0100820419325433,D3
+218,C01367,compound,3'-AMP,0.00908212480318224,D3
+219,C01368,compound,3'-UMP,0.00808220767382117,D3
+220,C01487,compound,D-Allose,0.0110819590619044,D3
+221,C01678,compound,Cysteamine,0.00608237341509904,D3
+222,C01829,compound,Thyroxine,0.0040825391563769,D3
+223,C01894,compound,Biotinyl-CoA,0.00908212480318224,D3
+224,C02353,compound,2',3'-Cyclic AMP,0.00908212480318224,D3
+225,C02354,compound,2',3'-Cyclic CMP,0.0070822905444601,D3
+226,C02355,compound,2',3'-Cyclic UMP,0.00908212480318224,D3
+227,C02362,compound,2-Oxosuccinamate,0.00608237341509904,D3
+228,C02512,compound,3-Cyano-L-alanine,0.00908212480318224,D3
+229,C02642,compound,3-Ureidopropionate,0.0040825391563769,D3
+230,C02700,compound,L-Formylkynurenine,0.00908212480318224,D3
+231,C03134,compound,N,N-Dimethylformamide,0.0120818761912654,D3
+232,C03149,compound,N-Phosphotaurocyamine,0.0110819590619044,D3
+233,C03166,compound,Phosphoguanidinoacetate,0.00608237341509904,D3
+234,C03406,compound,N-(L-Arginino)succinate,0.00308262202701583,D3
+235,C05552,compound,Biocytin,0.0120818761912654,D3
+236,C05571,compound,Thiourocanic acid,0.0120818761912654,D3
+237,C05647,compound,Formyl-5-hydroxykynurenamine,8.28706389326262e-05,D3
+238,C05653,compound,Formylanthranilate,0.0100820419325433,D3
+239,C05659,compound,5-Methoxytryptamine,0.0070822905444601,D3
+240,C05822,compound,3'-CMP,0.0070822905444601,D3
+241,C05921,compound,Biotinyl-5'-AMP,0.00908212480318224,D3
+242,C05944,compound,Pantothenol,0.0070822905444601,D3
+243,C06212,compound,N-Methylserotonin,0.00608237341509904,D3
+244,C06249,compound,Apo-[carboxylase],0.00908212480318224,D3
+245,C15521,compound,Alkanesulfonate,0.0120818761912654,D3
+246,C15532,compound,N-Acetyl-L-citrulline,0.0120818761912654,D3
+247,C17023,compound,Sulfur donor,0.0070822905444601,D3
+248,C18091,compound,Ethylnitronate,0.0110819590619044,D3
+249,C20386,compound,Biotin sulfoxide,0.0070822905444601,D3
+250,C21803,compound,8-Demethyl-8-formylriboflavin 5'-phosphate,0.00508245628573797,D3

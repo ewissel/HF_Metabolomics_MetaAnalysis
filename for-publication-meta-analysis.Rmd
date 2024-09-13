@@ -949,7 +949,7 @@ pathdat %>%
 great! the above only needs to run a single time so we are starting a new code block. 
 
 ```{r fella pathway analysis}
-
+cur_path <- getwd()
 pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
   
   filt_dat <- main_dat %>% filter(studyID == studyID_filt)
@@ -987,7 +987,7 @@ pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
     #threshold = 0.05, ## p thresh? 
     data = fella.data)
   #print(knitr::kable(head(myTable, 20))) ## print top 20 table, depreciated since written to file now
-  k_name = paste0("kable_tbl_", studyID_filt)
+  k_name = paste0("dat_file/kable_tbl_", studyID_filt)
   myTable$studyID = studyID_filt
   write.csv(myTable, file = k_name, row.names = TRUE, quote = FALSE)
   
@@ -1000,7 +1000,7 @@ pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
   )
   ## write a lil something something to automatically visualize the top 10 pathways per study here
   top10 <- myTable$KEGG.id[1:10]
-  
+  setwd(paste0(cur_path, "/dat_file/"))
   for ( i in top10){
     i = as.character(i)
     fname = paste0(studyID_filt, "_", i)
@@ -1008,18 +1008,11 @@ pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
   }
 }
 
-pathway_analysis("D1", pathdat) ## take a huge amount of processing so leaving out 
+pathway_analysis("D1", pathdat) ## take a huge amount of processing so leaving out
+setwd(cur_path)
 pathway_analysis("D3", pathdat)
-#browseKEGG(analysis.enrich, 'hsa04110')
-#clusterProfiler::dotplot(analysis.enrich)
-library(pathview)
+setwd(cur_path)
 
-filt_dat <- pathdat %>% filter(studyID == "D3")
-cmp.list <- filt_dat$KEGG  
-pathview(cpd.data = cmp.list, species = "hsa", pathway.id = "00250")
-
-#pathdat
-#unique(pathdat$HMDB)
 
 pathdat <- pathdat %>%
   mutate(db_id = ifelse(!is.na(HMDB), paste0("hmdb:", HMDB),  paste0("pubchem:", PubChem))) 
@@ -1041,13 +1034,11 @@ mop <- read.csv("dat_file/fetchPathwaysFromAnalytes-download-ramp.tsv", sep = "\
 #pathdat ## db_iud = inputId
 
 newpath <- merge(mop, pathdat, by.x = "inputId", by.y = "db_id", all.y = T)
-
 newpath <- newpath %>% 
   mutate(studyID = ifelse(studyID == "D1", "D1_new",
                           ifelse(studyID == "D3", "D3_new", studyID))) %>%
   filter(pathwaySource=="kegg")
 
-pathways <- unique(newpath$pathwayName)
 #Helper function for string wrapping. 
 # Default 20 character target width.
 swr = function(string, nwrap=20) {
@@ -1055,6 +1046,9 @@ swr = function(string, nwrap=20) {
 }
 swr = Vectorize(swr)
 newpath$pathwayName <- swr(newpath$pathwayName)
+pathways <- unique(newpath$pathwayName)
+
+newpath$pathwayName %in%  pathways
 
 #######################
 for (p in pathways){
@@ -1082,7 +1076,6 @@ for (p in pathways){
       ggsave(plot=a, filename=fname, dpi = 300, height = 7, width = 5)
 }
 
-#table(is.na(newpath$pathwayName))
 ```
 
 
