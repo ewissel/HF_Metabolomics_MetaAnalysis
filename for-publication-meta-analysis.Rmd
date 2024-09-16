@@ -2,7 +2,9 @@
 title: "meta-analysis-w-data"
 author: "Emily Wissel"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -680,7 +682,7 @@ PCA revealed significant differences between group structure for D1 and D3 (obse
 Next, we want to investigate each metabolite that is significant. 
 
 
-```{r univar testing bb}
+```{r univar testing bb, results = "hide"}
 univariate_testing <- function(studyID_filt, main_dat){
     y = data.frame("pval", "metabolite", "studyID", "adj_pval_fdr")
     colnames(y) <- c("pval", "metabolite", "studyID", "adj_pval_fdr")
@@ -1047,8 +1049,6 @@ swr = function(string, nwrap=20) {
 swr = Vectorize(swr)
 newpath$pathwayName <- swr(newpath$pathwayName)
 pathways <- unique(newpath$pathwayName)
-
-newpath$pathwayName %in%  pathways
 
 #######################
 for (p in pathways){
