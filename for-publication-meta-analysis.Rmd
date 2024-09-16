@@ -1064,7 +1064,7 @@ for (p in pathways){
       scale_fill_manual(values = c("D1_CTRL" = "grey30",
                                   "D3_CTRL" = "grey20",
                                   "D1_HF" = "goldenrod3",
-                                  "D3_HF" = "goldenrod1")) +
+                                  "D3_HF" =  "goldenrod1")) +
       #geom_text(data = textdat, aes(x = 1.5, y = 0, label = paste0("adj. p ", adj.p)))
       labs(subtitle = paste0("adj. p ", textdat$adj.p), size = 5, 
            x = " ") +
