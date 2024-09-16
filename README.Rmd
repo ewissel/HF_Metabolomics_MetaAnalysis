@@ -13,7 +13,7 @@ Heart Failure (HF) is a leading cause of death, impacting approximately 64 milli
 
 *Conclusion*: Overall, this meta-analysis found, though there is much discussion of the role of the microbiome in health outcomes in heart failure, limited research has been conducted in human populations. Overall, some microbial co-metabolites from both stool and heart were significantly associated with HF. Future work should dig deeper into the mechanisms behind these associations.
 
-For analysis script and results, please proceed to this link: <put-here>
+For analysis script and results, (please proceed to this link)[https://raw.githubusercontent.com/ewissel/HF_Metabolomics_MetaAnalysis/main/for-publication-meta-analysis.html].
 
 R Working environment is too big for github and can be found on FigShare here: 10.6084/m9.figshare.27014218 
 
