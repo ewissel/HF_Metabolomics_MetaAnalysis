@@ -3,13 +3,16 @@ title: "meta-analysis-w-data"
 author: "Emily Wissel"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document: default
+  header-includes:
+  - \usepackage{xcolor}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+#install.packages("tinytex")
+library(tinytex)
 library(janitor)
 library(vegan)
 library(psych) 
@@ -45,11 +48,13 @@ library(clusterProfiler)
 library(tidyr) ## for some reason, tidyr issues are popping up so let's see what happens if we load this package last
 library(stringr)
 library(pathview)
+library(gt) ## for pretty tables for the knit document
 
 conflict_prefer("select", winner = "dplyr", quiet = FALSE)
 conflict_prefer("filter", winner = "dplyr", quiet = FALSE)
 
 set.seed(20150615) ## if you know why i set the seed to this date, you get a special prize
+knitr::opts_chunk$set(warning = FALSE) ## just don't put in the 
 ```
 
 ## Meta-Analysis of Untargetted Metabolomics from Heart Failure Patients 
@@ -173,9 +178,10 @@ intermid <- dat_secondary %>% filter(reviewer != "EW" & reviewer_comments != "")
 ```
 
 
-We also want to understand the contribution of each lab member to this massive effort. Let's look at how many papers each lab member reviewed. 
 
 ```{r look at reviewers, echo = FALSE, messages = FALSE, warning = FALSE, eval = FALSE}
+# We also want to understand the contribution of each lab member to this massive effort. Let's look at how many papers each lab member reviewed. 
+
 places1 <- dat_secondary %>%
   filter(reviewer != "EW" & reviewer != "Ew" & reviewer != "ew" & reviewer != "EW " & reviewer != " EW" & reviewer != "English") %>%
   ## fix the name inputs
@@ -206,9 +212,8 @@ places <-
 ```
 
 
-Let's dig deeper into the papers that didn't make it (since most of them did not qualify for inclusion): 
-
-```{r look at qualifying papers, eval = FALSE }
+```{r look at qualifying papers, eval = FALSE, include=FALSE}
+## Let's dig deeper into the papers that didn't make it (since most of them did not qualify for inclusion): 
 dat_plot <- places1 %>% ungroup() %>% select(heart_failure_yn, human_yn,metabolomics_yn, data_availability )
 ## plot
 
@@ -247,9 +252,10 @@ mydat2 %>%
 print("Not shown are the articles not in English.")
 print("6 articles here claimed to have data available, but 3 or those 6 had data in proper format for proper use.")
 ```
-Lets look at papers that nearly qualified. This is ugly so I am not including this code chunk in the knit document, but you can run this interactively to invegstigate the details of papers that were not included at each step
 
-```{r, eval = FALSE}
+```{r nearly qualified papers, eval = FALSE, include=FALSE}
+## Lets look at papers that nearly qualified. This is ugly so I am not including this code chunk in the knit document, but you can run this interactively to invegstigate the details of papers that were not included at each step
+
 lilb <- dat_secondary1 %>%
     filter(reviewer != "EW" & reviewer != "Ew" & reviewer != "ew" & reviewer != "EW " & reviewer != " EW" & reviewer != "English") 
 table(lilb$heart_failure_yn)
@@ -292,19 +298,19 @@ metab_desc <- read.csv("dat_file/metabolites-verlap-desc.csv")
 
 A total of three studies qualified and had available data. Here is a description of each dataset and it's simplified name for our purposes: 
 
-* **$\color{#0073C2FF}{\text{D1 ** : This is MTBLS8183}}$, a cohort of 96 patients with heart failure who provided whole **stool** for **GCMS** 
+* **D1**:  a cohort of 96 patients with heart failure who provided whole stool for GCMS 
     + HF diagnosis: met the 2016 ESC guideline criteria for the diagnosis of heart failure, and integration of at least one of the following: 
         - elevated natriuretic peptide levels 
         - objective evidence of cardiogenic pulmonary or body circulation stasis, including imaging (e.g., chest radiograph and echocardiogram) 
         - resting or stress hemodynamic monitoring (e.g., right heart catheter and pulmonary artery catheter). 
     + This data came from the following paper: [doi: 10.1128/msystems.00515-23](https://journals.asm.org/doi/10.1128/msystems.00515-23).
   
-* **$\color{#E0A526}{\text{D2 ** : This is ST000587_AN000902}}$, a cohort with 11 stable heart failure patients and 12 control patients who provided **exhaled breath condensate (EBC)**, saliva, and blood for **NMR** (only EBC uploaded and included in our study because could not find data from blood).
+* **D2**: a cohort with 11 stable heart failure patients and 12 control patients who provided exhaled breath condensate (EBC), saliva, and blood for NMR (only EBC and saliva uploaded and included in our study because could not find data from blood).
     + HF diagnosis: classic systolic HF who are admitted to St Mary’s Hospital with decompensated disease
     + age and gender matched controls
     + This data came from the following location (I don't think there is a paper with it): [Metabolomics Workbench Repo](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?Mode=Study&StudyID=ST000587&StudyType=NMR&ResultType=1)
     
-* **$\color{#E31C79}{\text{D3 ** : This is ST_001364_AN002270}}$ with positive and negative **LCMS/MS** ion detection with 51 **left ventricular (LV) samples** from 44 cryopreserved human ICM and DCM hearts, including age-matched, histopathologically normal, donor controls of both genders for comparison. 
+* **D3**: a cohort with positive and negative LCMS/MS ion detection with 51 left ventricular (LV) samples from 44 cryopreserved human ICM and DCM hearts, including age-matched, histopathologically normal, donor controls of both genders for comparison.
     + This data comes from [doi: 10.21228/M8R094](doi: 10.21228/M8R094). 
     + HF samples come from patients undergoing heart transplant for heart failure. Donor hearts from from donated hearts that could not be used for a variety of reasons (e.g. transportation logistics, recipient mismatch, etc)
 
@@ -338,35 +344,41 @@ ggvenn(
   ) +
   labs(title = "Overlap of Detected Metabolites Across Studies")
 ggsave("figs/supp_fig_1_venn_d123_overlap.png", height = 7, width = 7.5)
-#str(d2_metabo)
+```
+
+```{r include=FALSE}
+## split this to separate chunk so not included in knit doc
+## just investivate what the shared metabolites are across
+## the studies that qualified here
 
 #d23_overlap <- unlist(unique(d2_metabo[d2_metabo %in% d3_metabo]))
 d13_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d3_metabo]))
 d13_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d3_metabo]))
-print("The following metabolites were detected in both left ventricle hearts and stool of HF.")
-d13_overlap
+#print("The following metabolites were detected in both left ventricle hearts and stool of HF.")
+#d13_overlap
 #print("The following metabolites were detected in left ventricle hearts and stool of HF PTs, negative ion")
 #d13n_overlap
-print("The following metabolites were detected in breath and stool of HF PTs. ")
+#print("The following metabolites were detected in breath and stool of HF PTs. ")
 d12_breath_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d2_breath_metabo]))
-d12_breath_overlap
-print("The following metabolites were detected in saliva and stool oh HF patients. ")
+#d12_breath_overlap
+#print("The following metabolites were detected in saliva and stool oh HF patients. ")
 d12_sal_overlap <- unlist(unique(d1_metabo[d1_metabo %in% d2_2_metabo]))
-d12_sal_overlap
+#d12_sal_overlap
 
-print("The following metabolites were detected in saliva and LV. ")
+#print("The following metabolites were detected in saliva and LV. ")
 d23_sal_overlap <- unlist(unique(d3_metabo[d3_metabo %in% d2_2_metabo]))
-d23_sal_overlap
+#d23_sal_overlap
 
 #d13n_overlap
-print("The following metabolites were detected in breath and LV of HF PTs. ")
+#print("The following metabolites were detected in breath and LV of HF PTs. ")
 d23_breath_overlap <- unlist(unique(d3_metabo[d3_metabo %in% d2_breath_metabo]))
 #d12_sal_overlap
-d23_breath_overlap
+#d23_breath_overlap
 
 #interested_metabolites1 <- append(d23n_overlap, d13p_overlap) 
 interested_metabolites <- d13_overlap
 ```
+
 This is supplemental figure 1, but one of the first plots I created to investigate the data. We weren't sure there would be high overlap of metabolites between studies because samples are from different locations and use different metabolomics methods. Despite this, we still see a smaller fraction of metabolites can be detected in multiple sample types / by different metabolomics methods. We also get to see how different sample types and methods can ID a different number of metabolites. 
 
 Now we want to investigate the metabolites that are differentially expressed for heart failure patients, specifically. Some data cleaning is included in this next code chunk as well. 
@@ -479,9 +491,10 @@ trans_metab <-metab %>%
 
 ```
 
-Let's go ahead and plot the metabolites that overlap between studies so we can see their distribution. 
 
-```{r plotting overlapping metabolites,  out.width="90%", echo = FALSE, messages = FALSE, warning = FALSE}
+```{r plotting overlapping metabolites,  out.width="90%", echo = FALSE, messages = FALSE, warning = FALSE, eval = FALSE}
+## Let's go ahead and plot the metabolites that overlap between studies so we can see their distribution. 
+ 
 trans_metab %>%
   ungroup() %>%
   mutate(study_group = paste0(studyID, "_",heart_cond))%>%
@@ -511,9 +524,13 @@ trans_metab %>% arrange(heart_cond) %>%
   theme_bw()
 ```
 
-It turns out a heat map is not very informative here. Oh well, it happens! I'm keeping this here so that others can see what we tried and what we decided to put in the publication/preprint.
+It turns out a heat map is not very informative here. Oh well, it happens! I'm keeping this code block hidden in the knit document here so that others can see what we tried and what we decided to put in the publication/preprint. To see the plot, though, you need to run this interactively. It's too ugly. 
 
-Let's compare these metabolites to control to see what is up vs down regulated. Data from the repos are already normalized (we checked!), so we won't be adding another data transformation step here. We should also compare within-study between group beta dispersions to understand if the within group diversity is similar across groups / organs (also an assumption for PCA).
+Let's compare these metabolites to control to see what is up vs down regulated. Data from the repos are already normalized (we checked!), so we won't be adding another data transformation step here. We should also compare within-study between group beta dispersions to understand if the within group diversity is similar across groups / organs (also an assumption for PCA)
+
+## PCA Results {.tabset}
+
+### PCA Function
 
 Since I need to do a PCA four times, lets write a function for it. Heads up to others - this bit of code takes a bit of time to run locally. You computer may sound like it is trying to take off to space. 
 
@@ -551,43 +568,48 @@ conduct_pca_raw_abun <- function(studyID_filt, main_dat){
     labs(title = plot_name, x = "PC1", y = "PC2" ) +
     stat_ellipse() +
     theme(legend.title = element_blank())
-
-  arrow_style <- arrow(    angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt"))
-# plot rotation matrix
-  arrow_plot <- d1_pca %>%
-    tidy(matrix = "rotation") %>%
-    pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
-    ggplot(aes(PC1, PC2)) +
-    geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
-    geom_text(
-      aes(label = column),
-      hjust = 1, nudge_x = -0.02, 
-      color = "#904C2F"
-    ) +
-    #xlim(-1.25, .5) + ylim(-.5, 1) +
-    coord_fixed() + # fix aspect ratio to 1:1
-   theme_minimal_grid(12) + labs(title = plot_name)
-
-  percent_plot <- d1_pca %>%
-    tidy(matrix = "eigenvalues") %>%
-    ggplot(aes(as.integer(PC), percent)) +
-    geom_col(fill = "#56B4E9", alpha = 0.8) +
-    scale_y_continuous(
-      labels = scales::percent_format(),
-      expand = expansion(mult = c(0, 0.01))
-    ) +
-    theme_hc(12) +
-    labs(title = "% Var.", y = "Percent Variance Explained", x = "PC") +
-    #xlim(0,10) # ylim(0,10) +
-    scale_x_continuous(limits = c(0, 11), breaks = c(0, 2, 4, 6, 8, 10))
   
-  combo_plot <- plot_grid(pca_plot, percent_plot, rel_widths = c(2, 1))
+  ## again, leaving this here if other people want to test it out with this data
+  #arrow_style <- arrow(    angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt"))
+  # plot rotation matrix
+  #arrow_plot <- d1_pca %>%
+  #  tidy(matrix = "rotation") %>%
+  #  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
+  #  ggplot(aes(PC1, PC2)) +
+  #  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  #  geom_text(
+  #    aes(label = column),
+  #    hjust = 1, nudge_x = -0.02, 
+  #    color = "#904C2F"
+  #  ) +
+    #xlim(-1.25, .5) + ylim(-.5, 1) +
+  #  coord_fixed() + # fix aspect ratio to 1:1
+  # theme_minimal_grid(12) + labs(title = plot_name)
+
+  #percent_plot <- d1_pca %>%
+  #  tidy(matrix = "eigenvalues") %>%
+  #  ggplot(aes(as.integer(PC), percent)) +
+  #  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  #  scale_y_continuous(
+  #    labels = scales::percent_format(),
+  #    expand = expansion(mult = c(0, 0.01))
+  #  ) +
+  #  theme_hc(12) +
+  #  labs(title = "% Var.", y = "Percent Variance Explained", x = "PC") +
+    #xlim(0,10) # ylim(0,10) +
+  #  scale_x_continuous(limits = c(0, 11), breaks = c(0, 2, 4, 6, 8, 10))
+  
+  #combo_plot <- plot_grid(pca_plot, percent_plot, rel_widths = c(2, 1))
   #return(pca_plot)
   #return(arrow_plot)
   #return(percent_plot)
   return(pca_plot)
 }
+```
 
+### PCA Plots
+
+```{r pca plots only}
 p3 <- conduct_pca_raw_abun("D3", main_dat=trans_metab)
 ggsave("figs/pca_wo_pv_d3.png", height = 7, width = 10)
 p1 <- conduct_pca_raw_abun("D1", main_dat=trans_metab)
@@ -603,9 +625,14 @@ pca_all
 ggsave("figs/pca_wo_pv_all.png", dpi = 400, height = 10, width = 10)
 ```
 
+PCA revealed significant differences between group structure for D1 and D3 (observed psi and phi greater than null, p value < 0.01). While D2 EBC samples had a single significant principal component, this is likely due to confounding, such as from multicollinearity among metabolic pathways, rather than meaningful group differences, as significance was only in one dimension (PC1). Further, D2 saliva samples had uneven beta dispersion across groups (within-group variance), violating the PCA assumptions of multivariate homogeneity of group dispersion, so no conclusions of significance can be drawn from D2 PCA results. This is Table 1 of the publication/preprint.
+
+
+### PCA Significance - D3 & D1
+
 Next we want to detect significance from PCA to see what is qualified for the opls-da analysis. OPLS-DA will overfit data, but it will not always be obvious when this is the case. By only running OPLS-DA on data that is significant from PCA, we reduce the risk of overfitting. In the preprint there are some good citations that discuss this in depth. The following code chunk is not knit but the results are saved as part of the `.Rdata` file included in the repo on github. Feel free to check out those numbers there. (I got compiling issues where it kept getting stuck running the d3 pca when compiling the document, but not in interactive more. I don't know how to fix that so this is the solution I came up with.)
 
-```{r test pca significance, eval = FALSE}
+```{r test pca significance, eval = F}
 ## assumes columns are variables/features and rows are sampleIDs / obs
 pca_sig_test <- function(studyID_filt, main_dat){
   
@@ -621,8 +648,7 @@ pca_sig_test <- function(studyID_filt, main_dat){
   #d1_pca_scaled <- scale(d1_pca)
   results <- PCAtest(d1_pca, nboot = 100, nperm = 100, plot = FALSE, counter = FALSE, varcorr = TRUE)
   
-  # adonis/adonis2 not appropriate because it assumed we are working with distance matrices, which we are not?? unless we input the pca itself?
-  # <- adonis2(d1_pcaa ~ heart_cond, data = d1_pca_cat, method='eu')
+  # adonis/adonis2 not appropriate because it assumed we are working with distance matrices, which we are not?? unless the pca matrix is a distance measure?
   ## pairwi9se.adonis2() inappropriate here bc assumes working with bray-curtis/microbe data, which we are not. 
   
   ## test pca in UV scaling, produces same results so hashing out (no point of doing it). leaving for future reviewers. 
@@ -637,8 +663,19 @@ pca_sig_test <- function(studyID_filt, main_dat){
 }
 
 d3_pca_test <- pca_sig_test("D3", trans_metab)
+print("PCA significance results for D3:")
+d3_pca_test
 d1_pca_test <- pca_sig_test("D1", trans_metab)
-## these are hashed out because it takes awhile to run when not creating the document for github. i recomend reviewers do the same because it takes too long otherwise
+print("D1 PCA significance results")
+d1_pca_test
+```
+
+### PCA Significance - D2
+
+Again, takes a long time to run for the knit document. Check out the .Rdata file on FigShare to investigate the raw PCA testing outputs. 
+
+```{r pca d2 only results sig, eval = F}
+## these are hashed out because it takes awhile to run when not creating the document for github. i recommend reviewers do the same because it takes too long otherwise
 
 ## assumes columns are variables/features and rows are sampleIDs / obs
 pca_sig_test_d2 <- function(studyID_filt, main_dat){
@@ -669,20 +706,120 @@ pca_sig_test_d2 <- function(studyID_filt, main_dat){
   ## produces identical results, leaving here only if a reviewer wants to test or see with a scaling method
 }
 d2_saliva_pca_test <- pca_sig_test_d2("D2_SALIVA", trans_metab)
+d2_saliva_pca_test
 d2_ebc_pca_test <- pca_sig_test_d2("D2_EBC", trans_metab)#
-
-trans_metab %>% ungroup() %>%
-    dplyr::select(Samples, abun, sample, studyID, heart_cond) %>%
-    filter(studyID == "D2_SALIVA" & abun > 0) 
-
+d2_ebc_pca_test
 ```
 
-PCA revealed significant differences between group structure for D1 and D3 (observed psi and phi greater than null, p value < 0.01). While D2 EBC samples had a single significant principal component, this is likely due to confounding, such as from multicollinearity among metabolic pathways, rather than meaningful group differences, as significance was only in one dimension (PC1). Further, D2 saliva samples had uneven beta dispersion across groups (within-group variance), violating the PCA assumptions of multivariate homogeneity of group dispersions, so no conclusions of significance can be drawn from D2 PCA results. This is Table 1 of the publication/preprint.
+## {-} 
 
-Next, we want to investigate each metabolite that is significant. 
+## Ortholog Partial Least Squares Discriminant Analysis {.tabset}
 
+Ortholog partial least squares discriminant analysis (OPLS-DA) was conducted only for studies with significant group differences in PCA to examine what features contribute the most to group differences (D1 and D3) with R package ropls(). OPLS-DA is inclined to overfit models to data, and the risk of overfitting results is reduced by only conducting OPLS-DA for data with significant group differences as revealed by PCA. VIPs from the OPLS-DA are not reported as VIPs are not useful for OPLS modeling of a single response (i.e. heart failure status). Further results of specific metabolites from OPLS-DA are not reported but included this code output as univariate testing with stringent FDR correction and p-value filtering more appropriate for this analysis.
+
+### OPLS-DA function
+
+OPLS-DA and PCA are both dimension reduction techniques. PCA is an unsupervised method, while OPLS-DA is supervised. 
+
+```{r oplsda1}
+set.seed(20150615) ## if you know why i set the seed to this date, you get a special prize##
+## this is repeated from the set up just to be sure that the seed is right
+minimeta <- rbind(minimeta,
+      minimeta %>% 
+        filter(studyID == "D2") %>% 
+        mutate(studyID = "D2_SALIVA"))
+
+conduct_oplsda <- function(studyID_filt, main_dat){
+  metab_wide <- main_dat %>%
+    ungroup() %>%
+    pivot_wider(names_from = Samples, values_from = abun, values_fill = 0)
+
+  inMeta <- minimeta %>% filter(studyID == studyID_filt & sample %in% metab_wide$sample) %>% arrange(sample) %>% select(-studyID)
+  colnames(inMeta) <- c("ind", "group")
+  
+  ## prep dataframe 
+  inData <- 
+    metab %>% ungroup() %>% filter(studyID == studyID_filt) %>%
+    dplyr::select(Samples, abun, sample, studyID) %>%
+         distinct() %>%
+    filter(sample %in% inMeta$ind) %>%
+    #  group_by(sample, Samples) %>%
+    #    filter(n()>1)
+        mutate(sample = paste0(sample, "_", studyID)) %>%
+      pivot_wider(names_from = "Samples", values_from = "abun") %>% 
+    ungroup() %>%
+      dplyr::select(-studyID, -sample) #%>%  arrange(sample)
+  
+  opls.pca <- opls(inData)
+  vect_y <- inMeta$group
+  fname = paste0("figs/oplsda_model_", studyID_filt, ".svg")
+  
+  #hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, subset = "odd", plotSubC = studyID_filt)
+  
+  hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, plotSubC = studyID_filt)
+  ggsave(fname)
+  
+  plot(hf.oplsda,
+       typeVc = "x-score",
+       parAsColFcVn = vect_y,
+       fig = fname, plotSubC = studyID_filt,
+       parPaletteVc = c("grey30", "goldenrod2"))
+}
+## prep inMeta for RDS
+```
+
+### D3 OPLS-DA Results
+
+```{r d3 oplsda results sig}
+conduct_oplsda("D3", trans_metab)
+```
+
+Understanding OPLS-DA outputs: 
+
+* r2x is the fraction of variance explained by the x variable, which is the metabolomics data. 
+
+* R2y is percent variance explained by y variable (heart condition). 
+
+* q2y is the prediction performance of the model in correctly assigning heart failure status based on metabolomic (ortholog?) profile. 
+
+* pR2y is the p value of the permutated R2y. If predicted R2y is consistently higher than R2y, that is bad and indicates the model has poor performance. Similarly, pQ2 should not be above its significance line as that indicates an unreliable model. As I understand the math and this output, D1 and D3 are performing well. 
+
+* RMSEE is the root mean squared error of estimation and is a measure of model error (0.05 = 5% error rate in assigning vect_y (heart_cond) based on x (data matrix). 
+
+
+### D1 OPLS-DA Results
+```{r oplsda d1 results only}
+conduct_oplsda("D1", trans_metab)
+```
+
+Understanding OPLS-DA outputs: 
+
+* r2x is the fraction of variance explained by the x variable, which is the metabolomics data. 
+
+* R2y is percent variance explained by y variable (heart condition). 
+
+* q2y is the prediction performance of the model in correctly assigning heart failure status based on metabolomic (ortholog?) profile. 
+
+* pR2y is the p value of the permutated R2y. If predicted R2y is consistently higher than R2y, that is bad and indicates the model has poor performance. Similarly, pQ2 should not be above its significance line as that indicates an unreliable model. As I understand the math and this output, D1 and D3 are performing well. 
+
+* RMSEE is the root mean squared error of estimation and is a measure of model error (0.05 = 5% error rate in assigning vect_y (heart_cond) based on x (data matrix). 
+
+## {-}
+
+OPLS-DA on D1 and D3 both revealed stable models, as indicated by high R2Y and Q2Y values, with high prediction (Q2Y) and low error (RMSEE). Overall, each model captured 22.9% and 31.2% of the variance in the data as indicated by R2X for D1 and D3, respectively. This, together with PCA results, indicates there are significant metabolite differences in the stool and left ventricle of heart failure patients compared to controls, but not in saliva or EBC.
+
+## Univariate Analysis {.tabset}
+
+Next, we want to investigate each metabolite that is significant. Note that the tab `Univariate Plots` contains the abundance plot for each individual metabolite that is significant, so it is quite long. 
+
+Univariate analysis is useful for understanding how specific metabolites are significantly associated with heart failure. You do need to implement a multiple tests correction, here we use FDR. 
+
+### Function 
+
+This univariate testing function will produce a file that gives raw and adjusted p-values for each metabolite in each study. There is some discussion about what appropriate adjusted p-value cut off levels are. Some say 0.05 is a fair cut off for adjusted p values with a targetted hypothesis (like only being interested in microbially mediated metabolites), while others day that 0.005 is a necessary cut off for adjusted p values, though this is more in the context of biomarker identification. We've seen all of the above strategies used in the literature, so we hope that other researchers can use this data/file to draw their own conclusions about the significance of metabolites not discussed in our publication based on what p-values they think are appropriate. This is table 2 of the publication/preprint. 
 
 ```{r univar testing bb, results = "hide"}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 univariate_testing <- function(studyID_filt, main_dat){
     y = data.frame("pval", "metabolite", "studyID", "adj_pval_fdr")
     colnames(y) <- c("pval", "metabolite", "studyID", "adj_pval_fdr")
@@ -714,20 +851,12 @@ univariate_testing <- function(studyID_filt, main_dat){
   fname = paste0("dat_file/univariate_testing_", studyID_filt, ".txt")
   write.table(y, file = fname, append = FALSE, quote = FALSE, row.names = FALSE, sep = "\t")
 }
-#wilcox_test(formula = abun ~ heart_cond, alternative = "two.sided", data = trans_metab)
 
 univariate_testing("D2_SALIVA", trans_metab)
 univariate_testing("D2_EBC", trans_metab)
 univariate_testing("D3", trans_metab)
 univariate_testing("D1", trans_metab)
 
-```
-
-This univariate testing function will produce a file that gives raw and adjusted p-values for each metabolite in each study. There is some discussion about what appropriate adjusted p-value cut off levels are. Some say 0.05 is a fair cut off for adjusted p values with a targetted hypothesis (like only being interested in microbially mediated metabolites), while others day that 0.005 is a necessary cut off for adjusted p values, though this is more in the context of biomarker identification. We've seen all of the above strategies used in the literature, so we hope that other researchers can use this data/file to draw their own conclusions about the significance of metabolites not discussed in our publication based on what p-values they think are appropriate. This is table 2 of the publication/preprint. 
-
-Now that we have generated univariate statistics, lets do the classic volcano plot
-
-```{r univariate volcano plot}
 make_volc_plots <- function(studyID_filt, main_dat){
   fname = paste0("dat_file/univariate_testing_", studyID_filt, ".txt")
   d <- read.csv(file =fname, sep = "\t", skip = 1, row.names = NULL)
@@ -780,93 +909,29 @@ make_volc_plots <- function(studyID_filt, main_dat){
   plot2name = paste0("volcanoplot_", studyID_filt, ".png")
   ggsave(plot2name, plot = volc_plot)
   #print(d_sig)
-  print(volc_plot)
+  #print(volc_plot)
 }
+```
+
+### Volcano Plots
+
+Now that we have generated univariate statistics, lets do the classic volcano plot
+
+```{r univariate volcano plot}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 
 v1 <- make_volc_plots("D1", trans_metab)
-v1
 ggsave("figs/volcano_plt_d1.png", dpi = 300)
 
 v3 <- make_volc_plots("D3", trans_metab)
-v3
 ggsave("figs/volcano_plt_d3.png", dpi = 300)
 
-plot_grid(v1,v3, ncol = 2, labels = "AUTO")
-ggsave("figs/volcano_plt_d13.png", dpi = 300)
-
-#make_volc_plots("D2_EBC", trans_metab)
-# make_volc_plots("D2_SALIVA", trans_metab)
 ## d2 studies have no sig after adjustment so not running
 ```
 
-Ortholog partial least squares discriminant analysis (OPLS-DA) was conducted only for studies with significant group differences in PCA to examine what features contribute the most to group differences (D1 and D3) with R package ropls(). OPLS-DA is inclined to overfit models to data, and the risk of overfitting results is reduced by only conducting OPLS-DA for data with significant group differences as revealed by PCA. VIPs from the OPLS-DA are not reported as VIPs are not useful for OPLS modeling of a single response (i.e. heart failure status). Further results of specific metabolites from OPLS-DA are not reported but included this code output as univariate testing with stringent FDR correction and p-value filtering more appropriate for this analysis.
+### Univariate Plots
 
-```{r oplsda1}
-set.seed(20150615) ## if you know why i set the seed to this date, you get a special prize##
-## this is repeated from the set up just to be sure that the seed is right
-
-minimeta <- rbind(minimeta,
-      minimeta %>% 
-        filter(studyID == "D2") %>% 
-        mutate(studyID = "D2_SALIVA"))
-
-conduct_oplsda <- function(studyID_filt, main_dat){
-  metab_wide <- main_dat %>%
-    ungroup() %>%
-    pivot_wider(names_from = Samples, values_from = abun, values_fill = 0)
-
-  inMeta <- minimeta %>% filter(studyID == studyID_filt & sample %in% metab_wide$sample) %>% arrange(sample) %>% select(-studyID)
-  colnames(inMeta) <- c("ind", "group")
-  
-  ## prep dataframe 
-  inData <- 
-    metab %>% ungroup() %>% filter(studyID == studyID_filt) %>%
-    dplyr::select(Samples, abun, sample, studyID) %>%
-         distinct() %>%
-    filter(sample %in% inMeta$ind) %>%
-    #  group_by(sample, Samples) %>%
-    #    filter(n()>1)
-        mutate(sample = paste0(sample, "_", studyID)) %>%
-      pivot_wider(names_from = "Samples", values_from = "abun") %>% 
-    ungroup() %>%
-      dplyr::select(-studyID, -sample) #%>%  arrange(sample)
-  
-  opls.pca <- opls(inData)
-  vect_y <- inMeta$group
-  fname = paste0("figs/oplsda_model_", studyID_filt, ".svg")
-  
-  hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, subset = "odd", plotSubC = studyID_filt)
-  ggsave(fname)
-  
-  hf.oplsda <- opls(inData, vect_y, predI = 1, orthoI = NA, plotSubC = studyID_filt)
-  
-  plot(hf.oplsda,
-       typeVc = "x-score",
-       parAsColFcVn = vect_y,
-       fig = fname, plotSubC = studyID_filt,
-       parPaletteVc = c("grey30", "goldenrod2"))
-}
-## prep inMeta for RDS
-
-conduct_oplsda("D3", trans_metab)
-conduct_oplsda("D1", trans_metab)
-
-```
-Understanding OPLS-DA outputs: 
-
-* r2x is the fraction of variance explained by the x variable, which is the metabolomics data. 
-
-* R2y is percent variance explained by y variable (heart condition). 
-
-* q2y is the prediction performance of the model in correctly assigning heart failure status based on metabolomic (ortholog?) profile. 
-
-* pR2y is the p value of the permutated R2y. If predicted R2y is consistently higher than R2y, that is bad and indicates the model has poor performance. Similarly, pQ2 should not be above its significance line as that indicates an unreliable model. As I understand the math and this output, D1 and D3 are performing well. 
-
-* RMSEE is the root mean squared error of estimation and is a measure of model error (0.05 = 5% error rate in assigning vect_y (heart_cond) based on x (data matrix). 
-
-#### Pathway Analysis
-
-Now that we have data tested for significance, we want to see what pathways are significant within this data. I tested a couple different methods for this. First is the categories in the csv `sig_metabolites_univariate_analysis_fdr`, which came from my interpretation of PubChem categories. I decided this wasn't systematic enough so we also used KEGG/rast categories, however, I still think these are useful as it gives some bland categories a human touch and I am including them here. 
+Note that the tab `Univariate Plots` contains the abundance plot for each individual metabolite that is significant, so it is quite long. 
 
 ```{r univariate results plots}
 cats <- read.csv("dat_file/sig_metabolites_univariate_analysis_fdr - Sheet1.csv")
@@ -911,6 +976,18 @@ for (i in unique(unidat$Samples)) {
 }
 ```
 
+## {-} 
+
+## Pathway Analysis
+
+Now that we have data tested for significance, we want to see what pathways are significant within this data. I tested a couple different methods for this. First is the categories in the csv `sig_metabolites_univariate_analysis_fdr`, which came from my interpretation of PubChem categories. I decided this wasn't systematic enough so we also used KEGG/rast categories, however, I still think these are useful as it gives some bland categories a human touch and I am including them here. 
+
+
+#### Pathway Analysis
+
+This part breaks when trying to compile (LaTex errors), so I am including the code but not the output in the knit document. All variables are in the `.Rdata` file available on FigShare, linked on the github homepage. 
+
+
 Lucky for us i was able to work some magic (use the MetaboAnalyst website) and map the kegg pathways to the metabolite common names. website is metabanalyst dot com. I wasn't able to find a way to do this within R or via the command line. Please let me know if you know of a better day to do this. 
 
 ```{r read in kegg data}
@@ -950,7 +1027,7 @@ pathdat %>%
 
 great! the above only needs to run a single time so we are starting a new code block. 
 
-```{r fella pathway analysis}
+```{r fella pathway analysis, eval = T}
 cur_path <- getwd()
 pathway_analysis <- function(studyID_filt, main_dat, filt_cat){
   
@@ -1030,7 +1107,7 @@ pathdat %>%
 
 ok then i read that file into ramp https://rampdb.nih.gov/pathways-from-analytes  and got new pathways labels (because too many metabolites didn't map to anything in KEGG) new pathway analysis. However, I found these results to not be particularly useful or informative compared to what was already done above, so this is not included in the publication. Partially, KEGG is more standard, so I thought it would be better to include those results. I also made the decision to still include this code here so others can see what we did, what we decided to include, and how results may vary with different bioinformatic methods (in our case, no huge variance). 
 
-```{r new pathway analysis with ramp}
+```{r new pathway analysis with ramp, eval = F}
 mop <- read.csv("dat_file/fetchPathwaysFromAnalytes-download-ramp.tsv", sep = "\t")
 #mop ## commonName, inputID
 #pathdat ## db_iud = inputId
@@ -1064,7 +1141,7 @@ for (p in pathways){
       scale_fill_manual(values = c("D1_CTRL" = "grey30",
                                   "D3_CTRL" = "grey20",
                                   "D1_HF" = "goldenrod3",
-                                  "D3_HF" =  "goldenrod1")) +
+                                  "D3_HF" = "goldenrod1")) +
       #geom_text(data = textdat, aes(x = 1.5, y = 0, label = paste0("adj. p ", adj.p)))
       labs(subtitle = paste0("adj. p ", textdat$adj.p), size = 5, 
            x = " ") +
