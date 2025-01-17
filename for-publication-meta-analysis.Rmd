@@ -268,7 +268,7 @@ table(lilb4$data_availability)
 #table(lilb4$data_avail_statement)
 ```
 
-A systematic survey of the literature identified approximately 700 articles discussing HF, the microbiome, and metabolomics. Of these, 82 were primary studies of heart failure patients, 61 involved human adults, 23 included an untargeted metabolomics measure, and 3 studies had data that was usable and publicly accessible. 
+A systematic survey of the literature identified 708 articles discussing HF, the microbiome, and metabolomics. Of these, 82 were primary studies of heart failure patients, 61 involved human adults, 23 included an untargeted metabolomics measure, and 3 studies had data that was usable and publicly accessible. (3 others had data but not in the proper format or lacking internal metabolomics controls for raw data)
 
 ## Looking at Metabolomics Data
 
